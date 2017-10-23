@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.tao.luhelper">
 
     <application
@@ -14,11 +14,18 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Lu Helper" />
+            android:value="Lu Helper Home" />
         <meta-data
             android:name="xposedminversion"
             android:value="53" />
 
+        <activity android:name=".ConfigActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

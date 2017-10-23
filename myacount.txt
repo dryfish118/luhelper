@@ -1,3 +1,35 @@
+onCreateView
+	b
+		c
+			d
+	e
+	s
+	
+f
+	j
+	r
+	m
+		p
+			o
+	n
+	s
+	i
+	u
+	v
+
+j
+
+g
+	l
+	k
+	m
+		p
+			o
+
+h
+
+
+
 TASK com.lufax.android id=1049
   ACTIVITY com.lufax.android/.activity.HomeActivity 2e23a64 pid=24093
     Local FragmentActivity 95ecc0 State:
