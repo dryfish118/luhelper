@@ -2,6 +2,7 @@ package com.tao.luhelper;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.widget.TextView;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
@@ -22,6 +23,44 @@ public class HookTest implements IXposedHookLoadPackage {
         if (lpparam == null) {
             return;
         }
+
+//        hookSingleMethod(cls, "a");
+//        hookSingleMethod(cls, "b");
+//        hookSingleMethod(cls, "c");
+//        hookSingleMethod(cls, "d");
+//        hookSingleMethod(cls, "e");
+//        hookSingleMethod(cls, "g");
+//        hookSingleMethod(cls, "h");
+//        hookSingleMethod(cls, "i");
+//        hookSingleMethod(cls, "j");
+//        hookSingleMethod(cls, "k");
+//        hookSingleMethod(cls, "l");
+//        hookSingleMethod(cls, "m");
+//        hookSingleMethod(cls, "n");
+//        hookSingleMethod(cls, "o");
+//        hookSingleMethod(cls, "p");
+//        hookSingleMethod(cls, "q");
+//        hookSingleMethod(cls, "r");
+//        hookSingleMethod(cls, "s");
+//        hookSingleMethod(cls, "t");
+//        hookSingleMethod(cls, "u");
+//        hookSingleMethod(cls, "v");
+//        hookSingleMethod(cls, "w");
+//        hookSingleMethod(cls, "x");
+//        hookSingleMethod(cls, "y");
+//        hookSingleMethod(cls, "z");
+//        XposedHelpers.findAndHookMethod(cls, "onCreate", Bundle.class, new XC_MethodHook() {
+//            @Override
+//            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+//                XposedBridge.log("before " + "onCreate");
+//            }
+//
+//            @Override
+//            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+//                XposedBridge.log("after " + "onCreate");
+//            }
+//        });
+
 
 //        XposedHelpers.findAndHookMethod(Application.class, "attach", Context.class, new XC_MethodHook() {
 //            int mCurrentTime = 0;
