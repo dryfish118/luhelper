@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'tao'
             keyPassword '111111'
-            storeFile file('D:/MyFile/android/luhelper/key.jks')
+            storeFile file('../key.jks')
             storePassword '111111'
         }
     }
@@ -25,6 +25,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+            debuggable false
         }
     }
     productFlavors {

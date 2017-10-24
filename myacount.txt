@@ -1,3 +1,114 @@
+TASK com.lufax.android id=1152
+  ACTIVITY com.lufax.android/.activity.LoginActivity 25288bc4 pid=8349
+    Local FragmentActivity 3c042ac4 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    Active Fragments in a22588f:
+      #0: LoginFragment{1535771c #0 id=0x1020002}
+        mFragmentId=#1020002 mContainerId=#1020002 mTag=null
+        mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{a22588f in HostCallbacks{db66f25}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@db66f25
+        mContainer=android.widget.FrameLayout{828c8fa V.E..... ........ 0,69-1080,1800 #1020002 android:id/content}
+        mView=android.widget.RelativeLayout{11f5eeab V.E..... ........ 0,0-1080,1731}
+        mInnerView=android.widget.RelativeLayout{11f5eeab V.E..... ........ 0,0-1080,1731}
+        Child FragmentManager{17b0e908 in LoginFragment{1535771c}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@db66f25
+            mContainer=android.support.v4.app.Fragment$1@183d8a1
+            mParent=LoginFragment{1535771c #0 id=0x1020002}
+            mCurState=5 mStateSaved=false mDestroyed=false
+    Added Fragments:
+      #0: LoginFragment{1535771c #0 id=0x1020002}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@db66f25
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@db66f25
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{3eaa7ac6 V.E..... ... 0,0-1080,1800}
+        android.widget.LinearLayout{1b22ca87 V.E..... ... 0,0-1080,1800}
+          android.view.ViewStub{12ef8db4 G.E..... ... 0,0-0,0 #1020374}
+          android.widget.FrameLayout{828c8fa V.E..... ... 0,69-1080,1800 #1020002 android:id/content}
+            android.widget.RelativeLayout{11f5eeab V.E..... ... 0,0-1080,1731}
+              extra.view.TitleView{1a645ddd G.E..... ... 0,0-0,0 #7f0f0232 app:id/base_ui_title}
+                android.widget.LinearLayout{7437d52 V.E..... ... 0,0-0,0}
+                  android.view.View{27578823 V.ED.... ... 0,0-0,0 #7f0f0c18 app:id/view_top_padding}
+                  android.widget.RelativeLayout{19d1d120 V.E..... ... 0,0-0,0}
+                    android.widget.RelativeLayout{acdfad9 V.E...C. ... 0,0-0,0 #7f0f1178 app:id/title_bar_left_container}
+                      extra.view.IconFontTextView{38f81c9e V.ED.... ... 0,0-0,0 #7f0f0233 app:id/title_bar_left_tv}
+                    android.widget.RelativeLayout{1a90837f V.E..... ... 0,0-0,0 #7f0f13fc app:id/title_bar_middle_container}
+                      android.widget.TextView{ad2df4c V.ED.... ... 0,0-0,0 #7f0f0235 app:id/title_bar_title_tv}
+                    android.widget.RelativeLayout{1c9a6b95 G.E..... ... 0,0-0,0 #7f0f13fd app:id/title_bar_right_container}
+                      android.widget.TextView{4c564aa V.ED.... ... 0,0-0,0 #7f0f0afc app:id/title_bar_right_tv}
+                      android.widget.ImageView{3233d89b G.ED.... ... 0,0-0,0 #7f0f13fe app:id/btn_corner_hint}
+                  android.view.View{ef4a438 V.ED.... ... 0,0-0,0 #7f0f13ff app:id/view_bottom_padding}
+              android.view.ViewStub{23832c11 G.E..... ... 0,0-0,0 #7f0f077f}
+              android.view.ViewStub{3c6d2176 G.E..... ... 0,0-0,0 #7f0f0780}
+              com.lufax.android.ui.ResizeLayout{11ed6377 V.E..... ... 0,0-1080,1731 #7f0f029d app:id/layout_resize}
+                extra.view.TitleView{1b6bcbe4 V.E..... ... 0,0-1080,138 #7f0f0298 app:id/titleView}
+                  android.widget.LinearLayout{1b5d784d V.E..... ... 0,0-1080,138}
+                    android.view.View{3a01df02 V.ED.... ... 0,0-1080,0 #7f0f0c18 app:id/view_top_padding}
+                    android.widget.RelativeLayout{24ac013 V.E..... ... 0,0-1080,138}
+                      android.widget.RelativeLayout{220bc250 V.E...C. ... 0,0-132,138 #7f0f1178 app:id/title_bar_left_container}
+                        extra.view.IconFontTextView{2e164c49 V.ED.... ... 41,40-91,98 #7f0f0233 app:id/title_bar_left_tv}
+                      android.widget.RelativeLayout{3c2dc99f V.E..... ... 277,0-803,138 #7f0f13fc app:id/title_bar_middle_container}
+                        android.widget.TextView{3432e94e V.ED.... ... 263,0-263,138 #7f0f0235 app:id/title_bar_title_tv}
+                      android.widget.RelativeLayout{3d174a6f V.E..... ... 803,0-1080,138 #7f0f13fd app:id/title_bar_right_container}
+                        android.widget.TextView{1c72b37c V.ED..C. ... 41,42-236,95 #7f0f0afc app:id/title_bar_right_tv}
+                        android.widget.ImageView{1d6e6405 G.ED.... ... 0,0-0,0 #7f0f13fe app:id/btn_corner_hint}
+                    android.view.View{b584c5a G.ED.... ... 0,0-0,0 #7f0f13ff app:id/view_bottom_padding}
+                com.lufax.android.ui.LoginAndRegisterScrollView{23781e8b VFED.V.. ... 0,138-1080,1731 #7f0f02e3 app:id/sv_login_container}
+                  android.widget.LinearLayout{1df58b68 V.E..... ... 0,0-1080,993}
+                    android.widget.ImageView{c763b81 V.ED.... ... 317,55-763,158}
+                    com.lufax.android.ui.LuFormLayout{1b3ed426 V.E..... ... 0,268-1080,548 #7f0f02e4 app:id/layout_login_container}
+                      android.widget.RelativeLayout{39c81867 VFE..... F.. 0,0-1080,140 #7f0f02e5 app:id/input_layout_1}
+                        android.widget.ImageView{184bf614 V.ED..C. ... 942,1-1080,139 #7f0f02e6 app:id/iv_del_usrname}
+                        android.widget.EditText{24ca0ebd VFED..CL ... 41,0-942,140 #7f0f02e7 app:id/et_loginname}
+                      android.widget.RelativeLayout{1db40cb2 V.E..... ... 0,140-1080,280 #7f0f02e8 app:id/input_layout_2}
+                        android.widget.RelativeLayout{533d403 V.E...C. ... 956,0-1066,138 #7f0f02e9 app:id/seeLayout}
+                          extra.view.IconFontTextView{3efc5f80 V.ED.... ... 27,37-82,101 #7f0f02ea app:id/seepwd}
+                        android.widget.ImageView{138dd9b9 G.ED..C. ... 0,0-0,0 #7f0f02eb app:id/iv_del_pswd}
+                        android.widget.EditText{29d241fe VFED..CL ... 41,0-956,140 #7f0f02ec app:id/et_loginpswd}
+                      android.widget.RelativeLayout{2715ad5f G.E..... ... 0,0-0,0 #7f0f02ed app:id/login_verify_code_rl}
+                        android.widget.RelativeLayout{3587f3ac V.E..... ... 0,0-0,0 #7f0f02ee app:id/layout_validator}
+                          android.widget.ProgressBar{1a295875 V.ED.... ... 0,0-0,0 #7f0f02ef app:id/pb_validator}
+                          android.widget.ImageView{1c0c800a G.ED..C. ... 0,0-0,0 #7f0f02f0 app:id/iv_validator}
+                        android.widget.RelativeLayout{1211c07b V.E..... ... 0,0-0,0 #7f0f02f1 app:id/input_layout_3}
+                          android.widget.ImageView{34569e98 I.ED..C. ... 0,0-0,0 #7f0f02f2 app:id/iv_del_validator}
+                          android.widget.EditText{2ec406f1 VFED..CL ... 0,0-0,0 #7f0f02f3 app:id/et_loginvalidator}
+                    android.widget.LinearLayout{32fa92d6 G.E..... ... 0,0-0,0 #7f0f02d9 app:id/ll_ljb_container}
+                      android.widget.CheckBox{34f1e957 VFED..C. ... 0,0-0,0 #7f0f02da app:id/cb_ljb}
+                      android.widget.TextView{10630c44 V.ED.... ... 0,0-0,0 #7f0f02db app:id/tv_ljb_tip}
+                    android.widget.Button{2881212d VFED..C. ... 41,631-1039,759 #7f0f02f4 app:id/btn_login}
+                    android.widget.RelativeLayout{2ce50662 V.E..... ... 41,814-1039,952}
+                      android.widget.Button{3741c3f3 VFED..C. ... 0,0-303,138 #7f0f02f5 app:id/btn_register_username_retrieve}
+                      android.widget.Button{11a6a8b0 VFED..C. ... 695,0-998,138 #7f0f02f6 app:id/btn_register_pwd_retrieve}
+                android.widget.LinearLayout{337ba329 V.E..... ... 0,1526-1080,1731 #7f0f02f7 app:id/merge_login_layout}
+                  android.widget.TextView{321126ae V.ED.... ... 400,0-680,38 #7f0f02f8 app:id/tv_lzg_label}
+                  android.widget.TextView{23aaac4f G.ED.... ... 0,0-0,0 #7f0f02dc app:id/tv_ljb_agreements}
+                  android.view.View{4459fdc V.ED.... ... 0,66-1080,67}
+                  android.widget.LinearLayout{88248e5 V.ED.... ... 0,67-1080,205}
+                    android.widget.TextView{17ccffba V.ED..C. ... 0,0-539,138 #7f0f02f9 app:id/username_login}
+                    android.widget.TextView{1c0fbe6b V.ED..C. ... 540,0-1080,138 #7f0f02fa app:id/merge_login}
+              android.view.View{307addc8 V.ED.... ... 0,0-1080,1731}
+        android.view.View{24938e61 V.ED.... ... 0,0-1080,73 #102002f android:id/statusBarBackground}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 onCreateView
 	b
 		c
