@@ -8,6 +8,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.RandomAccessFile;
 
+import de.robv.android.xposed.XposedBridge;
+
 /**
  * Created by Tao on 2017/10/25.
  */
@@ -25,7 +27,6 @@ public class GlobleUtil {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             if (reader != null) {
                 try {
@@ -54,13 +55,11 @@ public class GlobleUtil {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             if (reader != null) {
                 try {
                     reader.close();
                 } catch (Exception e) {
-                    e.printStackTrace();
                 }
             }
         }
@@ -72,16 +71,22 @@ public class GlobleUtil {
         strContent.append(':');
         strContent.append(value);
 
+        FileWriter writer = null;
         try {
             File filePath = new File(Environment.getExternalStorageDirectory(), "/Download/luhelper");
             if (!filePath.exists()) {
                 filePath.mkdirs();
             }
-            FileWriter writer = new FileWriter(file);
+            writer = new FileWriter(file);
             writer.write(strContent.toString());
-            writer.close();
         } catch (Exception e) {
-            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (Exception e) {
+                }
+            }
         }
     }
 
