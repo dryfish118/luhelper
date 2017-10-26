@@ -4,15 +4,23 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import android.os.SystemClock;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.XposedHelpers;
+
 import static android.R.attr.path;
 
-public class ConfigActivity extends AppCompatActivity {
+public class ConfigActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +77,18 @@ public class ConfigActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+            }
+        });
+
+        findViewById(R.id.buttonTest).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MotionEvent me = MotionEvent.obtain(SystemClock.uptimeMillis(),
+                        SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN,
+                        100, 100, 0);
+                me.offsetLocation(30, 30);
+                Log.d("ConfigActivity", me.getAxisValue(MotionEvent.AXIS_X) + " " + me.getAxisValue(MotionEvent.AXIS_Y)
+                        + " " + me.getRawX() + " " + me.getRawY());
             }
         });
     }
