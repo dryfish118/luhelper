@@ -105,4 +105,12 @@ public class GlobleUtil {
     public static void putInt(String key, int value) {
         putString(key, Integer.toString(value));
     }
+
+    public static float getFloat(String key, float defValue) {
+        return Float.parseFloat(getString(key, Float.toString(defValue)));
+    }
+
+    public static void putFloat(String key, float value) {
+        putString(key, Float.toString(value));
+    }
 }
