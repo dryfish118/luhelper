@@ -3,9 +3,12 @@ package com.tao.luhelper;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -54,13 +57,13 @@ public class HookLu implements IXposedHookLoadPackage {
                 hook(cl, "com.lufax.android.gesturelock.LockActivity", "LockActivity", new HookLockActivity());
                 hook(cl, "com.lufax.android.activity.fragments.LoginFragment", "LoginFragment", new HookLoginFragment());
                 hook(cl, "com.lufax.android.myaccount.ui.MyAccountFragment", "MyAccountFragment", new HookMyAccountFragment());
-                hook(cl, "com.lufax.android.v2.app.finance.ui.fragment.FinanceHomeFragment", "FinanceHomeFragment", new HookFinanceHomeFragment());
+                hook(cl, "com.lufax.android.v2.app.finance.ui.fragment.FinanceFragment", "FinanceFragment", new HookFinanceFragment());
             }
         });
     }
 
     interface IHook {
-        void doHook(Class cls);
+        void doHook(final Class cls);
     }
 
     private void hook(ClassLoader cl, String clsName, String key, IHook pHook) {
@@ -79,8 +82,8 @@ public class HookLu implements IXposedHookLoadPackage {
 
     class HookHomeFragment implements IHook {
         @Override
-        public void doHook(Class cls) {
-            XposedHelpers.findAndHookMethod(cls, "g", new XC_MethodHook() {
+        public void doHook(final Class cls) {
+            XposedHelpers.findAndHookMethod(cls, "onCreate", Bundle.class, new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod (MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
@@ -104,7 +107,7 @@ public class HookLu implements IXposedHookLoadPackage {
 
     class HookBottomBar implements IHook {
         @Override
-        public void doHook(Class cls) {
+        public void doHook(final Class cls) {
             for (final Method method : cls.getDeclaredMethods()) {
                 if ("setItemsIconResource".equals(method.getName())) {
                     XposedBridge.hookMethod(method, new XC_MethodHook() {
@@ -171,13 +174,13 @@ public class HookLu implements IXposedHookLoadPackage {
 
     class HookLockActivity implements IHook {
         @Override
-        public void doHook(Class cls) {
-            XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
+        public void doHook(final Class cls) {
+            XposedHelpers.findAndHookMethod(cls, "initViews", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-
                     XposedBridge.log("LockActivity ready now.");
+
                     Object v = XposedHelpers.getObjectField(param.thisObject, "e");
                     if (v != null) {
                         XposedBridge.log("Switch page to the login activity with username and password");
@@ -190,13 +193,13 @@ public class HookLu implements IXposedHookLoadPackage {
 
     class HookLoginFragment implements IHook {
         @Override
-        public void doHook(Class cls) {
+        public void doHook(final Class cls) {
             XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-
                     XposedBridge.log("LoginFragment ready now.");
+
                     String userName = GlobleUtil.getString("UserName", "");
                     String loginPassword = GlobleUtil.getString("LoginPassword", "");
                     if (!"".equals(userName) && !"".equals(loginPassword)) {
@@ -220,84 +223,112 @@ public class HookLu implements IXposedHookLoadPackage {
 
     class HookMyAccountFragment implements IHook {
         @Override
-        public void doHook(Class cls) {
-            XposedHelpers.findAndHookMethod(cls, "h", new XC_MethodHook() {
+        public void doHook(final Class cls) {
+            XposedHelpers.findAndHookMethod(cls, "onCreateView", LayoutInflater.class, ViewGroup.class, Bundle.class, new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-
                     XposedBridge.log("MyAccount ready now.");
-                    TextView v = (TextView) XposedHelpers.getObjectField(param.thisObject, "y");
-                    if (v != null) {
-                        GlobleUtil.putFloat("AvailableMoney", Float.valueOf(v.getText().toString()));
-                        XposedBridge.log("可用金额： " + v.getText().toString());
 
-                        GlobleUtil.putInt("Step", 5);
-                        XposedBridge.log("Step: 5");
-                    }
+                    final Object o = param.thisObject;
+                    (new Timer()).schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            TextView v = (TextView) XposedHelpers.getObjectField(o, "y");
+                            if (v != null) {
+                                GlobleUtil.putFloat("AvailableMoney", Float.valueOf(v.getText().toString()));
+                                XposedBridge.log("可用金额： " + v.getText().toString());
+
+                                GlobleUtil.putInt("Step", 5);
+                                XposedBridge.log("Step: 5");
+                            }
+                        }
+                    }, 3000);
                 }
             });
         }
     }
 
-    class HookFinanceHomeFragment implements IHook {
+    class HookFinanceFragment implements IHook {
         @Override
-        public void doHook(Class cls) {
-            hookAllMethod(cls, "FinanceHomeFragment");
+        public void doHook(final Class cls) {
+            XposedHelpers.findAndHookConstructor(cls, new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
 
-//            XposedHelpers.findAndHookMethod(cls, "h", new XC_MethodHook() {
-//                @Override
-//                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-//                    super.afterHookedMethod(param);
-//
-//                    }
-//                }
-//            });
+                    XposedBridge.log("FinanceFragment ready now.");
+
+                    (new Timer()).schedule(new DetectTask(cls, param.thisObject), 3000);
+                }
+            });
         }
-    }
 
-    private void printTextView(Object o, String name) {
-        Object v = XposedHelpers.getObjectField(o, name);
-        if (v != null) {
-            XposedBridge.log(name + ": " + ((TextView)v).getText().toString());
-        } else {
-            XposedBridge.log("Failed to getField(TextView) \"" + name + "\"");
+        class DetectTask extends java.util.TimerTask{
+            Class cls;
+            private Object o;
+            public DetectTask(Class cls, Object o) {
+                this.cls = cls;
+                this.o = o;
+            }
+
+            public void run(){
+                printObject(o, "c");
+                printInt(o, "a");
+                printInt(o, "b");
+                printBoolean(o, "d");
+                printLinearLayout(o, "f");
+                printLinearLayout(o, "g");
+                printLinearLayout(o, "h");
+                printLinearLayout(o, "i");
+                printObject(o, "j");
+                printTextView(o, "k");
+                printTextView(o, "l");
+                printLinearLayout(o, "m");
+                printLinearLayout(o, "n");
+                printObject(o, "o");
+                printObject(o, "p");
+                printObject(o, "t");
+                printObject(o, "u");
+                printObject(o, "v");
+            }
         }
     }
 
     private void printString(Object o, String name) {
-        Object v = XposedHelpers.getObjectField(o, name);
-        if (v != null) {
-            XposedBridge.log(name + ": " + (String)v);
-        } else {
-            XposedBridge.log("Failed to getField(String) \"" + name + "\"");
-        }
+        printObject(o, name, "String");
     }
 
     private void printBoolean(Object o, String name) {
-        Object v = XposedHelpers.getObjectField(o, name);
-        if (v != null) {
-            XposedBridge.log(name + ": " + (boolean)v);
-        } else {
-            XposedBridge.log("Failed to getField(boolean) \"" + name + "\"");
-        }
+        printObject(o, name, "Boolean");
     }
 
     private void printLong(Object o, String name) {
-        Object v = XposedHelpers.getObjectField(o, name);
-        if (v != null) {
-            XposedBridge.log(name + ": " + (long)v);
-        } else {
-            XposedBridge.log("Failed to getField(long) \"" + name + "\"");
-        }
+        printObject(o, name, "Long");
     }
 
     private void printInt(Object o, String name) {
+        printObject(o, name, "Int");
+    }
+
+    private void printTextView(Object o, String name) {
+        printObject(o, name, "TextView");
+    }
+
+    private void printLinearLayout(Object o, String name) {
+        printObject(o, name, "LinearLayout");
+    }
+
+    private void printObject(Object o, String name) {
+        printObject(o, name, "Object");
+    }
+
+    private void printObject(Object o, String name, String key) {
         Object v = XposedHelpers.getObjectField(o, name);
         if (v != null) {
-            XposedBridge.log(name + ": " + (int)v);
+            XposedBridge.log(name + ": " + v.toString());
         } else {
-            XposedBridge.log("Failed to getField(int) \"" + name + "\"");
+            XposedBridge.log("Failed to getField(" + key + ") \"" + name + "\"");
         }
     }
 
