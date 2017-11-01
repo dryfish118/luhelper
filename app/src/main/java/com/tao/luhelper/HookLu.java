@@ -58,6 +58,7 @@ public class HookLu implements IXposedHookLoadPackage {
                 hook(cl, "com.lufax.android.activity.fragments.LoginFragment", "LoginFragment", new HookLoginFragment());
                 hook(cl, "com.lufax.android.myaccount.ui.MyAccountFragment", "MyAccountFragment", new HookMyAccountFragment());
                 hook(cl, "com.lufax.android.v2.app.finance.ui.fragment.FinanceFragment", "FinanceFragment", new HookFinanceFragment());
+                hook(cl, "com.lufax.android.v2.app.finance.ui.fragment", "SlideFinanceListFragment", new HookSlideFinanceListFragment());
             }
         });
     }
@@ -140,8 +141,7 @@ public class HookLu implements IXposedHookLoadPackage {
                     GlobleUtil.putInt("Step", 6);
                     XposedBridge.log("Step: 6");
 
-                    XposedBridge.log("Switch page to the FinanceHome Fragment");
-                    sendClickMotion(o, 1);
+                    (new Timer()).schedule(new Step6Task(o), 1000);
                 }
             }
         }
@@ -161,6 +161,21 @@ public class HookLu implements IXposedHookLoadPackage {
             }
         }
 
+        class Step6Task extends java.util.TimerTask{
+            private Object o;
+            public Step6Task(Object o) {
+                this.o = o;
+            }
+
+            public void run(){
+                GlobleUtil.putInt("Step", 7);
+                XposedBridge.log("Step: 7");
+
+                XposedBridge.log("Switch page to the FinanceHome Fragment");
+                sendClickMotion(o, 1);
+            }
+        }
+
         private void sendClickMotion(final Object o, int idx) {
             LinearLayout ll1 = (LinearLayout) o;
             LinearLayout ll2 = (LinearLayout) ll1.getChildAt(0);
@@ -175,7 +190,7 @@ public class HookLu implements IXposedHookLoadPackage {
     class HookLockActivity implements IHook {
         @Override
         public void doHook(final Class cls) {
-            XposedHelpers.findAndHookMethod(cls, "initViews", new XC_MethodHook() {
+            XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
@@ -224,11 +239,11 @@ public class HookLu implements IXposedHookLoadPackage {
     class HookMyAccountFragment implements IHook {
         @Override
         public void doHook(final Class cls) {
-            XposedHelpers.findAndHookMethod(cls, "onCreateView", LayoutInflater.class, ViewGroup.class, Bundle.class, new XC_MethodHook() {
+            XposedHelpers.findAndHookMethod(cls, "g", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-                    XposedBridge.log("MyAccount ready now.");
+                    XposedBridge.log("MyAccountFragment ready now.");
 
                     final Object o = param.thisObject;
                     (new Timer()).schedule(new TimerTask() {
@@ -252,16 +267,17 @@ public class HookLu implements IXposedHookLoadPackage {
     class HookFinanceFragment implements IHook {
         @Override
         public void doHook(final Class cls) {
-            XposedHelpers.findAndHookConstructor(cls, new XC_MethodHook() {
-                @Override
-                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    super.afterHookedMethod(param);
-
-                    XposedBridge.log("FinanceFragment ready now.");
-
-                    (new Timer()).schedule(new DetectTask(cls, param.thisObject), 3000);
-                }
-            });
+//            XposedHelpers.findAndHookConstructor(cls, new XC_MethodHook() {
+//                @Override
+//                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+//                    super.afterHookedMethod(param);
+//
+//                    XposedBridge.log("FinanceFragment ready now.");
+//
+//                    (new Timer()).schedule(new DetectTask(cls, param.thisObject), 3000);
+//                }
+//            });
+            hookAllMethod(cls, "FinanceFragment");
         }
 
         class DetectTask extends java.util.TimerTask{
@@ -292,6 +308,13 @@ public class HookLu implements IXposedHookLoadPackage {
                 printObject(o, "u");
                 printObject(o, "v");
             }
+        }
+    }
+
+    class HookSlideFinanceListFragment implements IHook {
+        @Override
+        public void doHook(final Class cls) {
+            hookAllMethod(cls, "SlideFinanceListFragment");
         }
     }
 
@@ -359,25 +382,33 @@ public class HookLu implements IXposedHookLoadPackage {
         @Override
         protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
             super.beforeHookedMethod(param);
-            if (param.args.length == 2) {
-                XposedBridge.log(key + " before: [" + method.getName() + "] (" + param.args[0].toString() + ") (" + param.args[1].toString() + ")");
-            } if (param.args.length == 1) {
-                XposedBridge.log(key + " before: [" + method.getName() + "] (" + param.args[0].toString() + ")");
-            } else {
-                XposedBridge.log(key + " before: [" + method.getName() + "] ");
+
+            String s = key + " before: [" + method.getName() + "]";
+            for (int i = 0; i < param.args.length; i++) {
+                Object p = param.args[i];
+                if (p == null) {
+                    s = s + " (null)";
+                } else {
+                    s = s + " (" + p.toString() + ")";
+                }
             }
+            XposedBridge.log(s);
         }
 
         @Override
         protected void afterHookedMethod(MethodHookParam param) throws Throwable {
             super.beforeHookedMethod(param);
-            if (param.args.length == 2) {
-                XposedBridge.log(key + " after [" + method.getName() + "] (" + param.args[0].toString() + ") (" + param.args[1].toString() + ")");
-            } if (param.args.length == 1) {
-                XposedBridge.log(key + " after [" + method.getName() + "] (" + param.args[0].toString() + ")");
-            } else {
-                XposedBridge.log(key + " after [" + method.getName() + "] ");
+
+            String s = key + " after: [" + method.getName() + "]";
+            for (int i = 0; i < param.args.length; i++) {
+                Object p = param.args[i];
+                if (p == null) {
+                    s = s + " (null)";
+                } else {
+                    s = s + " (" + p.toString() + ")";
+                }
             }
+            XposedBridge.log(s);
         }
     }
 }
