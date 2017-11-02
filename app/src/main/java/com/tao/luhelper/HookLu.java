@@ -52,13 +52,12 @@ public class HookLu implements IXposedHookLoadPackage {
                 super.afterHookedMethod(param);
 
                 ClassLoader cl = ((Context) param.args[0]).getClassLoader();
-                hook(cl, "com.lufax.android.v2.app.other.ui.fragment.HomeFragment", "HomeFragment", new HookHomeFragment());
-                hook(cl, "com.lufax.android.navi.BottomBar", "BottomBar", new HookBottomBar());
-                hook(cl, "com.lufax.android.gesturelock.LockActivity", "LockActivity", new HookLockActivity());
-                hook(cl, "com.lufax.android.activity.fragments.LoginFragment", "LoginFragment", new HookLoginFragment());
-                hook(cl, "com.lufax.android.myaccount.ui.MyAccountFragment", "MyAccountFragment", new HookMyAccountFragment());
-                hook(cl, "com.lufax.android.v2.app.finance.ui.fragment.FinanceFragment", "FinanceFragment", new HookFinanceFragment());
-                hook(cl, "com.lufax.android.v2.app.finance.ui.fragment", "SlideFinanceListFragment", new HookSlideFinanceListFragment());
+                hook(cl, "v2.app.other.ui.fragment", "HomeFragment", new HookHomeFragment());
+                hook(cl, "navi", "BottomBar", new HookBottomBar());
+                hook(cl, "gesturelock", "LockActivity", new HookLockActivity());
+                hook(cl, "activity.fragments", "LoginFragment", new HookLoginFragment());
+                hook(cl, "myaccount.ui", "MyAccountFragment", new HookMyAccountFragment());
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceFragment", new HookFinanceFragment());
             }
         });
     }
@@ -67,14 +66,14 @@ public class HookLu implements IXposedHookLoadPackage {
         void doHook(final Class cls);
     }
 
-    private void hook(ClassLoader cl, String clsName, String key, IHook pHook) {
+    private void hook(ClassLoader cl, String packageName, String clsName, IHook hookInstance) {
         try {
-            Class<?> cls = cl.loadClass(clsName);
+            Class<?> cls = cl.loadClass("com.lufax.android." + packageName + "." + clsName);
             if (cls != null) {
-                if (!GlobleUtil.getBoolean(key, false)) {
-                    GlobleUtil.putBoolean(key, true);
-                    XposedBridge.log("Start hook: " + key);
-                    pHook.doHook(cls);
+                if (!GlobleUtil.getBoolean("Class:" + clsName, false)) {
+                    GlobleUtil.putBoolean("Class:" + clsName, true);
+                    XposedBridge.log("Start hook: " + clsName);
+                    hookInstance.doHook(cls);
                 }
             }
         } catch (Exception e) {
@@ -308,13 +307,6 @@ public class HookLu implements IXposedHookLoadPackage {
                 printObject(o, "u");
                 printObject(o, "v");
             }
-        }
-    }
-
-    class HookSlideFinanceListFragment implements IHook {
-        @Override
-        public void doHook(final Class cls) {
-            hookAllMethod(cls, "SlideFinanceListFragment");
         }
     }
 

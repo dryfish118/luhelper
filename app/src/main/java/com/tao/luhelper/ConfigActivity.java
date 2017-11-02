@@ -27,6 +27,8 @@ public class ConfigActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
 
+        GlobleUtil.putBoolean("Monitor", false);
+
         final EditText etUser = (EditText)findViewById(R.id.editTextUser);
         final EditText etLoginpassword = (EditText)findViewById(R.id.editTextLoginpassword);
         final EditText etTradepassword = (EditText)findViewById(R.id.editTextTradepassword);
@@ -59,11 +61,7 @@ public class ConfigActivity extends Activity {
                     GlobleUtil.putString("MinMoney", etMinmoney.getText().toString());
                     GlobleUtil.putString("MinRate", etMinrate.getText().toString());
 
-                    GlobleUtil.putBoolean("HomeFragment", false);
-                    GlobleUtil.putBoolean("BottomBar", false);
-                    GlobleUtil.putBoolean("LockActivity", false);
-                    GlobleUtil.putBoolean("LoginFragment", false);
-                    GlobleUtil.putBoolean("MyAccountFragment", false);
+                    GlobleUtil.putBoolean("Class:", false);
                     GlobleUtil.putInt("Step", 0);
 
                     GlobleUtil.putBoolean("Monitor", true);
