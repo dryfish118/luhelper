@@ -1,6 +1,7 @@
 package com.tao.luhelper;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 
 import static android.R.attr.path;
+import static java.lang.Thread.sleep;
 
 public class ConfigActivity extends Activity {
 
@@ -66,13 +68,22 @@ public class ConfigActivity extends Activity {
 
                     GlobleUtil.putBoolean("Monitor", true);
 
-                    Intent intent = new Intent();
-                    intent.setAction("android.intent.action.MAIN");
-                    intent.setClassName("com.lufax.android", "com.lufax.android.activity.WelcomeActivity");
                     try {
-                        startActivity(intent);
+                        // 杀死后台进程
+                        ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                        am.killBackgroundProcesses("com.lufax.android");
+
+                        // 启动进程
+                        (new Timer()).schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent();
+                                intent.setAction("android.intent.action.MAIN");
+                                intent.setClassName("com.lufax.android", "com.lufax.android.activity.WelcomeActivity");
+                                startActivity(intent);
+                            }
+                        }, 2000);
                     } catch (Exception e) {
-                        e.printStackTrace();
                     }
                 }
             }

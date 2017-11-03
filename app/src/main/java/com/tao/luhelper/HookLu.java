@@ -1,25 +1,13 @@
 package com.tao.luhelper;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.SystemClock;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.io.DataOutputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Method;
-import java.util.List;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -83,20 +71,22 @@ public class HookLu implements IXposedHookLoadPackage {
     class HookHomeFragment implements IHook {
         @Override
         public void doHook(final Class cls) {
-            XposedHelpers.findAndHookMethod(cls, "onCreate", Bundle.class, new XC_MethodHook() {
+            XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod (MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-                    XposedBridge.log("HomeFragment ready now.");
 
-                    if (GlobleUtil.getInt("Step", 0) == 0) {
+                    if (!GlobleUtil.getBoolean("Class:HomeFragment:Ready", false)) {
+                        GlobleUtil.putBoolean("Class:HomeFragment:Ready", true);
+                        XposedBridge.log("HomeFragment ready now.");
+
+                        XposedBridge.log("Step1: Start the task.");
                         GlobleUtil.putInt("Step", 1);
-                        XposedBridge.log("Step: 1");
 
                         (new Timer()).schedule(new TimerTask() {
                             public void run() {
+                                XposedBridge.log("Step2: Set the signal to switch to my account fragment.");
                                 GlobleUtil.putInt("Step", 2);
-                                XposedBridge.log("Step: 2");
                             }
                         }, 3000);
                     }
@@ -114,63 +104,65 @@ public class HookLu implements IXposedHookLoadPackage {
                         @Override
                         protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                             super.afterHookedMethod(param);
-                            XposedBridge.log("BottomBar ready now.");
 
-                            (new Timer()).schedule(new FlowTask(param.thisObject), 1000, 1000);
+                            if (!GlobleUtil.getBoolean("Class:BottomBar:Ready", false)) {
+                                GlobleUtil.putBoolean("Class:BottomBar:Ready", true);
+                                XposedBridge.log("BottomBar ready now.");
+
+                                (new Timer()).schedule(new TaskDispatch(param.thisObject), 1000, 1000);
+                            }
                         }
                     });
                 }
             }
         }
 
-        class FlowTask extends java.util.TimerTask{
+        class TaskDispatch extends java.util.TimerTask{
             private Object o;
-            public FlowTask(Object o) {
+            public TaskDispatch(Object o) {
                 this.o = o;
             }
 
             public void run(){
                 int step = GlobleUtil.getInt("Step", 0);
                 if (step == 2) {
+                    XposedBridge.log("Step3: Get the signal to switch to the MyAccount Fragment.");
                     GlobleUtil.putInt("Step", 3);
-                    XposedBridge.log("Step: 3");
 
-                    (new Timer()).schedule(new Step3Task(o), 1000);
+                    (new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 1000);
                 } else if (step == 5) {
+                    XposedBridge.log("Step6: Get the signal to switch to the Finance Fragment.");
                     GlobleUtil.putInt("Step", 6);
-                    XposedBridge.log("Step: 6");
 
-                    (new Timer()).schedule(new Step6Task(o), 1000);
+                    (new Timer()).schedule(new TaskSwitchToFinanceHomeFragment(o), 1000);
                 }
             }
         }
 
-        class Step3Task extends java.util.TimerTask{
+        class TaskSwitchToMyAccountFragment extends java.util.TimerTask{
             private Object o;
-            public Step3Task(Object o) {
+            public TaskSwitchToMyAccountFragment(Object o) {
                 this.o = o;
             }
 
             public void run(){
+                XposedBridge.log("Step4: Switch page to the MyAccount Fragment");
                 GlobleUtil.putInt("Step", 4);
-                XposedBridge.log("Step: 4");
 
-                XposedBridge.log("Switch page to the MyAccount Fragment");
                 sendClickMotion(o, 3);
             }
         }
 
-        class Step6Task extends java.util.TimerTask{
+        class TaskSwitchToFinanceHomeFragment extends java.util.TimerTask{
             private Object o;
-            public Step6Task(Object o) {
+            public TaskSwitchToFinanceHomeFragment(Object o) {
                 this.o = o;
             }
 
             public void run(){
+                XposedBridge.log("Step7: Switch page to the FinanceHome Fragment.");
                 GlobleUtil.putInt("Step", 7);
-                XposedBridge.log("Step: 7");
 
-                XposedBridge.log("Switch page to the FinanceHome Fragment");
                 sendClickMotion(o, 1);
             }
         }
@@ -193,12 +185,16 @@ public class HookLu implements IXposedHookLoadPackage {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-                    XposedBridge.log("LockActivity ready now.");
 
-                    Object v = XposedHelpers.getObjectField(param.thisObject, "e");
-                    if (v != null) {
-                        XposedBridge.log("Switch page to the login activity with username and password");
-                        XposedHelpers.callMethod(param.thisObject, "onClick", v);
+                    if (!GlobleUtil.getBoolean("Class:LockActivity:Ready", false)) {
+                        GlobleUtil.putBoolean("Class:LockActivity:Ready", true);
+                        XposedBridge.log("LockActivity ready now.");
+
+                        Object v = XposedHelpers.getObjectField(param.thisObject, "e");
+                        if (v != null) {
+                            XposedBridge.log("Switch page to the Login Activity by username and password");
+                            XposedHelpers.callMethod(param.thisObject, "onClick", v);
+                        }
                     }
                 }
             });
@@ -212,21 +208,25 @@ public class HookLu implements IXposedHookLoadPackage {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-                    XposedBridge.log("LoginFragment ready now.");
 
-                    String userName = GlobleUtil.getString("UserName", "");
-                    String loginPassword = GlobleUtil.getString("LoginPassword", "");
-                    if (!"".equals(userName) && !"".equals(loginPassword)) {
-                        Object v = XposedHelpers.getObjectField(param.thisObject, "h");
-                        if (v != null) {
-                            EditText[] ets = (EditText[]) v;
-                            ets[0].setText(userName);
-                            ets[1].setText(loginPassword);
+                    if (!GlobleUtil.getBoolean("Class:LoginFragment:Ready", false)) {
+                        GlobleUtil.putBoolean("Class:LoginFragment:Ready", true);
+                        XposedBridge.log("LoginFragment ready now.");
 
-                            v = XposedHelpers.getObjectField(param.thisObject, "l");
+                        String userName = GlobleUtil.getString("UserName", "");
+                        String loginPassword = GlobleUtil.getString("LoginPassword", "");
+                        if (!"".equals(userName) && !"".equals(loginPassword)) {
+                            Object v = XposedHelpers.getObjectField(param.thisObject, "h");
                             if (v != null) {
-                                XposedBridge.log("Click to login.");
-                                XposedHelpers.callMethod(param.thisObject, "onClick", v);
+                                EditText[] ets = (EditText[]) v;
+                                ets[0].setText(userName);
+                                ets[1].setText(loginPassword);
+
+                                v = XposedHelpers.getObjectField(param.thisObject, "l");
+                                if (v != null) {
+                                    XposedBridge.log("Click to login.");
+                                    XposedHelpers.callMethod(param.thisObject, "onClick", v);
+                                }
                             }
                         }
                     }
@@ -242,22 +242,26 @@ public class HookLu implements IXposedHookLoadPackage {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
-                    XposedBridge.log("MyAccountFragment ready now.");
 
-                    final Object o = param.thisObject;
-                    (new Timer()).schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            TextView v = (TextView) XposedHelpers.getObjectField(o, "y");
-                            if (v != null) {
-                                GlobleUtil.putFloat("AvailableMoney", Float.valueOf(v.getText().toString()));
-                                XposedBridge.log("可用金额： " + v.getText().toString());
+                    if (!GlobleUtil.getBoolean("Class:MyAccountFragment:Ready", false)) {
+                        GlobleUtil.putBoolean("Class:MyAccountFragment:Ready", true);
+                        XposedBridge.log("MyAccountFragment ready now.");
 
-                                GlobleUtil.putInt("Step", 5);
-                                XposedBridge.log("Step: 5");
+                        final Object o = param.thisObject;
+                        (new Timer()).schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                TextView v = (TextView) XposedHelpers.getObjectField(o, "y");
+                                if (v != null) {
+                                    GlobleUtil.putFloat("AvailableMoney", Float.valueOf(v.getText().toString()));
+                                    XposedBridge.log("可用金额： " + v.getText().toString());
+
+                                    XposedBridge.log("Step5: Set the signal to switch to the Finance Fragment");
+                                    GlobleUtil.putInt("Step", 5);
+                                }
                             }
-                        }
-                    }, 3000);
+                        }, 2000);
+                    }
                 }
             });
         }
@@ -266,23 +270,25 @@ public class HookLu implements IXposedHookLoadPackage {
     class HookFinanceFragment implements IHook {
         @Override
         public void doHook(final Class cls) {
-//            XposedHelpers.findAndHookConstructor(cls, new XC_MethodHook() {
-//                @Override
-//                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-//                    super.afterHookedMethod(param);
-//
-//                    XposedBridge.log("FinanceFragment ready now.");
-//
-//                    (new Timer()).schedule(new DetectTask(cls, param.thisObject), 3000);
-//                }
-//            });
-            hookAllMethod(cls, "FinanceFragment");
+            XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+
+                    if (!GlobleUtil.getBoolean("Class:FinanceFragment:Ready", false)) {
+                        GlobleUtil.putBoolean("Class:FinanceFragment:Ready", true);
+                        XposedBridge.log("FinanceFragment ready now.");
+
+                        (new Timer()).schedule(new TaskSwitchE(cls, param.thisObject), 1000);
+                    }
+                }
+            });
         }
 
-        class DetectTask extends java.util.TimerTask{
+        class TaskSwitchE extends java.util.TimerTask{
             Class cls;
             private Object o;
-            public DetectTask(Class cls, Object o) {
+            public TaskSwitchE(Class cls, Object o) {
                 this.cls = cls;
                 this.o = o;
             }
