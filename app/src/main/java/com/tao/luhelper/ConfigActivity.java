@@ -32,6 +32,7 @@ public class ConfigActivity extends Activity {
         GlobleUtil.putBoolean("Monitor", false);
 
         final EditText etUser = (EditText)findViewById(R.id.editTextUser);
+        final EditText etGesture = (EditText)findViewById(R.id.editTextGesture);
         final EditText etLoginpassword = (EditText)findViewById(R.id.editTextLoginpassword);
         final EditText etTradepassword = (EditText)findViewById(R.id.editTextTradepassword);
         final EditText etMaxmoney = (EditText)findViewById(R.id.editTextMaxmoney);
@@ -39,6 +40,7 @@ public class ConfigActivity extends Activity {
         final EditText etMinrate = (EditText)findViewById(R.id.editTextMinrate);
         final Button btBegin = (Button)findViewById(R.id.buttonBegin);
         etUser.setText(GlobleUtil.getString("UserName", ""));
+        etGesture.setText(GlobleUtil.getString("Gesture", ""));
         etLoginpassword.setText(GlobleUtil.getString("LoginPassword", ""));
         etTradepassword.setText(GlobleUtil.getString("TradePassword", ""));
         etMaxmoney.setText(GlobleUtil.getString("MaxMoney", "0"));
@@ -57,6 +59,7 @@ public class ConfigActivity extends Activity {
                     btBegin.setText("停止");
 
                     GlobleUtil.putString("UserName", etUser.getText().toString());
+                    GlobleUtil.putString("Gesture", etGesture.getText().toString());
                     GlobleUtil.putString("LoginPassword", etLoginpassword.getText().toString());
                     GlobleUtil.putString("TradePassword", etTradepassword.getText().toString());
                     GlobleUtil.putString("MaxMoney", etMaxmoney.getText().toString());
@@ -92,12 +95,6 @@ public class ConfigActivity extends Activity {
         findViewById(R.id.buttonTest).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MotionEvent me = MotionEvent.obtain(SystemClock.uptimeMillis(),
-                        SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN,
-                        100, 100, 0);
-                me.offsetLocation(30, 30);
-                Log.d("ConfigActivity", me.getAxisValue(MotionEvent.AXIS_X) + " " + me.getAxisValue(MotionEvent.AXIS_Y)
-                        + " " + me.getRawX() + " " + me.getRawY());
             }
         });
     }
