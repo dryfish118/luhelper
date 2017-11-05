@@ -1,6 +1,6 @@
 package com.tao.luhelper;
 
-import android.content.Context;
+import android.app.Fragment;
 import android.graphics.Point;
 
 import java.io.DataOutputStream;
@@ -37,17 +37,34 @@ public class ShellUtil {
     }
 
     public static void swipe(ArrayList<Point> pnts) {
-        execCmd("sendevent /dev/input/event5 3 57 500");
-        for (int i = 0; i < pnts.size(); i++) {
-            execCmd("sendevent /dev/input/event5 3 53 " + pnts.get(i).x);
-            execCmd("sendevent /dev/input/event5 3 54 " + pnts.get(i).y);
-            if (i == 0) {
-                execCmd("sendevent /dev/input/event5 3 58 91");
-                execCmd("sendevent /dev/input/event5 3 48 12");
+        if (pnts.size() == 2) {
+            execCmd("input swipe " + pnts.get(0).x + " " + pnts.get(0).y + " " + pnts.get(1).x + " " + pnts.get(1).y);
+        } else if (pnts.size() >2) {
+            execCmd("sendevent /dev/input/event5 3 57 500");
+            for (int i = 0; i < pnts.size(); i++) {
+                if (i == 0) {
+                    execCmd("sendevent /dev/input/event5 3 53 " + pnts.get(i).x);
+                    execCmd("sendevent /dev/input/event5 3 54 " + pnts.get(i).y);
+                    execCmd("sendevent /dev/input/event5 3 58 91");
+                    execCmd("sendevent /dev/input/event5 3 48 12");
+                    execCmd("sendevent /dev/input/event5 0 0 0");
+                } else {
+                    boolean bSend = false;
+                    if (pnts.get(i).x != pnts.get(i - 1).x) {
+                        execCmd("sendevent /dev/input/event5 3 53 " + pnts.get(i).x);
+                        bSend = true;
+                    }
+                    if (pnts.get(i).y != pnts.get(i - 1).y) {
+                        execCmd("sendevent /dev/input/event5 3 54 " + pnts.get(i).y);
+                        bSend = true;
+                    }
+                    if (bSend) {
+                        execCmd("sendevent /dev/input/event5 0 0 0");
+                    }
+                }
             }
+            execCmd("sendevent /dev/input/event5 3 57 -1");
             execCmd("sendevent /dev/input/event5 0 0 0");
         }
-        execCmd("sendevent /dev/input/event5 3 57 -1");
-        execCmd("sendevent /dev/input/event5 0 0 0");
     }
 }

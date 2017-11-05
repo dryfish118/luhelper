@@ -1,0 +1,14 @@
+adb shell sendevent /dev/input/event5 3 57 500
+adb shell sendevent /dev/input/event5 3 53 340
+adb shell sendevent /dev/input/event5 3 54 890
+adb shell sendevent /dev/input/event5 3 58 90
+adb shell sendevent /dev/input/event5 3 48 10
+adb shell sendevent /dev/input/event5 0 0 0
+adb shell sendevent /dev/input/event5 3 53 690
+adb shell sendevent /dev/input/event5 0 0 0
+adb shell sendevent /dev/input/event5 3 54 1240
+adb shell sendevent /dev/input/event5 0 0 0
+adb shell sendevent /dev/input/event5 3 53 340
+adb shell sendevent /dev/input/event5 0 0 0
+adb shell sendevent /dev/input/event5 3 57 -1
+adb shell sendevent /dev/input/event5 0 0 0

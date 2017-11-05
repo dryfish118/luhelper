@@ -1,16 +1,20 @@
 package com.tao.luhelper;
 
 import android.app.Application;
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Point;
-import android.graphics.Rect;
+import android.util.DisplayMetrics;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -118,7 +122,7 @@ public class HookLu implements IXposedHookLoadPackage {
                             super.afterHookedMethod(param);
 
                             if (!GlobleUtil.getBoolean("Class:BottomBar:Ready", false)) {
-                                GlobleUtil.putBoolean("Class:BottomBar:Ready", true);
+                                GlobleUtil.putBoolean("Class:HBottomBar:Ready", true);
                                 XposedBridge.log("BottomBar ready now.");
 
                                 (new Timer()).schedule(new TaskDispatch(param.thisObject), 1000, 1000);
@@ -327,7 +331,7 @@ public class HookLu implements IXposedHookLoadPackage {
                                     GlobleUtil.putInt("Step", 5);
                                 }
                             }
-                        }, 1000);
+                        }, 100);
                     }
                 }
             });
@@ -346,10 +350,36 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:Finance4Fragment:Ready", true);
                         XposedBridge.log("Finance4Fragment ready now.");
 
-                        (new Timer()).schedule(new TaskToFinanceList(cls, param.thisObject), 1000);
+                        (new Timer()).schedule(new SwipeToBottom(cls, param.thisObject, 0), 1000);
                     }
                 }
             });
+        }
+
+        class SwipeToBottom extends java.util.TimerTask{
+            Class cls;
+            private Object o;
+            int times;
+            public SwipeToBottom(Class cls, Object o, int times) {
+                this.cls = cls;
+                this.o = o;
+                this.times = times;
+            }
+
+            public void run() {
+                FrameLayout h = (FrameLayout)XposedHelpers.getObjectField(o, "h");
+                DisplayMetrics dm = h.getContext().getResources().getDisplayMetrics();
+                ArrayList<Point> pnts = new ArrayList<Point>();
+                pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8 * 7));
+                pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8));
+                ShellUtil.swipe(pnts);
+
+                if (times == 2) {
+                    (new Timer()).schedule(new TaskToFinanceList(cls, o), 1000);
+                } else {
+                    (new Timer()).schedule(new SwipeToBottom(cls, o, times + 1), 1000);
+                }
+            }
         }
 
         class TaskToFinanceList extends java.util.TimerTask{
@@ -361,43 +391,39 @@ public class HookLu implements IXposedHookLoadPackage {
             }
 
             public void run(){
-                //FrameLayout h = (FrameLayout)XposedHelpers.getObjectField(o, "h");
-                //SparseArray<View> N = (SparseArray<View>)XposedHelpers.getObjectField(h, "N");
-
-//                printObject(o, "C");
-//                printObject(o, "b");
-//                printObject(o, "g");
-//                printObject(o, "h");
-//                printObject(o, "i");
-//                printObject(o, "k");
-//                printObject(o, "l");
-//                printObject(o, "o");
-//                printObject(o, "p");
-//                printObject(o, "q");
-//                printObject(o, "r");
-//                printObject(o, "s");
-//                printObject(o, "t");
-//                printObject(o, "u");
-//                printObject(o, "v");
-//                printObject(o, "w");
-//                printObject(o, "x");
-//                printObject(o, "y");
-//                printObject(o, "z");
-                //pNavCategoryView("u");
-
-
-//                LinearLayout container_view = (LinearLayout)XposedHelpers.getObjectField(o, "f");
-//                if (container_view != null) {
-//                    LinearLayout ll = findInContainer(container_view);
-//                    if (ll != null) {
-//                        XposedBridge.log("Step8: Switch to the FinanceList Fragment.");
-//                        GlobleUtil.putInt("Step", 8);
-//
-//                        final int[] loc = new int[2];
-//                        ll.getLocationOnScreen(loc);
-//                        ShellUtil.tap(loc[0] + ll.getWidth() / 2, loc[1] + ll.getHeight() / 2);
-//                    }
-//                }
+                // LufaxMaskView h
+                FrameLayout h = (FrameLayout)XposedHelpers.getObjectField(o, "h");
+                if (h != null) {
+                    if (h.getChildCount() > 0) {
+                        // WrapLayout h.getChildAt(0)
+                        ViewGroup wl = (ViewGroup)h.getChildAt(0);
+                        if (wl != null) {
+                            for (int i = 0; i < wl.getChildCount(); i++) {
+                                // NavCategoryView ncv
+                                ViewGroup ncv = (ViewGroup)wl.getChildAt(i);
+                                if (ncv != null) {
+                                    TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
+                                    if ("会员交易区".equals(l.getText().toString())) {
+                                        XposedBridge.log("    会员交易区");
+                                        View child = (View)ncv.getChildAt(3);
+                                        int loc[] = new int[2];
+                                        child.getLocationOnScreen(loc);
+                                        ShellUtil.tap(loc[0] + child.getWidth() / 2, loc[1] + child.getHeight() / 2);
+                                        break;
+                                    }
+                                } else {
+                                    XposedBridge.log("failed to get ncv" + i);
+                                }
+                            }
+                        } else {
+                            XposedBridge.log("failed to get wl");
+                        }
+                    } else {
+                        XposedBridge.log("no any child in h");
+                    }
+                } else {
+                    XposedBridge.log("failed to get h");
+                }
             }
 
             private void pNavCategoryView(String name) {

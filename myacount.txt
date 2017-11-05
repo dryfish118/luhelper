@@ -1,1013 +1,588 @@
-TASK com.lufax.android id=2051
-  ACTIVITY com.lufax.android/.activity.HomeActivity aaed350 pid=12984
-    Local FragmentActivity 13fa503a State:
+TASK com.lufax.android id=2181
+  ACTIVITY com.lufax.android/.activity.HomeActivity 107a0847 pid=7307
+    Local FragmentActivity 2ac23bc7 State:
       mCreated=truemResumed=true mStopped=false mReallyStopped=false
       mLoadersStarted=true
-    Active Fragments in 17702b46:
-      #0: HomeFragmentV2{2615f107 #0 id=0x7f0f0451}
+    Active Fragments in 1a9d06e7:
+      #0: HomeFragmentV2{2aa08294 #0 id=0x7f0f0451}
         mFragmentId=#7f0f0451 mContainerId=#7f0f0451 mTag=null
         mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
         mAdded=true mRemoving=false mFromLayout=false mInLayout=false
         mHidden=true mDetached=false mMenuVisible=true mHasMenu=false
         mRetainInstance=false mRetaining=false mUserVisibleHint=true
-        mFragmentManager=FragmentManager{17702b46 in HostCallbacks{1931f234}}
-        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
+        mFragmentManager=FragmentManager{1a9d06e7 in HostCallbacks{2098e13d}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2098e13d
         mArguments=Bundle[{extra_key_launch_click=false}]
-        mContainer=android.widget.FrameLayout{53fed97 V.E..... ........ 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
-        mView=android.widget.RelativeLayout{3a48285d G.E..... ......ID 0,0-1080,1593}
-        mInnerView=android.widget.RelativeLayout{3a48285d G.E..... ......ID 0,0-1080,1593}
-        Child FragmentManager{21f3b5d2 in HomeFragmentV2{2615f107}}:
+        mContainer=android.widget.FrameLayout{37a8782b V.E..... ........ 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
+        mView=android.widget.RelativeLayout{27e6ad32 G.E..... ......ID 0,0-1080,1593}
+        mInnerView=android.widget.RelativeLayout{27e6ad32 G.E..... ......ID 0,0-1080,1593}
+        Child FragmentManager{2ca92a83 in HomeFragmentV2{2aa08294}}:
           FragmentManager misc state:
-            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
-            mContainer=android.support.v4.app.Fragment$1@289696a3
-            mParent=HomeFragmentV2{2615f107 #0 id=0x7f0f0451}
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2098e13d
+            mContainer=android.support.v4.app.Fragment$1@334d3400
+            mParent=HomeFragmentV2{2aa08294 #0 id=0x7f0f0451}
             mCurState=5 mStateSaved=false mDestroyed=false
-      #1: MyAccountFragment{f15fda0 #1 id=0x7f0f0451}
+      #1: Finance4Fragment{15b75439 #1 id=0x7f0f0451}
         mFragmentId=#7f0f0451 mContainerId=#7f0f0451 mTag=null
         mState=5 mIndex=1 mWho=android:fragment:1 mBackStackNesting=0
         mAdded=true mRemoving=false mFromLayout=false mInLayout=false
-        mHidden=true mDetached=false mMenuVisible=true mHasMenu=false
-        mRetainInstance=false mRetaining=false mUserVisibleHint=true
-        mFragmentManager=FragmentManager{17702b46 in HostCallbacks{1931f234}}
-        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
-        mContainer=android.widget.FrameLayout{53fed97 V.E..... ........ 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
-        mView=android.widget.LinearLayout{2963ed59 G.E..... ......ID 0,0-1080,1593}
-        mInnerView=android.widget.LinearLayout{2963ed59 G.E..... ......ID 0,0-1080,1593}
-        Child FragmentManager{3db35d1e in MyAccountFragment{f15fda0}}:
-          FragmentManager misc state:
-            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
-            mContainer=android.support.v4.app.Fragment$1@ef1f9ff
-            mParent=MyAccountFragment{f15fda0 #1 id=0x7f0f0451}
-            mCurState=5 mStateSaved=false mDestroyed=false
-      #2: Finance4Fragment{316d53cc #2 id=0x7f0f0451}
-        mFragmentId=#7f0f0451 mContainerId=#7f0f0451 mTag=null
-        mState=5 mIndex=2 mWho=android:fragment:2 mBackStackNesting=0
-        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
         mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
         mRetainInstance=false mRetaining=false mUserVisibleHint=true
-        mFragmentManager=FragmentManager{17702b46 in HostCallbacks{1931f234}}
-        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
-        mContainer=android.widget.FrameLayout{53fed97 V.E..... ........ 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
-        mView=com.lufax.android.common.widget.NestRefreshLayout{378f5f6d V.E..... ........ 0,0-1080,1593}
-        mInnerView=com.lufax.android.common.widget.NestRefreshLayout{378f5f6d V.E..... ........ 0,0-1080,1593}
-        Child FragmentManager{36dd0615 in Finance4Fragment{316d53cc}}:
+        mFragmentManager=FragmentManager{1a9d06e7 in HostCallbacks{2098e13d}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2098e13d
+        mContainer=android.widget.FrameLayout{37a8782b V.E..... ........ 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
+        mView=com.lufax.android.common.widget.NestRefreshLayout{21753e21 V.E..... ........ 0,0-1080,1593}
+        mInnerView=com.lufax.android.common.widget.NestRefreshLayout{21753e21 V.E..... ........ 0,0-1080,1593}
+        Child FragmentManager{37ce6a7e in Finance4Fragment{15b75439}}:
           FragmentManager misc state:
-            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
-            mContainer=android.support.v4.app.Fragment$1@3d342d2a
-            mParent=Finance4Fragment{316d53cc #2 id=0x7f0f0451}
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2098e13d
+            mContainer=android.support.v4.app.Fragment$1@2c9ebdf
+            mParent=Finance4Fragment{15b75439 #1 id=0x7f0f0451}
             mCurState=5 mStateSaved=false mDestroyed=false
-      #3: null
+      #2: null
     Added Fragments:
-      #0: HomeFragmentV2{2615f107 #0 id=0x7f0f0451}
-      #1: MyAccountFragment{f15fda0 #1 id=0x7f0f0451}
-      #2: Finance4Fragment{316d53cc #2 id=0x7f0f0451}
+      #0: HomeFragmentV2{2aa08294 #0 id=0x7f0f0451}
+      #1: Finance4Fragment{15b75439 #1 id=0x7f0f0451}
     FragmentManager misc state:
-      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
-      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@1931f234
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@2098e13d
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@2098e13d
       mCurState=5 mStateSaved=false mDestroyed=false
-      mAvailIndices: [3]
+      mAvailIndices: [2]
     View Hierarchy:
-      com.android.internal.policy.impl.PhoneWindow$DecorView{3eeb6c5a V.E..... ... 0,0-1080,1800}
-        android.widget.LinearLayout{65c00bb V.E..... ... 0,0-1080,1800}
-          android.view.ViewStub{d76371b G.E..... ... 0,0-0,0 #1020374}
-          android.widget.FrameLayout{345ee131 V.E..... ... 0,69-1080,1800 #1020002 android:id/content}
-            android.widget.LinearLayout{11e90016 V.E..... ... 0,0-1080,1731}
-              android.widget.FrameLayout{53fed97 V.E..... ... 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
-                android.widget.RelativeLayout{3a48285d G.E..... ... 0,0-1080,1593}
-                  com.lufax.android.common.widget.NestRefreshLayout{3a01e0b8 V.E..... ... 0,138-1080,1593 #7f0f0bc0 app:id/home_nest}
-                    com.lufax.android.common.widget.DefaultRefreshIndicator{b94ee91 G.E..... ... 0,0-0,0}
-                      android.widget.ProgressBar{243ff1f6 V.ED.... ... 0,0-0,0}
-                      android.widget.TextView{53729f7 V.ED.... ... 0,0-0,0}
-                    com.lufax.android.common.widget.ArcProgressIndicator{13045be9 G.ED.... ... 0,0-0,0}
-                    android.support.v7.widget.RecyclerView{33505064 VFED.... ... 0,0-1080,1455 #7f0f0bc1 app:id/home_root}
-                      com.lufax.android.ui.AutoScrollBanner{2308e2cd V.E..... ... 41,14-1039,332 #7f0f03ce app:id/auto_scroll_banner}
-                        com.lufax.android.ui.AutoScrollViewPager{17713782 VFED.... ... 0,0-998,318 #7f0f03cf app:id/auto_scroll_pager}
-                          com.lufax.android.v2.app.home.widget.AdvImage{2aaa6e93 V.ED..C. ... 0,0-998,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{30f40ed0 V.ED..C. ... -998,0-0,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{394ddec9 V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{387f49ce V.ED..C. ... 0,0-998,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{3a0360ef V.ED..C. ... -998,0-0,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{22d347fc V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{1ccc9e85 V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{3b4a34da V.ED..C. ... 1996,0-2994,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{154f1d0b V.ED..C. ... 2994,0-3992,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{2f0ae7e8 V.ED..C. ... 3992,0-4990,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{1fbd9e01 V.ED..C. ... 4990,0-5988,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{3fa6c4a6 V.ED..C. ... 0,0-998,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{28507ee7 V.ED..C. ... -998,0-0,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{3e9a9a94 V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{2565193d V.ED..C. ... 0,0-998,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{3bea8532 V.ED..C. ... -998,0-0,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{2e1c2283 V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{28d0cc00 V.ED..C. ... 0,0-998,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{70f0c39 V.ED..C. ... -998,0-0,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{437c27e V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{347463df V.ED..C. ... 0,0-0,0}
-                          com.lufax.android.v2.app.home.widget.AdvImage{2976a82c V.ED..C. ... -998,0-0,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{ccb32f5 V.ED..C. ... 0,0-998,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{3a89888a V.ED..C. ... 998,0-1996,318}
-                          com.lufax.android.v2.app.home.widget.AdvImage{38e55efb V.ED..C. ... 0,0-0,0}
-                        com.lufax.android.ui.PageIndicator{dbc1b18 V.E..... ... 820,285-970,299 #7f0f03d0 app:id/page_indicator}
-                          android.widget.LinearLayout{35e90971 V.E..... ... 0,0-150,14 #7f0f1400 app:id/indicator_container}
-                            android.widget.ImageView{337fa356 V.ED.... ... 8,0-22,14}
-                            android.widget.ImageView{3ba0efd7 V.ED.... ... 38,0-52,14}
-                            android.widget.ImageView{3e3d0c4 V.ED.... ... 68,0-82,14}
-                            android.widget.ImageView{d33cbad V.ED.... ... 98,0-112,14}
-                            android.widget.ImageView{1bea9ee2 V.ED.... ... 128,0-142,14}
-                      com.lufax.android.kotlin.subassembly.NavClassifyGridView{7d8667b V.E..... ... 0,332-1079,788}
-                        com.lufax.android.common.widget.WrapLayout{241ab273 V.E...C. ... 108,39-288,218}
-                          com.facebook.drawee.view.SimpleDraweeView{39af3530 V.ED.... ... 46,14-134,102}
-                          android.widget.TextView{4ee75a9 V.ED.... ... 14,113-166,165}
-                        com.lufax.android.common.widget.WrapLayout{2b17c72e V.E...C. ... 449,39-629,218}
-                          com.facebook.drawee.view.SimpleDraweeView{136402cf V.ED.... ... 46,14-134,102}
-                          android.widget.TextView{358a745c V.ED.... ... 14,113-166,165}
-                        com.lufax.android.common.widget.WrapLayout{168fc365 V.E...C. ... 809,39-951,218}
-                          com.facebook.drawee.view.SimpleDraweeView{2ddd283a V.ED.... ... 27,14-115,102}
-                          android.widget.TextView{47fceb V.ED.... ... 14,113-128,165}
-                        com.lufax.android.common.widget.WrapLayout{16787a48 V.E...C. ... 108,246-288,425}
-                          com.facebook.drawee.view.SimpleDraweeView{223e30e1 V.ED.... ... 46,14-134,102}
-                          android.widget.TextView{36658e06 V.ED.... ... 14,113-166,165}
-                        com.lufax.android.common.widget.WrapLayout{39277cc7 V.E...C. ... 449,246-629,425}
-                          com.facebook.drawee.view.SimpleDraweeView{26bef2f4 V.ED.... ... 46,14-134,102}
-                          android.widget.TextView{a0bfa1d V.ED.... ... 14,113-166,165}
-                        android.widget.FrameLayout{3cbc8492 V.E...C. ... 710,232-1050,428}
-                          com.lufax.android.common.widget.WrapLayout{27951e63 V.E..... ... 80,13-260,192}
-                            com.facebook.drawee.view.SimpleDraweeView{2d524a60 V.ED.... ... 46,14-134,102}
-                            android.widget.TextView{4f31b19 V.ED.... ... 14,113-166,165}
-                          com.lufax.android.common.widget.ColumnLayout{3c1a57de V.E..... ... 0,0-340,47}
-                            android.widget.Space{31b13dbf I.ED.... ... 0,23-1,24}
-                            android.widget.TextView{2a01ac8c V.ED.... ... 170,0-245,47}
-                      com.lufax.android.v2.app.home.widget.HomeFlipLyt{25914fd5 V.E..... ... 41,789-1039,927 #7f0f0bed app:id/home_flip}
-                        com.facebook.drawee.view.SimpleDraweeView{18f013ea V.ED.... ... 0,41-184,96 #7f0f0bee app:id/home_flip_icon}
-                        com.lufax.android.v2.app.other.ui.wideget.MarqueeView{1545f6db V.E..... ... 225,0-998,138 #7f0f0bef app:id/home_flip_marquee}
-                          android.widget.TextView{28630578 G.ED..C. ... 0,0-773,138}
-                          android.widget.TextView{10a41451 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{1bb384b6 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{18a325b7 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{157f0124 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{1f44a48d G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{c6b3642 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{2d3a6653 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{43d0b90 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{28e3fc89 V.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{3afa748e G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{1ffb14af G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{c8f50bc G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{3106d845 G.ED..C. ... 0,0-0,0}
-                          android.widget.TextView{2d4b9a G.ED..C. ... 0,0-0,0}
-                      com.lufax.android.common.widget.LufaxHeaderItem{336e4ccb V.E..... ... 41,997-1039,1123}
-                        android.widget.TextView{315ebca8 V.ED.... ... 0,0-220,77 #7f0f0bc3 app:id/home_header_content}
-                        android.widget.RelativeLayout{34c1b3c1 G.E..... ... 0,0-0,0 #7f0f0bc4 app:id/collect_layout}
-                          android.widget.TextView{3848766 V.ED.... ... 0,0-0,0 #7f0f0bc5 app:id/collect_tv}
-                          extra.view.IconFontTextView{3f92eaa7 V.ED.... ... 0,0-0,0 #7f0f0bc6 app:id/collect_icon}
-                        android.widget.TextView{3936fb54 V.ED..C. ... 846,0-954,77 #7f0f0bc7 app:id/home_header_swap}
-                        android.widget.TextView{13f4cafd V.ED..C. ... 965,0-998,77 #7f0f0bc8 app:id/home_header_icon}
-                        android.widget.TextView{11c1b3f2 V.ED.... ... 0,77-297,126 #7f0f0bc9 app:id/home_header_desc}
-                        com.lufax.android.common.widget.DotDotDotView{33798a43 G.ED..C. ... 0,0-0,0 #7f0f0bca app:id/home_header_set_top}
-                      com.lufax.android.kotlin.subassembly.FinanceItemView{25b278c0 V.E...C. ... 0,1123-1079,1428}
-                        com.lufax.android.common.widget.LabelLayout{124819f9 V.E..... ... 41,41-177,82}
-                          com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{10331d3e V.E..... ... 0,0-136,41}
-                            android.widget.LinearLayout{14a0879f V.E..... ... 0,0-136,41 #7f0f072d app:id/finance_tag_root}
-                              android.widget.LinearLayout{35a660ec V.E..... ... 0,0-136,41 #7f0f072e app:id/finance_tag_name_root}
-                                extra.view.IconFontTextView{2be75cb5 G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
-                                android.widget.TextView{18bfcf4a V.ED.... ... 0,3-136,38 #7f0f0730 app:id/finance_tag_name}
-                              android.widget.TextView{180ffebb G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
-                        com.lufax.android.common.widget.WrapLayout{1e0e9fd8 V.E..... ... 41,104-1038,264}
-                          com.lufax.android.common.widget.WrapLayout{39fe0f31 V.E..... ... 0,0-997,90}
-                            android.widget.TextView{ab39616 V.ED.... ... 0,0-427,90}
-                            com.lufax.android.common.widget.WrapLayout{3135cb97 V.E..... ... 427,18-997,72}
-                              extra.view.IconFontTextView{25b9e184 G.ED.... ... 0,0-0,0}
-                              com.lufax.android.ui.SingleLineTextView{22f36d6d V.ED.... ... 0,0-432,54}
-                          com.lufax.android.common.widget.WrapLayout{1c4afda2 V.E..... ... 0,104-997,160}
-                            android.widget.TextView{32818a33 V.ED.... ... 0,4-427,52}
-                            com.lufax.android.common.widget.WrapLayout{fb591f0 V.E..... ... 427,0-997,56}
-                              android.widget.TextView{12667369 V.ED.... ... 0,0-110,56}
-                              com.lufax.android.ui.SingleLineTextView{38ff51ee V.ED.... ... 143,0-312,56}
-                      com.lufax.android.kotlin.subassembly.FinanceItemView{1bc0968f V.E...C. ... 0,1429-1079,1734}
-                        com.lufax.android.common.widget.LabelLayout{79dd1c V.E..... ... 41,41-177,82}
-                          com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{34e9dd25 V.E..... ... 0,0-136,41}
-                            android.widget.LinearLayout{38929efa V.E..... ... 0,0-136,41 #7f0f072d app:id/finance_tag_root}
-                              android.widget.LinearLayout{323a0cab V.E..... ... 0,0-136,41 #7f0f072e app:id/finance_tag_name_root}
-                                extra.view.IconFontTextView{9d5af08 G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
-                                android.widget.TextView{338026a1 V.ED.... ... 0,3-136,38 #7f0f0730 app:id/finance_tag_name}
-                              android.widget.TextView{3adbb0c6 G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
-                        com.lufax.android.common.widget.WrapLayout{3e8ac887 V.E..... ... 41,104-1038,264}
-                          com.lufax.android.common.widget.WrapLayout{99ab3b4 V.E..... ... 0,0-997,90}
-                            android.widget.TextView{2ad78bdd V.ED.... ... 0,0-427,90}
-                            com.lufax.android.common.widget.WrapLayout{34521352 V.E..... ... 427,18-997,72}
-                              extra.view.IconFontTextView{c416623 G.ED.... ... 0,0-0,0}
-                              com.lufax.android.ui.SingleLineTextView{7095720 V.ED.... ... 0,0-289,54}
-                          com.lufax.android.common.widget.WrapLayout{1a4608d9 V.E..... ... 0,104-997,160}
-                            android.widget.TextView{375a129e V.ED.... ... 0,4-427,52}
-                            com.lufax.android.common.widget.WrapLayout{73a417f V.E..... ... 427,0-997,56}
-                              android.widget.TextView{3afcc54c V.ED.... ... 0,0-164,56}
-                              com.lufax.android.ui.SingleLineTextView{6855995 V.ED.... ... 197,0-379,56}
-                  extra.view.TitleView{650baaa V.E..... ... 0,0-1080,138 #7f0f0bc2 app:id/home_title}
-                    android.widget.LinearLayout{12bb769b V.E..... ... 0,0-1080,138}
-                      android.view.View{2ed6ea38 V.ED.... ... 0,0-1080,0 #7f0f0cb2 app:id/view_top_padding}
-                      android.widget.RelativeLayout{c2efa11 V.E..... ... 0,0-1080,138}
-                        android.widget.RelativeLayout{3a57d776 G.E...C. ... 0,0-0,0 #7f0f1230 app:id/title_bar_left_container}
-                          extra.view.DefaultTitleViewLeftView{3650e177 V.ED.... ... 0,0-0,0 #7f0f0240 app:id/title_bar_left_tv}
-                        android.widget.RelativeLayout{3227b75d V.E..... ... 144,0-936,138 #7f0f14b7 app:id/title_bar_middle_container}
-                          android.widget.TextView{1e2c71e4 V.ED.... ... 321,0-471,138 #7f0f0242 app:id/title_bar_title_tv}
-                        android.widget.RelativeLayout{1df8264d V.E..... ... 936,0-1080,138 #7f0f14b8 app:id/title_bar_right_container}
-                          android.widget.LinearLayout{ae1f502 V.E..... ... 0,0-144,138}
-                            com.lufax.android.ui.WrapCornerView{3c681e13 V.E...C. ... 0,0-116,138}
-                              android.widget.TextView{730c850 V.ED.... ... 28,42-88,97 #7f0f12b5 app:id/iconView}
-                              android.widget.TextView{2aadda49 V.ED.... ... 80,34-97,51 #7f0f12b6 app:id/numberView}
-                      android.view.View{1fe5f4e V.ED.... ... 0,138-1080,138 #7f0f14ba app:id/view_bottom_padding}
-                android.widget.LinearLayout{2963ed59 G.E..... ... 0,0-1080,1593}
-                  extra.view.TitleView{1eac886f V.E..... ... 0,0-1080,138 #7f0f0fa9 app:id/myaccount_titleview}
-                    android.widget.LinearLayout{15e2197c V.E..... ... 0,0-1080,138}
-                      android.view.View{26f0d205 V.ED.... ... 0,0-1080,0 #7f0f0cb2 app:id/view_top_padding}
-                      android.widget.RelativeLayout{2965225a V.E..... ... 0,0-1080,138}
-                        android.widget.RelativeLayout{1c233c8b V.E..... ... 0,0-430,138 #7f0f1230 app:id/title_bar_left_container}
-                          android.widget.LinearLayout{15f55168 V.E..... ... 41,0-389,138}
-                            extra.view.IconFontTextView{36b18981 V.ED.... ... 0,0-39,138 #7f0f101d app:id/point_tv}
-                            android.widget.RelativeLayout{3c430a26 V.E..... ... 39,0-133,138}
-                              com.lufax.android.v2.app.myaccount.ui.widget.CircleImageView{15071667 V.ED..C. ... 0,22-94,116 #7f0f101e app:id/title_avatar}
-                              android.widget.ImageView{17821c14 G.ED.... ... 0,0-0,0 #7f0f101f app:id/iv_vip_group}
-                            android.widget.FrameLayout{326c3cbd V.E..... ... 133,0-205,138}
-                              android.widget.TextView{29c5a2b2 V.ED.... ... 11,80-72,113 #7f0f1020 app:id/tv_level}
-                            android.widget.LinearLayout{864b203 V.E...C. ... 216,74-348,113 #7f0f1021 app:id/nut_layout}
-                              extra.view.IconFontTextView{326ee580 V.ED.... ... 11,3-39,36 #7f0f1022 app:id/nut_icon}
-                              android.widget.TextView{424e7b9 V.ED.... ... 39,0-96,38 #7f0f1023 app:id/nut_tv}
-                              extra.view.IconFontTextView{346737fe V.ED.... ... 96,5-121,34 #7f0f1024 app:id/arrow_icon}
-                        android.widget.RelativeLayout{32d5b4a5 V.E..... ... 255,0-825,138 #7f0f14b7 app:id/title_bar_middle_container}
-                          android.widget.TextView{f766b5f V.ED.... ... 285,0-285,138 #7f0f0242 app:id/title_bar_title_tv}
-                        android.widget.RelativeLayout{149cd9ac V.E..... ... 825,0-1080,138 #7f0f14b8 app:id/title_bar_right_container}
-                          android.widget.LinearLayout{18234675 V.E..... ... 0,0-255,138}
-                            com.lufax.android.ui.RightCornerView{39fad60a V.E...C. ... 0,0-111,138}
-                              android.widget.TextView{32c05e7b V.ED.... ... 28,42-83,97 #7f0f12b5 app:id/iconView}
-                              android.widget.TextView{6d3e498 V.ED.... ... 75,34-92,51 #7f0f12b6 app:id/numberView}
-                            com.lufax.android.ui.WrapCornerView{1d6ed4f1 V.E...C. ... 111,0-227,138}
-                              android.widget.TextView{307848d6 V.ED.... ... 28,42-88,97 #7f0f12b5 app:id/iconView}
-                              android.widget.TextView{34ec6757 V.ED.... ... 80,34-97,51 #7f0f12b6 app:id/numberView}
-                      android.view.View{146eb244 V.ED.... ... 0,138-1080,138 #7f0f14ba app:id/view_bottom_padding}
-                  com.lufax.android.v2.base.ui.widget.PullScrollView{120acf2d V.E..... ... 0,138-1080,1593 #7f0f0faa app:id/myaccount_scrollview}
-                    android.widget.RelativeLayout{23881c62 V.E..... ... 0,0-1080,0}
-                      android.view.View{2f6621f3 V.ED.... ... 531,-309-548,-292 #7f0f1016 app:id/account_pull_refresh_first_dot}
-                      android.view.View{1c6aeb0 V.ED.... ... 531,-262-548,-245 #7f0f1017 app:id/account_pull_refresh_sencond_dot}
-                      android.view.View{16f23129 V.ED.... ... 531,-215-548,-198 #7f0f1018 app:id/account_pull_refresh_third_dot}
-                      android.view.View{3ecf9cae V.ED.... ... 531,-168-548,-151 #7f0f1019 app:id/account_pull_refresh_forth_dot}
-                      android.widget.ImageView{1cb6ea4f V.ED.... ... 507,-130-573,-83 #7f0f101a app:id/account_pull_refresh_pig}
-                      android.widget.TextView{3d6005dc V.ED.... ... 315,-69-765,-28 #7f0f101b app:id/pull_torefresh_text}
-                      android.view.View{7d3b6e5 G.ED.... ... 0,0-0,0 #7f0f101c app:id/account_pull_refresh_animation_dot}
-                    com.lufax.android.common.widget.ColumnLayout{30fcd5ba V.E..... ... 0,0-1080,393}
-                      android.widget.RelativeLayout{2ca1dc6b V.E...C. ... 41,69-526,210 #7f0f0fab app:id/current_assets_container_ll}
-                        extra.view.IconFontTextView{37d5a3c8 V.ED..C. ... 154,0-267,45 #7f0f0fac app:id/current_assets_eye_tv}
-                        android.widget.TextView{128ddc61 V.ED.... ... 0,0-154,45 #7f0f0fad app:id/current_assets_label_tv}
-                        android.widget.RelativeLayout{33929386 G.E..... ... 0,0-0,0 #7f0f0f7d app:id/insurance_sub_layout}
-                        extra.view.IconFontTextView{3dffd447 V.ED.... ... 0,59-142,141 #7f0f0fae app:id/current_assets_value_tv}
-                      android.widget.RelativeLayout{e853474 V.E...C. ... 554,69-1039,210 #7f0f0faf app:id/yesterday_profit_container_ll}
-                        android.widget.TextView{a6add9d V.ED.... ... 0,0-187,45 #7f0f0fb0 app:id/yesterday_profit_lable_tv}
-                        extra.view.IconFontTextView{3746212 V.ED.... ... 201,0-248,45 #7f0f0fb1 app:id/yesterday_profit_icon_tv}
-                        android.widget.LinearLayout{1a5b6de3 V.E..... ... 0,59-142,141}
-                          android.widget.TextView{34fb23e0 V.ED.... ... 0,18-0,63 #7f0f0fb2 app:id/yesterday_profit_symbol_tv}
-                          extra.view.IconFontTextView{331cb699 V.ED.... ... 0,0-142,82 #7f0f0fb3 app:id/yesterday_profit_value_tv}
-                      android.widget.LinearLayout{16328d5e V.E...C. ... 41,251-526,352 #7f0f0fb4 app:id/available_total_amount_ll}
-                        android.widget.TextView{f4d053f V.ED.... ... 0,0-220,45 #7f0f0fb5 app:id/available_total_amount_label_tv}
-                        extra.view.IconFontTextView{91e9e0c V.ED.... ... 0,45-80,93 #7f0f0fb6 app:id/available_total_amount_value_tv}
-                      android.widget.LinearLayout{3f792355 V.E...C. ... 554,251-1039,352 #7f0f0fb7 app:id/usable_invest_coupon_layout_ll}
-                        android.widget.TextView{1816216a V.ED.... ... 0,0-220,45 #7f0f0fb8 app:id/usable_invest_coupon_label_tv}
-                        android.widget.TextView{196b65b V.ED.... ... 0,45-23,101 #7f0f0fb9 app:id/usable_invest_coupon_value_tv}
-                    android.widget.FrameLayout{3e1d8ef8 G.E..... ... 0,0-0,0}
-                      android.widget.LinearLayout{3ff59fd1 G.E...C. ... 0,0-0,0 #7f0f0fba app:id/ljb_promotion_tip_ll}
-                        android.widget.TextView{3eecea36 V.ED.... ... 0,0-0,0 #7f0f0fbb app:id/ljb_promotion_tip_tv}
-                        android.widget.ImageView{16005d37 V.ED..C. ... 0,0-0,0 #7f0f0fbc app:id/ljb_promotion_close}
-                    com.lufax.android.common.widget.ColumnLayout{a18a2a4 V.E..... ... 0,393-1080,514}
-                      android.widget.TextView{3ce3680d V.ED..C. ... 0,0-540,121 #7f0f0fbd app:id/withdraw_tv}
-                      android.widget.TextView{3d9573c2 V.ED..C. ... 540,0-1080,121 #7f0f0fbe app:id/charge_tv}
-                    android.widget.LinearLayout{bf395d3 G.E..... ... 0,0-0,0 #7f0f0fbf app:id/notice_tip_linear}
-                      android.widget.TextView{28f4510 V.ED.... ... 0,0-0,0 #7f0f085b app:id/tip_tv}
-                      extra.view.IconFontTextView{386b7809 V.ED.... ... 0,0-0,0 #7f0f0fc0 app:id/tip_arrow_tv}
-                    android.widget.RelativeLayout{244b0a0e G.E..... ... 0,0-0,0 #7f0f0fc1 app:id/notice_tip_Relative_kyc}
-                      android.widget.ImageView{25d7bc2f V.ED..C. ... 0,0-0,0 #7f0f0fc2 app:id/tip_close_tv_kyc}
-                      extra.view.IconFontTextView{138ba23c V.ED.... ... 0,0-0,0 #7f0f0fc3 app:id/tip_tv_kyc}
-                    com.lufax.android.v2.app.finance.ui.widget.InvestorIdentityGuiderView{144a8bc5 G.E..... ... 0,0-0,0 #7f0f05f0 app:id/investor_identity_layout}
-                      android.widget.ImageView{39b1b91a V.ED.... ... 0,0-0,0}
-                      android.widget.LinearLayout{3b2dec4b V.E..... ... 0,0-0,0}
-                        android.widget.TextView{3d8ea628 V.ED.... ... 0,0-0,0 #7f0f0c87 app:id/investorIdentityTv1}
-                        android.widget.TextView{174d1f41 V.ED.... ... 0,0-0,0 #7f0f0c88 app:id/investorIdentityTv2}
-                        android.widget.TextView{18a24ce6 V.ED.... ... 0,0-0,0 #7f0f0c89 app:id/investorIdentityTv3}
-                    com.lufax.android.common.widget.ColumnLayout{106d0227 V.E..... ... 0,535-1080,1072 #7f0f0fc4 app:id/invest_status_container_ll}
-                      com.lufax.android.myaccount.widget.InvestTypeView{63bfcd4 V.E...C. ... 0,0-540,179}
-                        android.widget.TextView{e8b6e7d V.ED.... ... 41,28-123,84 #7f0f05e3 app:id/title_tv}
-                        extra.view.IconFontTextView{1eb65172 V.ED.... ... 41,87-121,135 #7f0f01fd app:id/value_tv}
-                        android.widget.TextView{109d99c3 V.ED.... ... 121,90-154,135 #7f0f01fe app:id/unit_tv}
-                        android.widget.TextView{7c61240 G.ED.... ... 0,0-0,0 #7f0f0ca7 app:id/tag_tv}
-                      com.lufax.android.myaccount.widget.InvestTypeView{6657579 V.E...C. ... 540,0-1080,179}
-                        android.widget.TextView{379412be V.ED.... ... 41,28-123,84 #7f0f05e3 app:id/title_tv}
-                        extra.view.IconFontTextView{4b60f1f V.ED.... ... 41,87-121,135 #7f0f01fd app:id/value_tv}
-                        android.widget.TextView{b1a126c V.ED.... ... 121,90-154,135 #7f0f01fe app:id/unit_tv}
-                        android.widget.TextView{173ef035 G.ED.... ... 0,0-0,0 #7f0f0ca7 app:id/tag_tv}
-                      com.lufax.android.myaccount.widget.InvestTypeView{10fa9cca V.E...C. ... 0,179-540,358}
-                        android.widget.TextView{24b67e3b V.ED.... ... 41,28-123,84 #7f0f05e3 app:id/title_tv}
-                        extra.view.IconFontTextView{18cbe958 V.ED.... ... 41,87-121,135 #7f0f01fd app:id/value_tv}
-                        android.widget.TextView{1fb5ab1 V.ED.... ... 121,90-154,135 #7f0f01fe app:id/unit_tv}
-                        android.widget.TextView{38dbb96 G.ED.... ... 0,0-0,0 #7f0f0ca7 app:id/tag_tv}
-                      com.lufax.android.myaccount.widget.InvestTypeView{1e84c317 V.E...C. ... 540,179-1080,358}
-                        android.widget.TextView{2cc24304 V.ED.... ... 41,28-205,84 #7f0f05e3 app:id/title_tv}
-                        extra.view.IconFontTextView{1839f0ed V.ED.... ... 41,87-121,135 #7f0f01fd app:id/value_tv}
-                        android.widget.TextView{3c61fb22 V.ED.... ... 121,90-154,135 #7f0f01fe app:id/unit_tv}
-                        android.widget.TextView{2e8879b3 G.ED.... ... 0,0-0,0 #7f0f0ca7 app:id/tag_tv}
-                      com.lufax.android.myaccount.widget.InvestTypeView{38a28b70 V.E...C. ... 0,358-540,537}
-                        android.widget.TextView{2c51aee9 V.ED.... ... 41,28-246,84 #7f0f05e3 app:id/title_tv}
-                        extra.view.IconFontTextView{3348a76e V.ED.... ... 41,87-121,135 #7f0f01fd app:id/value_tv}
-                        android.widget.TextView{2606fe0f V.ED.... ... 121,90-154,135 #7f0f01fe app:id/unit_tv}
-                        android.widget.TextView{20fcee9c G.ED.... ... 0,0-0,0 #7f0f0ca7 app:id/tag_tv}
-                      com.lufax.android.myaccount.widget.InvestTypeView{50d50a5 V.E...C. ... 540,358-1080,537}
-                        android.widget.TextView{39dbcc7a V.ED.... ... 41,28-123,84 #7f0f05e3 app:id/title_tv}
-                        extra.view.IconFontTextView{3b3f6c2b V.ED.... ... 41,87-121,135 #7f0f01fd app:id/value_tv}
-                        android.widget.TextView{21385888 V.ED.... ... 121,90-154,135 #7f0f01fe app:id/unit_tv}
-                        android.widget.TextView{11275221 G.ED.... ... 0,0-0,0 #7f0f0ca7 app:id/tag_tv}
-                    com.lufax.android.ui.LuFormLayout{2f4a3646 V.E..... ... 0,1072-1080,1214 #7f0f0fc5 app:id/calendarLayout}
-                      android.widget.RelativeLayout{3f46a007 V.E...C. ... 0,0-1080,142}
-                        android.widget.TextView{23e7534 V.ED.... ... 41,41-217,101 #7f0f05e3 app:id/title_tv}
-                        android.widget.TextView{1685ef5d G.ED.... ... 0,0-0,0 #7f0f100a app:id/refund_reserve_desc}
-                        android.widget.LinearLayout{24e370d2 G.E..... ... 0,0-0,0 #7f0f100b app:id/calendar_layout_ll}
-                          android.widget.TextView{15a335a3 V.ED.... ... 0,0-0,0 #7f0f100c app:id/calendar_month_tv}
-                          android.widget.TextView{fe7b0a0 V.ED.... ... 0,0-0,0}
-                          android.widget.TextView{19372459 V.ED.... ... 0,0-0,0 #7f0f100d app:id/calendar_day_tv}
-                          android.widget.TextView{3f63c81e V.ED.... ... 0,0-0,0}
-                        extra.view.IconFontTextView{9a988ff V.ED.... ... 720,47-970,86 #7f0f0ca9 app:id/content_tv}
-                        extra.view.IconFontTextView{392736cc V.ED.... ... 998,41-1039,89 #7f0f020c app:id/arrow_right_tv}
-                    android.widget.LinearLayout{362cad15 G.E..... ... 0,0-0,0 #7f0f0fc6 app:id/recommend_layout_ll}
-                      android.widget.TextView{2100482a V.ED.... ... 0,0-0,0 #7f0f0fc7 app:id/recommend_icon_tv}
-                      android.widget.TextView{1d97b61b V.ED.... ... 0,0-0,0 #7f0f0fc8 app:id/recommend_desc_tv}
-                      android.widget.TextView{6f6f3b8 V.ED.... ... 0,0-0,0 #7f0f0fc9 app:id/recommend_go_tv}
-                    android.widget.RelativeLayout{2db80591 V.E...C. ... 0,1235-1080,1373 #7f0f0fca app:id/myaccount_smartaccount_lay}
-                      android.widget.TextView{2832bcf6 V.ED.... ... 41,39-217,99 #7f0f0fcb app:id/myaccount_smartaccount_title}
-                      extra.view.IconFontTextView{2f7198f7 V.ED.... ... 998,45-1039,93 #7f0f0fcc app:id/myaccount_smartaccount_iconfont}
-                      android.widget.TextView{16039364 V.ED.... ... 706,46-970,91 #7f0f0fcd app:id/myaccount_smartaccount_tip}
-                    android.widget.LinearLayout{19c669cd G.E..... ... 0,563-1080,893 #7f0f0ffe app:id/myaccount_default_layout_ll}
-                      android.view.View{f45b282 V.ED.... ... 0,0-1080,330 #7f0f0fff app:id/white_layout_ll}
-                      android.widget.LinearLayout{f9ccd93 G.E...C. ... 0,0-0,0 #7f0f1000 app:id/failed_layout_ll}
-                        extra.view.IconFontTextView{3f1881d0 V.ED.... ... 0,0-0,0}
-                        extra.view.IconFontTextView{bdcd5c9 V.ED.... ... 0,0-0,0}
-                    com.lufax.android.v2.app.myaccount.ui.widget.AccountRecommendContainer{38a074ce G.E..... ... 0,0-0,0 #7f0f0fce app:id/top_promotion_container_ll}
-                      android.widget.LinearLayout{253cafef V.E..... ... 0,0-0,0}
-                        extra.view.IconFontTextView{1a4beafc V.ED.... ... 0,0-0,0}
-                        android.widget.TextView{ed40585 V.ED.... ... 0,0-0,0 #7f0f0289 app:id/recommend_titlescroll}
-                      com.lufax.android.common.widget.PageScrollView{33d30fda V.E..... ... 0,0-0,0 #7f0f028a app:id/recommend_scrollview}
-                    com.lufax.android.myaccount.widget.AccountAssetModuleView{3c4e5c0b G.E..... ... 0,0-0,0 #7f0f0fcf app:id/myaccount_other_asset_View}
-                      android.widget.LinearLayout{8eabae8 V.E..... ... 0,0-0,0}
-                        extra.view.IconFontTextView{8547501 V.ED.... ... 0,0-0,0 #7f0f01f5 app:id/account_asset_module_logo}
-                        android.widget.TextView{7624fa6 V.ED.... ... 0,0-0,0 #7f0f01f6 app:id/account_asset_module_name}
-                        android.widget.TextView{1984ade7 V.ED.... ... 0,0-0,0 #7f0f01f7 app:id/account_asset_module_desc}
-                      com.lufax.android.common.widget.ColumnLayout{32249d94 V.E..... ... 0,0-0,0 #7f0f01f8 app:id/account_asset_module_container}
-                    com.lufax.android.myaccount.widget.AccountAssetModuleView{3612603d V.E..... ... 0,1394-1080,1842 #7f0f0fd0 app:id/myaccount_asset_exchange_View}
-                      android.widget.LinearLayout{b53c032 V.E..... ... 0,0-1080,104}
-                        extra.view.IconFontTextView{2fe44183 V.ED.... ... 41,44-77,86 #7f0f01f5 app:id/account_asset_module_logo}
-                        android.widget.TextView{1e77ff00 V.ED.... ... 91,41-235,90 #7f0f01f6 app:id/account_asset_module_name}
-                        android.widget.TextView{2c9c339 G.ED.... ... 0,0-0,0 #7f0f01f7 app:id/account_asset_module_desc}
-                      com.lufax.android.common.widget.ColumnLayout{2079ad7e V.E..... ... 41,104-1039,448 #7f0f01f8 app:id/account_asset_module_container}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{141f72df V.E...C. ... 0,30-499,142}
-                          android.widget.LinearLayout{1dde0b2c V.E..... ... 0,0-499,56}
-                            android.widget.TextView{2efa59f5 V.ED.... ... 0,0-499,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{107f238a G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{9b25dfb V.ED.... ... 0,67-269,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{24b6ae18 G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{963a071 V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{22b3ee56 V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{5beded7 G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{b7493c4 V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{3340d2ad V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{319899e2 V.E...C. ... 540,30-998,142}
-                          android.widget.LinearLayout{3a89173 V.E..... ... 0,0-458,56}
-                            android.widget.TextView{1d092830 V.ED.... ... 0,0-458,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{2c44eca9 G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{d2a722e V.ED.... ... 0,67-269,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{770d1cf G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{2010975c V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{2256aa65 V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{35ef833a G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{29d2bbeb V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{6bdcd48 V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{10c87e1 V.E...C. ... 0,202-499,314}
-                          android.widget.LinearLayout{3cc29906 V.E..... ... 0,0-499,56}
-                            android.widget.TextView{a1f2bc7 V.ED.... ... 0,0-499,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{318675f4 G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{3ce8c11d V.ED.... ... 0,67-264,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{135f3f92 G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{1d8bd63 V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{308efd60 V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{16555219 G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{19adc2de V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{360fccbf V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                    com.lufax.android.myaccount.widget.AccountAssetModuleView{2fd68f8c V.E..... ... 0,1863-1080,2311 #7f0f0fd1 app:id/myaccount_invest_service_View}
-                      android.widget.LinearLayout{105ff6d5 V.E..... ... 0,0-1080,104}
-                        extra.view.IconFontTextView{33cf2eea V.ED.... ... 41,44-77,86 #7f0f01f5 app:id/account_asset_module_logo}
-                        android.widget.TextView{227e75db V.ED.... ... 91,41-235,90 #7f0f01f6 app:id/account_asset_module_name}
-                        android.widget.TextView{3a231878 G.ED.... ... 0,0-0,0 #7f0f01f7 app:id/account_asset_module_desc}
-                      com.lufax.android.common.widget.ColumnLayout{17362b51 V.E..... ... 41,104-1039,448 #7f0f01f8 app:id/account_asset_module_container}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{34e94fb6 V.E...C. ... 0,30-499,142}
-                          android.widget.LinearLayout{3a6494b7 V.E..... ... 0,0-499,56}
-                            android.widget.TextView{3ead4424 V.ED.... ... 0,0-499,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{12612b8d G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{2ab2b142 V.ED.... ... 0,67-231,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{3b23c553 G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{58c7e90 V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{1ec1f389 V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{15be9f8e G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{c9b63af V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{3ee2f3bc V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{2c4d3f45 V.E...C. ... 540,30-998,142}
-                          android.widget.LinearLayout{1a89269a V.E..... ... 0,0-458,56}
-                            android.widget.TextView{b448bcb V.ED.... ... 0,0-458,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{18c98fa8 G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{3b878ac1 V.ED.... ... 0,67-165,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{37431266 G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{180e19a7 V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{7fbfe54 V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{36c111fd G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{a5deef2 V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{9f8a943 V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{2f44abc0 V.E...C. ... 0,202-499,314}
-                          android.widget.LinearLayout{2311d0f9 V.E..... ... 0,0-499,56}
-                            android.widget.TextView{35d8083e V.ED.... ... 0,0-499,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{1d72969f G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{11a8c3ec V.ED.... ... 0,67-231,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{251583b5 G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{2b486a4a V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{3d73fdbb V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{3b5432d8 G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{1567a631 V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{2caae116 V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                        com.lufax.android.myaccount.widget.AccountAssetItemView{25aba97 V.E...C. ... 540,202-998,314}
-                          android.widget.LinearLayout{d45a484 V.E..... ... 0,0-458,56}
-                            android.widget.TextView{20df746d V.ED.... ... 0,0-458,56 #7f0f0203 app:id/account_asset_title}
-                            android.widget.TextView{debf8a2 G.ED.... ... 0,0-0,0 #7f0f0204 app:id/account_asset_tag}
-                          android.widget.TextView{2866933 V.ED.... ... 0,67-132,112 #7f0f0205 app:id/account_asset_desc_type_1}
-                          android.widget.LinearLayout{17ba84f0 G.E..... ... 0,0-0,0 #7f0f0206 app:id/account_asset_desc_type_2}
-                            android.widget.TextView{308bea69 V.ED.... ... 0,0-0,0 #7f0f01fd app:id/value_tv}
-                            android.widget.TextView{334fcee V.ED.... ... 0,0-0,0 #7f0f01fe app:id/unit_tv}
-                          android.widget.LinearLayout{10b4658f G.E..... ... 0,0-0,0 #7f0f0207 app:id/account_asset_desc_type_3}
-                            android.widget.TextView{2f5b001c V.ED.... ... 0,0-0,0 #7f0f0208 app:id/account_asset_type_3_first_value}
-                            android.widget.TextView{156fc425 V.ED.... ... 0,0-0,0 #7f0f0209 app:id/account_asset_type_3_second_value}
-                    com.lufax.android.myaccount.widget.AccountAssetModuleView{7f7f9fa G.E..... ... 0,0-0,0 #7f0f0fd2 app:id/myaccount_activity_reward_View}
-                      android.widget.LinearLayout{41bcbab V.E..... ... 0,0-0,0}
-                        extra.view.IconFontTextView{29260208 V.ED.... ... 0,0-0,0 #7f0f01f5 app:id/account_asset_module_logo}
-                        android.widget.TextView{33fd7da1 V.ED.... ... 0,0-0,0 #7f0f01f6 app:id/account_asset_module_name}
-                        android.widget.TextView{2abbbbc6 V.ED.... ... 0,0-0,0 #7f0f01f7 app:id/account_asset_module_desc}
-                      com.lufax.android.common.widget.ColumnLayout{26497787 V.E..... ... 0,0-0,0 #7f0f01f8 app:id/account_asset_module_container}
-                    com.lufax.android.v2.app.myaccount.ui.widget.AccountRecommendContainer{291d36b4 V.E..... ... 0,2332-1080,2794 #7f0f0fd3 app:id/bottom_promotion_container_ll}
-                      android.widget.LinearLayout{2b5352dd V.E..... ... 0,0-1080,104}
-                        extra.view.IconFontTextView{9a7ce52 V.ED.... ... 41,44-77,86}
-                        android.widget.TextView{22bc0523 V.ED.... ... 91,41-1080,90 #7f0f0289 app:id/recommend_titlescroll}
-                      com.lufax.android.common.widget.PageScrollView{2fb10a20 V.E..... ... 0,104-1080,462 #7f0f028a app:id/recommend_scrollview}
-                        android.widget.LinearLayout{34373fd9 V.E...C. ... 41,0-467,317}
-                          android.widget.TextView{bd07d9e V.ED.... ... 108,41-317,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{143fd07f V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{11eca84c V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{33d30095 V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{2342d5aa V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{c0af59b G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{861fd38 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{3e301111 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{23d0a276 V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{2e995077 V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{d5b4e4 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{473ad4d V.ED.... ... 42,0-128,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{3a9c7002 V.ED.... ... 128,0-156,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{2487d13 V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{1eab3b50 V.E..... ... 214,0-412,38}
-                              android.widget.TextView{2adad149 V.ED.... ... 69,0-101,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{12658a4e V.ED.... ... 101,1-129,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{bb3d76f V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{1610bc7c V.E...C. ... 495,0-921,317}
-                          android.widget.TextView{2763905 V.ED.... ... 82,41-344,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{3093fd5a V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{13d07b8b V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{deb2468 V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{22a66081 V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{17049526 G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{33c94567 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{34821f14 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{1e5783bd V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{3694ddb2 V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{29ad103 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{32ec1880 V.ED.... ... 63,0-79,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{10fd9eb9 V.ED.... ... 79,0-135,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{3e6f22fe V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{6f7a5f V.E..... ... 214,0-412,38}
-                              android.widget.TextView{2b3a3cac V.ED.... ... 77,0-93,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{3f506d75 V.ED.... ... 93,1-121,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{1416710a V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{1bbb5d7b V.E...C. ... 949,0-1375,317}
-                          android.widget.TextView{2d647798 V.ED.... ... 134,41-291,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{7c76bf1 V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{3293d6 V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{2c185657 V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{ef57544 V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{1ed5d62d G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{1c1c1762 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{3ee200f3 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{1176a1b0 V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{12e6a829 V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{c2847ae V.E..... ... 13,0-211,38}
-                              android.widget.TextView{1191b94f V.ED.... ... 28,0-114,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{39c28dc V.ED.... ... 114,0-170,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{14189de5 V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{12b530ba V.E..... ... 214,0-412,38}
-                              android.widget.TextView{15da9b6b V.ED.... ... 55,0-87,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{930f6c8 V.ED.... ... 87,1-143,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{3bba3361 V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{7f59e86 V.E...C. ... 1403,0-1829,317}
-                          android.widget.TextView{1b858347 V.ED.... ... 59,41-367,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{35c2b774 V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{f85a49d V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{27d1d12 V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{3c0d0ce3 V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{260dd6e0 G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{3c9ced99 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{3c8bf85e V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{23f9943f V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{429810c V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{645ca55 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{21b3c6a V.ED.... ... 14,0-155,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{15fd355b V.ED.... ... 155,0-183,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{2273a1f8 V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{2465b6d1 V.E..... ... 214,0-412,38}
-                              android.widget.TextView{33a8b536 V.ED.... ... 61,0-109,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{3cfcc37 V.ED.... ... 109,1-137,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{193ce5a4 V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{dbdef0d V.E...C. ... 1857,0-2283,317}
-                          android.widget.TextView{29c2eec2 V.ED.... ... 108,41-317,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{18caf4d3 V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{1334b810 V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{29e76f09 V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{555350e V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{12460b2f G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{3495453c V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{270ef2c5 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{38b3941a V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{1b22b4b V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{90f7928 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{2f70f641 V.ED.... ... 50,0-120,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{1566d7e6 V.ED.... ... 120,0-148,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{14763127 V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{2476ffd4 V.E..... ... 214,0-412,38}
-                              android.widget.TextView{3a95b57d V.ED.... ... 69,0-101,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{2ab88c72 V.ED.... ... 101,1-129,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{3d8ab8c3 V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{222e4540 V.E...C. ... 2311,0-2737,317}
-                          android.widget.TextView{364d2c79 V.ED.... ... 134,41-291,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{fefdbe V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{1cd61e1f V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{2f52756c V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{36b1735 V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{3da937ca G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{487d3b V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{ba77c58 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{242f1b1 V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{3c0b0696 V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{1ab7b217 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{2d440604 V.ED.... ... 28,0-114,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{2ae3f7ed V.ED.... ... 114,0-170,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{26e8f622 V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{c7b58b3 V.E..... ... 214,0-412,38}
-                              android.widget.TextView{32fd7e70 V.ED.... ... 55,0-87,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{2d1525e9 V.ED.... ... 87,1-143,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{1ec4526e V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{19c8cd0f V.E...C. ... 2765,0-3191,317}
-                          android.widget.TextView{1194119c V.ED.... ... 59,41-366,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{141137a5 V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{38e7277a V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{2acf2b2b V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{279eab88 V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{2a02a921 G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{23304146 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{31934f07 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{2436f834 V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{173fb65d V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{389f2bd2 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{118bd4a3 V.ED.... ... 14,0-155,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{2c6563a0 V.ED.... ... 155,0-183,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{39465b59 V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{12a0331e V.E..... ... 214,0-412,38}
-                              android.widget.TextView{24fd17ff V.ED.... ... 61,0-109,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{2b4d19cc V.ED.... ... 109,1-137,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{2d785415 V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                        android.widget.LinearLayout{2318632a V.E...C. ... 3219,0-3645,317}
-                          android.widget.TextView{3c15351b V.ED.... ... 108,41-317,90 #7f0f028b app:id/txt_product_displayname}
-                          com.lufax.android.v2.app.other.ui.wideget.PercentageView{391806b8 V.E..... ... 141,111-285,189 #7f0f027a app:id/ratiovalue}
-                            android.widget.TextView{b971c91 V.ED.... ... 0,20-0,73}
-                            android.widget.TextView{233187f6 V.ED.... ... 0,0-114,78}
-                            android.widget.TextView{31c807f7 V.ED.... ... 114,18-144,74}
-                            android.widget.TextView{4a2d664 G.ED.... ... 0,0-0,0}
-                            android.widget.TextView{bfff0cd V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{22e62d82 V.ED.... ... 144,20-144,73}
-                            android.widget.TextView{326b2c93 V.ED.... ... 144,20-144,73}
-                          android.widget.LinearLayout{2be8f4d0 V.E..... ... 0,203-426,241}
-                            android.widget.LinearLayout{15a7ccc9 V.E..... ... 13,0-211,38}
-                              android.widget.TextView{54d9fce V.ED.... ... 42,0-128,38 #7f0f028c app:id/txt_invest_amount}
-                              android.widget.TextView{1011feef V.ED.... ... 128,0-156,38 #7f0f028d app:id/txt_invest_amount_unit}
-                            android.view.View{2f308dfc V.ED.... ... 211,5-214,33}
-                            android.widget.LinearLayout{2fd76c85 V.E..... ... 214,0-412,38}
-                              android.widget.TextView{35a7eada V.ED.... ... 69,0-101,38 #7f0f028e app:id/txt_termorfeevalue}
-                              android.widget.TextView{a99b0b V.ED.... ... 101,1-129,39 #7f0f028f app:id/txt_termorfeevalueUnit}
-                          android.widget.TextView{2af68de8 V.ED.... ... 0,262-426,317 #7f0f0290 app:id/txt_promowords}
-                    com.lufax.android.common.widget.WrapLayout{13a74c01 V.E...C. ... 0,2815-1080,2953 #7f0f0fd4 app:id/bottom_settings_layout}
-                      android.widget.TextView{2129daa6 V.ED.... ... 41,41-1000,97}
-                      extra.view.IconFontTextView{21d4dce7 V.ED.... ... 1000,46-1039,91}
-                    android.view.ViewStub{49aa094 G.E..... ... 0,0-0,0 #7f0f0fd5}
-                    android.view.ViewStub{193ba73d G.E..... ... 0,0-0,0 #7f0f0fd6}
-                    android.view.ViewStub{188fb32 G.E..... ... 0,0-0,0 #7f0f0fd7}
-                    android.view.View{1e886083 V.ED.... ... 0,2953-1,3008}
-                com.lufax.android.common.widget.NestRefreshLayout{378f5f6d V.E..... ... 0,0-1080,1593}
-                  com.lufax.android.common.widget.DefaultRefreshIndicator{35cb3200 G.E..... ... 0,0-0,0}
-                    android.widget.ProgressBar{3cc07a39 V.ED.... ... 0,0-0,0}
-                    android.widget.TextView{447987e V.ED.... ... 0,0-0,0}
-                  com.lufax.android.common.widget.ArcProgressIndicator{22cdc97 G.ED.... ... 0,0-0,0}
-                  com.lufax.android.common.widget.PageScrollView{1a0bcc33 V.E..... ... 0,138-1080,1593}
-                    com.lufax.android.kotlin.subassembly.NavClassifyGridView{ed01e5 V.E..... ... 0,0-1080,456}
-                      com.lufax.android.common.widget.WrapLayout{126681df V.E...C. ... 28,39-284,218}
-                        com.facebook.drawee.view.SimpleDraweeView{2cdcbe8b V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{68dab68 V.ED.... ... 90,113-166,165}
-                      com.lufax.android.common.widget.WrapLayout{22b16e2c V.E...C. ... 284,39-540,218}
-                        com.facebook.drawee.view.SimpleDraweeView{2efbdb81 V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{4e3f426 V.ED.... ... 90,113-166,165}
-                      com.lufax.android.common.widget.WrapLayout{372580f5 V.E...C. ... 540,39-796,218}
-                        com.facebook.drawee.view.SimpleDraweeView{4d6b867 V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{2461614 V.ED.... ... 90,113-166,165}
-                      com.lufax.android.common.widget.WrapLayout{1ac0be8a V.E...C. ... 796,39-1052,218}
-                        com.facebook.drawee.view.SimpleDraweeView{3a09aebd V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{c8b2cb2 V.ED.... ... 90,113-166,165}
-                      com.lufax.android.common.widget.WrapLayout{6db5cfb V.E...C. ... 28,246-284,425}
-                        com.facebook.drawee.view.SimpleDraweeView{28c7403 V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{1e787f80 V.ED.... ... 33,113-223,165}
-                      android.widget.FrameLayout{26dd4118 V.E...C. ... 284,232-540,428}
-                        com.lufax.android.common.widget.WrapLayout{3efb61fe V.E..... ... 0,13-256,192}
-                          com.facebook.drawee.view.SimpleDraweeView{31584d5f V.ED.... ... 84,14-172,102}
-                          android.widget.TextView{20a613ac V.ED.... ... 52,113-204,165}
-                        com.lufax.android.common.widget.ColumnLayout{d2779b9 V.E..... ... 0,0-256,47}
-                          android.widget.Space{269a3771 I.ED.... ... 0,23-1,24}
-                          android.widget.TextView{23bcf875 V.ED.... ... 128,0-203,47}
-                      com.lufax.android.common.widget.WrapLayout{3ef43956 V.E...C. ... 540,246-796,425}
-                        com.facebook.drawee.view.SimpleDraweeView{2aa7a00a V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{dde607b V.ED.... ... 90,113-166,165}
-                      com.lufax.android.common.widget.WrapLayout{25f8cdd7 V.E...C. ... 796,246-1052,425}
-                        com.facebook.drawee.view.SimpleDraweeView{336be98 V.ED.... ... 84,14-172,102}
-                        android.widget.TextView{df1a6f1 V.ED.... ... 90,113-166,165}
-                    com.lufax.android.kotlin.subassembly.NavCategoryView{4f156c4 G.E..... ... 0,0-0,0}
-                      com.lufax.android.common.widget.WrapLayout{2c9d9ad V.E..... ... 0,0-0,0}
-                        android.widget.TextView{391294e2 V.ED.... ... 0,0-0,0}
-                        extra.view.IconFontTextView{3f127073 G.ED.... ... 0,0-0,0}
-                      android.widget.TextView{250f1b30 G.ED.... ... 0,0-0,0}
-                      com.lufax.android.common.widget.ColumnLayout{18d763a9 V.E..... ... 0,0-0,0}
-                    com.lufax.android.kotlin.subassembly.NavCategoryView{22616a87 V.E..... ... 0,456-1080,903}
-                      com.lufax.android.common.widget.WrapLayout{3bde0b95 V.E..... ... 41,69-1080,144}
-                        android.widget.TextView{3330789b V.ED.... ... 0,0-1028,75}
-                        extra.view.IconFontTextView{31c91d2e G.ED.... ... 0,0-0,0}
-                      android.widget.TextView{3919a0cf G.ED.... ... 0,0-0,0}
-                      com.lufax.android.common.widget.ColumnLayout{2f5084aa V.E..... ... 0,144-1080,447}
-                        com.lufax.android.kotlin.subassembly.FinanceCardItemView{3344c438 V.E...C. ... 41,28-526,303}
-                          android.widget.FrameLayout{3807ec49 V.E..... ... 0,0-485,275}
-                            android.widget.ImageView{2b71ea6f V.ED.... ... 320,121-485,275}
-                            com.lufax.android.common.widget.WrapLayout{ed4094e V.E..... ... 28,35-457,240}
-                              android.widget.TextView{35c8d37c V.ED.... ... 0,0-210,56}
-                              android.widget.TextView{24da0405 V.ED.... ... 0,56-375,104}
-                              android.widget.TextView{e02ba5c V.ED.... ... 0,104-124,167}
-                              android.widget.TextView{b199165 V.ED.... ... 0,167-189,205}
-                        com.lufax.android.kotlin.subassembly.FinanceCardItemView{360cc11 V.E...C. ... 554,28-1039,303}
-                          android.widget.FrameLayout{148a4176 V.E..... ... 0,0-485,275}
-                            android.widget.ImageView{49debe4 V.ED.... ... 325,74-485,275}
-                            com.lufax.android.common.widget.WrapLayout{36140377 V.E..... ... 28,35-457,239}
-                              android.widget.TextView{2b75184d V.ED.... ... 0,0-205,56}
-                              android.widget.TextView{6d0ff02 V.ED.... ... 0,56-429,103}
-                              android.widget.TextView{123b6013 V.ED.... ... 0,103-124,166}
-                              android.widget.TextView{3c3fe250 V.ED.... ... 0,166-162,204}
-                    com.lufax.android.kotlin.subassembly.NavCategoryView{1d4dde3a G.E..... ... 0,0-0,0}
-                      com.lufax.android.common.widget.WrapLayout{eb97aeb V.E..... ... 0,0-0,0}
-                        android.widget.TextView{52f2048 V.ED.... ... 0,0-0,0}
-                        extra.view.IconFontTextView{1096dee1 G.ED.... ... 0,0-0,0}
-                      android.widget.TextView{b2ba406 G.ED.... ... 0,0-0,0}
-                      com.lufax.android.common.widget.ColumnLayout{3032dac7 V.E..... ... 0,0-0,0}
-                    com.lufax.android.kotlin.subassembly.NavBannerView{3d59adb4 V.E...C. ... 41,972-1039,1160}
-                      com.facebook.drawee.view.SimpleDraweeView{40a9d52 V.ED.... ... 30,33-151,154}
-                      com.lufax.android.common.widget.WrapLayout{33e02823 V.E..... ... 179,33-776,155}
-                        android.widget.TextView{3703237f V.ED.... ... 0,0-163,63}
-                        android.widget.TextView{1460ff4c V.ED.... ... 0,74-385,122}
-                      com.lufax.android.common.widget.WrapLayout{10bdf120 V.E..... ... 776,73-968,115}
-                        android.widget.TextView{1f179ad9 V.ED.... ... 0,0-140,42}
-                        extra.view.IconFontTextView{b113c9e V.ED.... ... 157,3-192,38}
-                    com.lufax.android.v2.base.ui.widget.LufaxMaskView{3f53fddd V.E..... ... 0,1160-1080,4068}
-                      com.lufax.android.common.widget.WrapLayout{139f8f4 V.E..... ... 0,0-1080,2908}
-                        com.lufax.android.kotlin.subassembly.NavCategoryView{2027b2d6 V.E..... ... 0,0-1080,838}
-                          com.lufax.android.common.widget.WrapLayout{3041881d V.E..... ... 41,69-1080,144}
-                            android.widget.TextView{29aea427 V.ED.... ... 0,0-1028,75}
-                            extra.view.IconFontTextView{26cdfa92 G.ED.... ... 0,0-0,0}
-                          android.widget.TextView{26f85c63 V.ED.... ... 41,147-341,195}
-                          com.lufax.android.common.widget.ColumnLayout{1b77b060 V.E..... ... 0,195-1080,742}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{1289f6d4 V.E...C. ... 0,0-1080,305}
-                              com.lufax.android.common.widget.LabelLayout{2098c358 V.E..... ... 41,41-177,82}
-                                com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{25b72596 V.E...C. ... 0,0-136,41}
-                                  android.widget.LinearLayout{472e517 V.E..... ... 0,0-136,41 #7f0f072d app:id/finance_tag_root}
-                                    android.widget.LinearLayout{2d82bd04 V.E..... ... 0,0-136,41 #7f0f072e app:id/finance_tag_name_root}
-                                      extra.view.IconFontTextView{33f38919 G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
-                                      android.widget.TextView{2b59e2ed V.ED.... ... 0,3-136,38 #7f0f0730 app:id/finance_tag_name}
-                                    android.widget.TextView{34cd2dde G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
-                              com.lufax.android.common.widget.WrapLayout{1aa02cb1 V.E..... ... 41,104-1039,264}
-                                com.lufax.android.common.widget.WrapLayout{8b80522 V.E..... ... 0,0-998,90}
-                                  android.widget.TextView{3612a89c V.ED.... ... 0,0-427,90}
-                                  com.lufax.android.common.widget.WrapLayout{39f982a5 V.E..... ... 427,18-997,72}
-                                    extra.view.IconFontTextView{170a5bbf G.ED.... ... 0,0-0,0}
-                                    com.lufax.android.ui.SingleLineTextView{25a9167a V.ED.... ... 0,0-289,54}
-                                com.lufax.android.common.widget.WrapLayout{2236bbb3 V.E..... ... 0,104-998,160}
-                                  android.widget.TextView{1df0a570 V.ED.... ... 0,4-427,52}
-                                  com.lufax.android.common.widget.WrapLayout{367ec0e9 V.E..... ... 427,0-997,56}
-                                    android.widget.TextView{2ff5516e V.ED.... ... 0,0-164,56}
-                                    com.lufax.android.ui.SingleLineTextView{1357600f V.ED.... ... 197,0-379,56}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{29eae07d V.E...C. ... 0,305-1080,547}
-                              com.lufax.android.common.widget.LabelLayout{2c17728c G.E..... ... 0,0-0,0}
-                              com.lufax.android.common.widget.WrapLayout{715db72 V.E..... ... 41,41-1039,201}
-                                com.lufax.android.common.widget.WrapLayout{19575bc3 V.E..... ... 0,0-998,90}
-                                  android.widget.TextView{1d4a0779 V.ED.... ... 0,0-427,90}
-                                  com.lufax.android.common.widget.WrapLayout{7623cbe V.E..... ... 427,18-997,72}
-                                    extra.view.IconFontTextView{f2a9dd5 G.ED.... ... 0,0-0,0}
-                                    com.lufax.android.ui.SingleLineTextView{c49f11f V.ED.... ... 0,0-335,54}
-                                com.lufax.android.common.widget.WrapLayout{23f9ac40 V.E..... ... 0,104-998,160}
-                                  android.widget.TextView{1fed4c6c V.ED.... ... 0,4-427,52}
-                                  com.lufax.android.common.widget.WrapLayout{2cdaa235 V.E..... ... 427,0-997,56}
-                                    android.widget.TextView{208166ca V.ED.... ... 0,0-164,56}
-                                    com.lufax.android.ui.SingleLineTextView{ea6803b V.ED.... ... 197,0-302,56}
-                          com.lufax.android.kotlin.subassembly.ButtonView{18fa49ea V.E...C. ... 0,742-1080,838}
-                            android.widget.TextView{2a33ee2b V.ED.... ... 41,0-1039,96}
-                        com.lufax.android.kotlin.subassembly.NavCategoryView{30e88957 V.E..... ... 0,841-1080,1379}
-                          com.lufax.android.common.widget.WrapLayout{3a12f4db V.E..... ... 41,69-1080,149}
-                            android.widget.TextView{3d0f2b78 V.ED.... ... 0,2-935,77}
-                            extra.view.IconFontTextView{35844251 V.ED..C. ... 935,0-1028,80}
-                          android.widget.TextView{312b1ab6 V.ED.... ... 41,152-356,200}
-                          com.lufax.android.common.widget.ColumnLayout{304203b7 V.E..... ... 0,200-1080,442}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{3fc78724 V.E...C. ... 0,0-1080,242}
-                              com.lufax.android.common.widget.LabelLayout{1cf9b28d G.E..... ... 0,0-0,0}
-                              com.lufax.android.common.widget.WrapLayout{10c62c42 V.E..... ... 41,41-1039,201}
-                                com.lufax.android.common.widget.WrapLayout{2e92453 V.E..... ... 0,0-998,90}
-                                  android.widget.TextView{3187f190 V.ED.... ... 0,0-427,90}
-                                  com.lufax.android.common.widget.WrapLayout{27dbea89 V.E..... ... 427,18-997,72}
-                                    extra.view.IconFontTextView{290eca8e G.ED.... ... 0,0-0,0}
-                                    com.lufax.android.ui.SingleLineTextView{34d7b2af V.ED.... ... 0,0-497,54}
-                                com.lufax.android.common.widget.WrapLayout{1aa296bc V.E..... ... 0,104-998,160}
-                                  android.widget.TextView{328fa645 V.ED.... ... 0,4-427,52}
-                                  com.lufax.android.common.widget.WrapLayout{2a31019a V.E..... ... 427,0-997,56}
-                                    android.widget.TextView{3c76cacb V.ED.... ... 0,0-315,56}
-                                    com.lufax.android.ui.SingleLineTextView{146062a8 V.ED.... ... 348,0-494,56}
-                          com.lufax.android.kotlin.subassembly.ButtonView{10961c1 V.E...C. ... 0,442-1080,538}
-                            android.widget.TextView{290d9d66 V.ED.... ... 41,0-1039,96}
-                        com.lufax.android.kotlin.subassembly.NavCategoryView{3d252c44 V.E..... ... 0,1382-1080,2162}
-                          com.lufax.android.common.widget.WrapLayout{3b941ca4 V.E..... ... 41,69-1080,149}
-                            android.widget.TextView{3a548a7 V.ED.... ... 0,2-935,77}
-                            extra.view.IconFontTextView{1ad0154 V.ED..C. ... 935,0-1028,80}
-                          android.widget.TextView{9a25a0d V.ED.... ... 41,152-356,200}
-                          com.lufax.android.common.widget.ColumnLayout{49e7dc2 V.E..... ... 0,200-1080,684}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{37278a09 V.E...C. ... 0,0-1080,242}
-                              com.lufax.android.common.widget.LabelLayout{80958fd G.E..... ... 0,0-0,0}
-                              com.lufax.android.common.widget.WrapLayout{15c629f2 V.E..... ... 41,41-1039,201}
-                                com.lufax.android.common.widget.WrapLayout{309df40 V.E..... ... 0,0-998,90}
-                                  android.widget.TextView{2c9801ca V.ED.... ... 0,0-427,90}
-                                  com.lufax.android.common.widget.WrapLayout{39807f3b V.E..... ... 427,18-997,72}
-                                    extra.view.IconFontTextView{953c843 G.ED.... ... 0,0-0,0}
-                                    com.lufax.android.ui.SingleLineTextView{51c5658 V.ED.... ... 0,0-570,54}
-                                com.lufax.android.common.widget.WrapLayout{38b9be79 V.E..... ... 0,104-998,160}
-                                  android.widget.TextView{9b527be V.ED.... ... 0,4-427,52}
-                                  com.lufax.android.common.widget.WrapLayout{f32001f V.E..... ... 427,0-997,56}
-                                    android.widget.TextView{2b4daf6c V.ED.... ... 0,0-292,56}
-                                    com.lufax.android.ui.SingleLineTextView{350ec935 V.ED.... ... 325,0-453,56}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{13dab40e V.E...C. ... 0,242-1080,484}
-                              com.lufax.android.common.widget.LabelLayout{2682dec0 G.E..... ... 0,0-0,0}
-                              com.lufax.android.common.widget.WrapLayout{27cf1e2f V.E..... ... 41,41-1039,201}
-                                com.lufax.android.common.widget.WrapLayout{15bc5c3c V.E..... ... 0,0-998,90}
-                                  android.widget.TextView{213d36e6 V.ED.... ... 0,0-427,90}
-                                  com.lufax.android.common.widget.WrapLayout{e1787f9 V.E..... ... 427,18-997,72}
-                                    extra.view.IconFontTextView{f08f33e G.ED.... ... 0,0-0,0}
-                                    com.lufax.android.ui.SingleLineTextView{2f6fc3b1 V.ED.... ... 0,0-570,54}
-                                com.lufax.android.common.widget.WrapLayout{37b5bdc5 V.E..... ... 0,104-998,160}
-                                  android.widget.TextView{2392031a V.ED.... ... 0,4-427,52}
-                                  com.lufax.android.common.widget.WrapLayout{22396e4b V.E..... ... 427,0-997,56}
-                                    android.widget.TextView{2b110028 V.ED.... ... 0,0-310,56}
-                                    com.lufax.android.ui.SingleLineTextView{b397141 V.ED.... ... 343,0-494,56}
-                          com.lufax.android.kotlin.subassembly.ButtonView{7d8d7d3 V.E...C. ... 0,684-1080,780}
-                            android.widget.TextView{29485f10 V.ED.... ... 41,0-1039,96}
-                        com.lufax.android.kotlin.subassembly.NavCategoryView{1ce8c12d V.E..... ... 0,2165-1080,2908}
-                          com.lufax.android.common.widget.WrapLayout{fc42662 V.E..... ... 41,69-1080,149}
-                            android.widget.TextView{264971d1 V.ED.... ... 0,2-935,77}
-                            extra.view.IconFontTextView{6995436 V.ED..C. ... 935,0-1028,80}
-                          android.widget.TextView{e0a59f G.ED.... ... 0,0-0,0}
-                          com.lufax.android.common.widget.ColumnLayout{c0263f3 V.E..... ... 0,149-1080,647}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{16bd4329 V.E...C. ... 0,0-1080,242}
-                              com.lufax.android.common.widget.LabelLayout{a1726ec G.E..... ... 0,0-0,0}
-                              com.lufax.android.common.widget.WrapLayout{3c6ec12 V.E..... ... 41,41-1039,201}
-                                com.lufax.android.common.widget.WrapLayout{1f8c2fe3 V.E..... ... 0,0-998,90}
-                                  android.widget.TextView{15d3d555 V.ED.... ... 0,0-427,90}
-                                  com.lufax.android.common.widget.WrapLayout{2aefeb6a V.E..... ... 427,18-997,72}
-                                    extra.view.IconFontTextView{1fddb85b V.ED.... ... 0,3-50,50}
-                                    com.lufax.android.ui.SingleLineTextView{10f568f8 V.ED.... ... 50,0-570,54}
-                                com.lufax.android.common.widget.WrapLayout{11d9bde0 V.E..... ... 0,104-998,160}
-                                  android.widget.TextView{2cd04899 V.ED.... ... 0,4-427,52}
-                                  com.lufax.android.common.widget.WrapLayout{a23b75e V.E..... ... 427,0-997,56}
-                                    android.widget.TextView{23c7e73f V.ED.... ... 0,0-110,56}
-                                    com.lufax.android.ui.SingleLineTextView{3e4cd80c V.ED.... ... 143,0-387,56}
-                            com.lufax.android.kotlin.subassembly.FinanceItemView{33c246ae V.E...C. ... 0,242-1080,498}
-                              com.lufax.android.common.widget.LabelLayout{203faab5 G.E..... ... 0,0-0,0}
-                              com.lufax.android.common.widget.WrapLayout{13d54c4f V.E..... ... 41,41-1039,215}
-                                com.lufax.android.common.widget.WrapLayout{32bbfdc V.E..... ... 0,20-427,153}
-                                  android.widget.TextView{16ce2e74 V.ED.... ... 0,0-321,71}
-                                  android.widget.TextView{29a94f9d V.ED.... ... 0,85-246,133}
-                                com.lufax.android.common.widget.WrapLayout{2e3de8e5 V.E..... ... 427,0-997,174}
-                                  com.lufax.android.common.widget.WrapLayout{13701fba V.E..... ... 0,0-267,54}
-                                    extra.view.IconFontTextView{1e1d054a G.ED.... ... 0,0-0,0}
-                                    com.lufax.android.ui.SingleLineTextView{3a692e61 V.ED.... ... 0,0-267,54}
-                                  com.lufax.android.ui.SingleLineTextView{b33fcbb G.ED.... ... 0,0-0,0}
-                                  com.lufax.android.common.widget.WrapLayout{34445e6b V.E..... ... 0,62-382,118}
-                                    android.widget.TextView{2af07d86 V.ED.... ... 0,0-87,56}
-                                    com.lufax.android.ui.SingleLineTextView{2a487647 V.ED.... ... 120,0-382,56}
-                                  android.widget.TextView{7a2fdc8 V.ED.... ... 0,126-164,174}
-                          com.lufax.android.kotlin.subassembly.ButtonView{186ac8b0 V.E...C. ... 0,647-1080,743}
-                            android.widget.TextView{1eb57f37 V.ED.... ... 41,0-1039,96}
-                    com.lufax.android.common.widget.WrapLayout{fc5c5d8 G.E..... ... 0,0-0,0}
-                      android.widget.TextView{168d3d31 G.ED..C. ... 0,0-0,0}
-                      android.widget.TextView{27ae2c16 G.ED..C. ... 0,0-0,0}
-                    android.widget.Space{259ba997 I.ED.... ... 0,4068-1,4164}
-                  extra.view.TitleView{126d07a2 V.E..... ... 0,0-1080,138}
-                    android.widget.LinearLayout{39cf8569 V.E..... ... 0,0-1080,138}
-                      android.view.View{3037fbee V.ED.... ... 0,0-1080,0 #7f0f0cb2 app:id/view_top_padding}
-                      android.widget.RelativeLayout{1eacf88f V.E..... ... 0,0-1080,138}
-                        android.widget.RelativeLayout{32bd6784 G.E...C. ... 0,0-0,0 #7f0f1230 app:id/title_bar_left_container}
-                          extra.view.DefaultTitleViewLeftView{24477b6d V.ED.... ... 0,0-0,0 #7f0f0240 app:id/title_bar_left_tv}
-                        android.widget.RelativeLayout{23223112 V.E..... ... 144,0-936,138 #7f0f14b7 app:id/title_bar_middle_container}
-                          android.widget.TextView{3babe8fa V.ED.... ... 346,0-446,138 #7f0f0242 app:id/title_bar_title_tv}
-                        android.widget.RelativeLayout{1ed20f25 V.E..... ... 936,0-1080,138 #7f0f14b8 app:id/title_bar_right_container}
-                          android.widget.LinearLayout{348a8eab V.E..... ... 0,0-144,138}
-                            com.lufax.android.ui.WrapCornerView{19b90908 V.E...C. ... 0,0-116,138}
-                              android.widget.TextView{18b978a1 V.ED.... ... 28,42-88,97 #7f0f12b5 app:id/iconView}
-                              android.widget.TextView{373f9ac6 V.ED.... ... 80,34-97,51 #7f0f12b6 app:id/numberView}
-                      android.view.View{10fb971c V.ED.... ... 0,138-1080,138 #7f0f14ba app:id/view_bottom_padding}
-                  com.lufax.android.v2.base.ui.widget.LufaxMaskView{11afabf0 V.E..... ... 0,138-1080,1373}
-              com.lufax.android.ui.HomeBottomBar{10665b84 V.E..... ... 0,1593-1080,1731 #7f0f0452 app:id/bottombar}
-                android.widget.LinearLayout{1d58f3a2 V.E..... ... 0,0-1080,138}
-                  android.widget.ImageView{2aefb288 V.ED.... ... 0,0-1080,1}
-                  android.widget.LinearLayout{2da4a421 V.E..... ... 0,1-1080,138}
-                    android.widget.RelativeLayout{2ba22046 V.E...C. ... 0,0-270,137 #7f0f13f0 app:id/layout_bottombar1}
-                      android.widget.TextView{39f04aa0 V.ED.... ... 104,17-165,78 #7f0f13f1 app:id/ib_bottombar1}
-                      android.widget.TextView{39ccb659 V.ED.... ... 107,81-163,119 #7f0f13f2 app:id/tv_bottombar1}
-                    android.widget.RelativeLayout{36014207 V.E...C. ... 270,0-540,137 #7f0f13f3 app:id/layout_bottombar2}
-                      android.widget.TextView{241f70cc V.ED.... .S. 104,17-165,78 #7f0f13f4 app:id/ib_bottombar2}
-                      android.widget.TextView{3f895f15 V.ED.... .S. 107,81-163,119 #7f0f13f5 app:id/tv_bottombar2}
-                    android.widget.RelativeLayout{39116f34 V.E...C. ... 540,0-810,137 #7f0f13f6 app:id/layout_bottombar3}
-                      android.widget.TextView{1d8ef21e V.ED.... ... 104,17-165,78 #7f0f13f7 app:id/ib_bottombar3}
-                      android.widget.TextView{4d66aff V.ED.... ... 107,81-163,119 #7f0f13f8 app:id/tv_bottombar3}
-                    android.widget.RelativeLayout{1286615d V.E...C. ... 810,0-1080,137 #7f0f13f9 app:id/layout_bottombar4}
-                      android.widget.TextView{3fcffad2 V.ED.... ... 104,17-165,78 #7f0f13fa app:id/ib_bottombar4}
-                      android.widget.TextView{1a65f7a3 V.ED.... ... 107,81-163,119 #7f0f13fb app:id/tv_bottombar4}
-            com.pingan.anydoor.anydoorui.nativeui.a{2a674833 I.E..... ... 0,138-1080,1593}
-              com.pingan.anydoor.anydoorui.nativeui.frame.ADFrameView{16b78c84 V.E..... ... 0,0-1080,1455}
-                com.pingan.anydoor.anydoorui.nativeui.frame.centerscreen.ADCenterScreenView{3c6405bb V.E..... ... 0,0-1080,1455}
-                  com.pingan.anydoor.anydoorui.nativeui.frame.centerscreen.b{106b77f0 V.E..... ... 0,1221-1080,1455}
-                    com.pingan.anydoor.anydoorui.nativeui.frame.centerscreen.a{1549f652 V.E..... ... 0,0-1080,234}
-                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{130c8c68 V.E...C. ... 0,0-234,234}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{2fed6169 V.ED.... ... 0,0-234,234}
-                        android.widget.TextView{3bf6a7ee V.ED.... ... 12,78-168,114}
-                        android.widget.TextView{3f44348f V.ED.... ... 12,12-166,78}
-                        android.widget.TextView{2da8231c V.ED.... ... 0,181-0,234}
-                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{2f8fa881 V.E...C. ... 243,0-477,234}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{2ef1ab25 V.ED.... ... 0,0-234,234}
-                        android.widget.TextView{22a954fa V.ED.... ... 12,78-194,114}
-                        android.widget.TextView{d598aab V.ED.... ... 12,12-206,78}
-                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{1a483d26 V.E...C. ... 486,0-720,234}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{22a25508 V.ED.... ... 0,0-234,234}
-                        android.widget.TextView{136d4a1 V.ED.... ... 12,78-163,114}
-                        android.widget.TextView{ea7c6c6 V.ED.... ... 12,12-208,78}
-                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{24c7cd67 V.E...C. ... 729,0-963,234}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{1f242687 V.ED.... ... 0,0-234,234}
-                        android.widget.TextView{198bb9b4 V.ED.... ... 12,78-194,114}
-                        android.widget.TextView{84b19dd V.ED.... ... 12,12-208,78}
-                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{e520714 V.E...C. ... 972,0-1206,234}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{7c98952 V.ED.... ... 0,0-234,234}
-                        android.widget.TextView{12a423 V.ED.... ... 12,78-194,114}
-                        android.widget.TextView{c04bd20 V.ED.... ... 12,12-208,78}
-                com.pingan.anydoor.anydoorui.nativeui.frame.a.a{14a2c5a1 V.ED.... ... 0,0-1080,1455}
-                  com.pingan.anydoor.anydoorui.nativeui.frame.a.b{366476d9 V.E..... ... 0,1406-1080,1455}
-                com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.ADLeftScreenView{33420a2 V.ED.... ... 0,0-1080,1455}
-                  com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.AppMaskView{1e6f7133 VFED.V.. ... 0,0-1080,1221}
-                    com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.AppView{9d2e89e V.E..... ... 0,0-1080,1221}
-                      android.widget.LinearLayout{39e15f7f V.E..... ... 114,737-323,1216}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{2e31c0c3 V.E...C. ... 0,4-209,273}
-                          android.widget.RelativeLayout{2b488b4c V.E..... ... 0,0-209,269}
-                            android.widget.ImageView{111ca795 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{3680f0aa V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
-                              android.widget.ImageView{bb6749b V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
-                            android.widget.ImageView{1f191038 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
-                            android.widget.TextView{23ed2811 V.ED.... ... 23,23-146,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{1c556d76 V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{36fdbf77 I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{2ae23e41 V.E...C. ... 0,277-209,479}
-                          android.widget.RelativeLayout{76af7e4 V.E..... ... 0,0-209,202}
-                            android.widget.ImageView{1e6b344d V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{1e22eb02 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
-                              android.widget.ImageView{3e04dc13 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
-                            android.widget.ImageView{2cd1ae50 V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
-                            android.widget.TextView{1a43c849 V.ED.... ... 23,23-146,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{758b54e V.ED.... ... 23,79-184,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{3057266f I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
-                      android.widget.LinearLayout{bab5f7c V.E..... ... 328,737-537,1216}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{3999df35 V.E...C. ... 0,4-209,206}
-                          android.widget.RelativeLayout{4f7a005 V.E..... ... 0,0-209,202}
-                            android.widget.ImageView{190ed85a V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{20d9ba8b V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
-                              android.widget.ImageView{260cf768 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
-                            android.widget.ImageView{29573781 V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
-                            android.widget.TextView{1bd22026 V.ED.... ... 23,23-187,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{21a77467 V.ED.... ... 23,79-184,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{86e2214 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{34f4bc1a V.E...C. ... 0,210-209,479}
-                          android.widget.RelativeLayout{14becabd V.E..... ... 0,0-209,269}
-                            android.widget.ImageView{23018b2 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{21acf003 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
-                              android.widget.ImageView{2d154b80 V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
-                            android.widget.ImageView{141255b9 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
-                            android.widget.TextView{28030dfe V.ED.... ... 23,23-146,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{804895f V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{2a439fac I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
-                      android.widget.LinearLayout{4799475 V.E..... ... 542,531-751,1216}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{14303a17 V.E...C. ... 0,4-209,206}
-                          android.widget.RelativeLayout{3a7e0c0a V.E..... ... 0,0-209,202}
-                            android.widget.ImageView{29125c7b V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{17210a98 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
-                              android.widget.ImageView{33dc02f1 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
-                            android.widget.ImageView{14f8ded6 V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
-                            android.widget.TextView{31604557 V.ED.... ... 23,23-146,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{13683844 V.ED.... ... 23,79-186,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{d1cdd2d I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{46ee7d4 V.E...C. ... 0,210-209,479}
-                          android.widget.RelativeLayout{1e7c1262 V.E..... ... 0,0-209,269}
-                            android.widget.ImageView{2239dff3 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{1dd294b0 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
-                              android.widget.ImageView{c171f29 V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
-                            android.widget.ImageView{340cf2ae V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
-                            android.widget.TextView{3c08884f V.ED.... ... 23,23-187,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{25444bdc V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{355984e5 I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{13e3932f V.E...C. ... 0,483-209,685}
-                          android.widget.RelativeLayout{2bb98bba V.E..... ... 0,0-209,202}
-                            android.widget.ImageView{326f5a6b V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{b849c8 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
-                              android.widget.ImageView{da28a61 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
-                            android.widget.ImageView{3c64a986 V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
-                            android.widget.TextView{6273247 V.ED.... ... 23,23-187,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{39ec3a74 V.ED.... ... 23,79-184,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{d1c6b9d I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
-                      android.widget.LinearLayout{1651d812 V.E..... ... 756,464-965,1216}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{1d9ae458 V.E...C. ... 0,4-209,273}
-                          android.widget.RelativeLayout{209aabe3 V.E..... ... 0,0-209,269}
-                            android.widget.ImageView{16cc89e0 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{a592499 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
-                              android.widget.ImageView{3871635e V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
-                            android.widget.ImageView{d42233f V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
-                            android.widget.TextView{da0640c V.ED.... ... 23,23-104,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{190e7155 V.ED.... ... 23,79-186,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{e6c576a I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{38f7a5be V.E...C. ... 0,277-209,479}
-                          android.widget.RelativeLayout{2cbfb45b V.E..... ... 0,0-209,202}
-                            android.widget.ImageView{ff5b4f8 V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{1891cdd1 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
-                              android.widget.ImageView{23708036 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
-                            android.widget.ImageView{3dbb3b37 V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
-                            android.widget.TextView{184d28a4 V.ED.... ... 23,23-187,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{2e14760d V.ED.... ... 23,79-186,138 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{35bc69c2 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
-                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{18d92010 V.E...C. ... 0,483-209,752}
-                          android.widget.RelativeLayout{177e53d3 V.E..... ... 0,0-209,269}
-                            android.widget.ImageView{26862b10 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
-                            android.widget.RelativeLayout{269f6609 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
-                              android.widget.ImageView{36eb600e V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
-                            android.widget.ImageView{32505a2f V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
-                            android.widget.TextView{170ae83c V.ED.... ... 23,23-146,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{3ccf59c5 V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{5016f1a I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
-                  com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.PCenterView{2a62ecf0 V.E..... ... 0,1221-1080,1455}
-                    com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.PCenterPluginContainer{19926a4b V.E..... ... 0,0-979,234}
-                      com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.b{bc4c28 V.E...C. ... 0,0-392,234}
-                        android.widget.LinearLayout{3e50cd41 V.E..... ... 0,48-392,185}
-                          android.widget.RelativeLayout{283762e6 V.E..... ... 0,0-176,137 #7f0f12b7 app:id/rl1}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.c{239b6027 V.ED.... ... 39,0-176,137}
-                          android.widget.RelativeLayout{59e02d4 V.E..... ... 176,15-333,122 #7f0f12b8 app:id/rl2}
-                            android.widget.TextView{d1bfc7d V.ED.... ... 25,0-157,45 #7f0f12b9 app:id/rym_t1}
-                            android.widget.TextView{2186c772 V.ED.... ... 25,45-117,107 #7f0f12ba app:id/rym_t2}
-                          android.widget.TextView{b53d7c3 G.ED.... ... 0,0-0,0 #7f0f12bb app:id/rym_name}
-                      android.widget.LinearLayout{2427840 V.E..... ... 392,0-979,234}
-                        android.widget.LinearLayout{3870e379 V.E..... ... 0,43-587,190}
-                          android.widget.RelativeLayout{15f5e8be V.E...C. ... 0,0-290,147 #7f0f12b7 app:id/rl1}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.a{7922d1f V.E..... ... 158,0-290,147}
-                              android.widget.ImageView{7f6d86c V.ED.... ... 23,0-109,86}
-                              android.widget.TextView{29933e35 V.ED.... ... 0,102-132,147}
-                          android.widget.RelativeLayout{22a3d2ca V.E...C. ... 290,0-587,147 #7f0f12b8 app:id/rl2}
-                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.a{3c367c3b V.E..... ... 99,0-198,147}
-                              android.widget.ImageView{daf0f58 V.ED.... ... 6,0-92,86}
-                              android.widget.TextView{204688b1 V.ED.... ... 0,102-99,147}
-                    com.pingan.anydoor.anydoorui.nativeui.maskview.a{25945196 V.ED.... ... 979,0-1080,234}
-              com.pingan.anydoor.anydoorui.nativeui.maskview.ADMaskView{34434297 V.E..... ... 0,0-1080,1455}
-                com.pingan.anydoor.anydoorui.nativeui.maskview.InfoBar{21f03269 I.E..... ... 0,1363-1080,1455 #2}
-                  android.widget.LinearLayout{2106a117 V.E..... ... 0,0-1080,10}
-                  android.widget.ViewFlipper{3b1c904 V.E..... ... 0,10-1080,92}
-        android.view.View{90779d8 V.ED.... ... 0,0-1080,73 #102002f android:id/statusBarBackground}
+      com.android.internal.policy.impl.PhoneWindow$DecorView{351902c V.E..... ... 0,0-1080,1800}
+        android.widget.LinearLayout{29b74a0f V.E..... ... 0,0-1080,1800}
+          android.view.ViewStub{31affaf5 G.E..... ... 0,0-0,0 #1020374}
+          android.widget.FrameLayout{2e147ca5 V.E..... ... 0,69-1080,1800 #1020002 android:id/content}
+            android.widget.LinearLayout{2951887a V.E..... ... 0,0-1080,1731}
+              android.widget.FrameLayout{37a8782b V.E..... ... 0,0-1080,1593 #7f0f0451 app:id/tab_fragment_container}
+                android.widget.RelativeLayout{27e6ad32 G.E..... ... 0,0-1080,1593}
+                  com.lufax.android.common.widget.NestRefreshLayout{14e2b08a V.E..... ... 0,138-1080,1593 #7f0f0bc0 app:id/home_nest}
+                    com.lufax.android.common.widget.DefaultRefreshIndicator{b0b66fb G.E..... ... 0,0-0,0}
+                      android.widget.ProgressBar{e5d8318 V.ED.... ... 0,0-0,0}
+                      android.widget.TextView{18525171 V.ED.... ... 0,0-0,0}
+                    com.lufax.android.common.widget.ArcProgressIndicator{1e434b56 G.ED.... ... 0,0-0,0}
+                    android.support.v7.widget.RecyclerView{3e1f77d7 VFED.... ... 0,0-1080,1455 #7f0f0bc1 app:id/home_root}
+                      com.lufax.android.ui.AutoScrollBanner{1133b8c4 V.E..... ... 41,14-1039,332 #7f0f03ce app:id/auto_scroll_banner}
+                        com.lufax.android.ui.AutoScrollViewPager{e993ad VFED.... ... 0,0-998,318 #7f0f03cf app:id/auto_scroll_pager}
+                          com.lufax.android.v2.app.home.widget.AdvImage{3340c6e2 V.ED..C. ... 0,0-998,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{3f9ba73 V.ED..C. ... -998,0-0,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{30159d30 V.ED..C. ... 998,0-1996,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{1238bda9 V.ED..C. ... 0,0-998,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{25a86f2e V.ED..C. ... -998,0-0,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{62b8acf V.ED..C. ... 998,0-1996,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{fef5c5c V.ED..C. ... 18962,0-19960,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{2368b65 V.ED..C. ... 19960,0-20958,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{4d0503a V.ED..C. ... 15968,0-16966,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{c0004eb V.ED..C. ... 16966,0-17964,318}
+                          com.lufax.android.v2.app.home.widget.AdvImage{1643e248 V.ED..C. ... 17964,0-18962,318}
+                        com.lufax.android.ui.PageIndicator{358978e1 V.E..... ... 820,285-970,299 #7f0f03d0 app:id/page_indicator}
+                          android.widget.LinearLayout{d633606 V.E..... ... 0,0-150,14 #7f0f1400 app:id/indicator_container}
+                            android.widget.ImageView{3c5804c7 V.ED.... ... 8,0-22,14}
+                            android.widget.ImageView{3bd8daf4 V.ED.... ... 38,0-52,14}
+                            android.widget.ImageView{1ac3c21d V.ED.... ... 68,0-82,14}
+                            android.widget.ImageView{9ecac92 V.ED.... ... 98,0-112,14}
+                            android.widget.ImageView{21462663 V.ED.... ... 128,0-142,14}
+                      com.lufax.android.kotlin.subassembly.NavClassifyGridView{153455b V.E..... ... 0,332-1079,788}
+                        com.lufax.android.common.widget.WrapLayout{1e22b260 V.E...C. ... 108,39-288,218}
+                          com.facebook.drawee.view.SimpleDraweeView{3d5f6319 V.ED.... ... 46,14-134,102}
+                          android.widget.TextView{3024ffde V.ED.... ... 14,113-166,165}
+                        com.lufax.android.common.widget.WrapLayout{96ac5bf V.E...C. ... 449,39-629,218}
+                          com.facebook.drawee.view.SimpleDraweeView{3b70948c V.ED.... ... 46,14-134,102}
+                          android.widget.TextView{c7a17d5 V.ED.... ... 14,113-166,165}
+                        com.lufax.android.common.widget.WrapLayout{6fd3bea V.E...C. ... 809,39-951,218}
+                          com.facebook.drawee.view.SimpleDraweeView{230ffedb V.ED.... ... 27,14-115,102}
+                          android.widget.TextView{5d86d78 V.ED.... ... 14,113-128,165}
+                        com.lufax.android.common.widget.WrapLayout{11515c51 V.E...C. ... 108,246-288,425}
+                          com.facebook.drawee.view.SimpleDraweeView{216b2cb6 V.ED.... ... 46,14-134,102}
+                          android.widget.TextView{2d05adb7 V.ED.... ... 14,113-166,165}
+                        com.lufax.android.common.widget.WrapLayout{38e2e924 V.E...C. ... 449,246-629,425}
+                          com.facebook.drawee.view.SimpleDraweeView{117e6c8d V.ED.... ... 46,14-134,102}
+                          android.widget.TextView{39f55e42 V.ED.... ... 14,113-166,165}
+                        android.widget.FrameLayout{193d6e53 V.E...C. ... 710,232-1050,428}
+                          com.lufax.android.common.widget.WrapLayout{1df77390 V.E..... ... 80,13-260,192}
+                            com.facebook.drawee.view.SimpleDraweeView{18f24489 V.ED.... ... 46,14-134,102}
+                            android.widget.TextView{3aff1c8e V.ED.... ... 14,113-166,165}
+                          com.lufax.android.common.widget.ColumnLayout{3d269caf V.E..... ... 0,0-340,47}
+                            android.widget.Space{2b8838bc I.ED.... ... 0,23-1,24}
+                            android.widget.TextView{27b1a045 V.ED.... ... 170,0-245,47}
+                      com.lufax.android.v2.app.home.widget.HomeFlipLyt{3fd4739a V.E..... ... 41,789-1039,927 #7f0f0bed app:id/home_flip}
+                        com.facebook.drawee.view.SimpleDraweeView{2bca54cb V.ED.... ... 0,41-184,96 #7f0f0bee app:id/home_flip_icon}
+                        com.lufax.android.v2.app.other.ui.wideget.MarqueeView{2afe24a8 V.E..... ... 225,0-998,138 #7f0f0bef app:id/home_flip_marquee}
+                          android.widget.TextView{3f50fbc1 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{1a762f66 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{15a772a7 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{1164e354 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{c3092fd G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{2a25dbf2 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{a4e9243 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{36d6e0c0 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{267861f9 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{eb1c53e G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{37be0f9f G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{18a948ec G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{26d424b5 G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{480f74a G.ED..C. ... 0,0-773,138}
+                          android.widget.TextView{37e06bb V.ED..C. ... 0,0-773,138}
+                      com.lufax.android.common.widget.LufaxHeaderItem{125807d8 V.E..... ... 41,997-1039,1123}
+                        android.widget.TextView{aef5731 V.ED.... ... 0,0-220,77 #7f0f0bc3 app:id/home_header_content}
+                        android.widget.RelativeLayout{355f3e16 G.E..... ... 0,0-0,0 #7f0f0bc4 app:id/collect_layout}
+                          android.widget.TextView{197c5397 V.ED.... ... 0,0-0,0 #7f0f0bc5 app:id/collect_tv}
+                          extra.view.IconFontTextView{3931c984 V.ED.... ... 0,0-0,0 #7f0f0bc6 app:id/collect_icon}
+                        android.widget.TextView{25b1356d V.ED..C. ... 846,0-954,77 #7f0f0bc7 app:id/home_header_swap}
+                        android.widget.TextView{a0925a2 V.ED..C. ... 965,0-998,77 #7f0f0bc8 app:id/home_header_icon}
+                        android.widget.TextView{ca89233 V.ED.... ... 0,77-297,126 #7f0f0bc9 app:id/home_header_desc}
+                        com.lufax.android.common.widget.DotDotDotView{6c3f9f0 G.ED..C. ... 0,0-0,0 #7f0f0bca app:id/home_header_set_top}
+                      com.lufax.android.kotlin.subassembly.FinanceItemView{1738bb69 V.E...C. ... 0,1123-1079,1428}
+                        com.lufax.android.common.widget.LabelLayout{877f9ee V.E..... ... 41,41-177,82}
+                          com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{25501e8f V.E..... ... 0,0-136,41}
+                            android.widget.LinearLayout{3e06c51c V.E..... ... 0,0-136,41 #7f0f072d app:id/finance_tag_root}
+                              android.widget.LinearLayout{898a525 V.E..... ... 0,0-136,41 #7f0f072e app:id/finance_tag_name_root}
+                                extra.view.IconFontTextView{aedc6fa G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
+                                android.widget.TextView{393a14ab V.ED.... ... 0,3-136,38 #7f0f0730 app:id/finance_tag_name}
+                              android.widget.TextView{37491708 G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
+                        com.lufax.android.common.widget.WrapLayout{27536ea1 V.E..... ... 41,104-1038,264}
+                          com.lufax.android.common.widget.WrapLayout{1bc158c6 V.E..... ... 0,0-997,90}
+                            android.widget.TextView{29835087 V.ED.... ... 0,0-427,90}
+                            com.lufax.android.common.widget.WrapLayout{3edc9bb4 V.E..... ... 427,18-997,72}
+                              extra.view.IconFontTextView{1c9753dd G.ED.... ... 0,0-0,0}
+                              com.lufax.android.ui.SingleLineTextView{1ea3b52 V.ED.... ... 0,0-432,54}
+                          com.lufax.android.common.widget.WrapLayout{223a6e23 V.E..... ... 0,104-997,160}
+                            android.widget.TextView{3281bf20 V.ED.... ... 0,4-427,52}
+                            com.lufax.android.common.widget.WrapLayout{3c3a50d9 V.E..... ... 427,0-997,56}
+                              android.widget.TextView{a4cba9e V.ED.... ... 0,0-110,56}
+                              com.lufax.android.ui.SingleLineTextView{37bbc97f V.ED.... ... 143,0-312,56}
+                      com.lufax.android.kotlin.subassembly.FinanceItemView{993ad4c V.E...C. ... 0,1429-1079,1734}
+                        com.lufax.android.common.widget.LabelLayout{27762195 V.E..... ... 41,41-177,82}
+                          com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{19c5e2aa V.E..... ... 0,0-136,41}
+                            android.widget.LinearLayout{3dcd7e9b V.E..... ... 0,0-136,41 #7f0f072d app:id/finance_tag_root}
+                              android.widget.LinearLayout{33f45238 V.E..... ... 0,0-136,41 #7f0f072e app:id/finance_tag_name_root}
+                                extra.view.IconFontTextView{1f644211 G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
+                                android.widget.TextView{13f77f76 V.ED.... ... 0,3-136,38 #7f0f0730 app:id/finance_tag_name}
+                              android.widget.TextView{347b6977 G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
+                        com.lufax.android.common.widget.WrapLayout{3bb859e4 V.E..... ... 41,104-1038,264}
+                          com.lufax.android.common.widget.WrapLayout{339ee4d V.E..... ... 0,0-997,90}
+                            android.widget.TextView{22d41d02 V.ED.... ... 0,0-427,90}
+                            com.lufax.android.common.widget.WrapLayout{26b32613 V.E..... ... 427,18-997,72}
+                              extra.view.IconFontTextView{15933050 G.ED.... ... 0,0-0,0}
+                              com.lufax.android.ui.SingleLineTextView{36442249 V.ED.... ... 0,0-289,54}
+                          com.lufax.android.common.widget.WrapLayout{2aeb074e V.E..... ... 0,104-997,160}
+                            android.widget.TextView{16a0106f V.ED.... ... 0,4-427,52}
+                            com.lufax.android.common.widget.WrapLayout{c03017c V.E..... ... 427,0-997,56}
+                              android.widget.TextView{29a39a05 V.ED.... ... 0,0-164,56}
+                              com.lufax.android.ui.SingleLineTextView{38744a5a V.ED.... ... 197,0-379,56}
+                  extra.view.TitleView{13c7448b V.E..... ... 0,0-1080,138 #7f0f0bc2 app:id/home_title}
+                    android.widget.LinearLayout{313cb968 V.E..... ... 0,0-1080,138}
+                      android.view.View{5c8d181 V.ED.... ... 0,0-1080,0 #7f0f0cb2 app:id/view_top_padding}
+                      android.widget.RelativeLayout{311cb226 V.E..... ... 0,0-1080,138}
+                        android.widget.RelativeLayout{16e39e67 G.E...C. ... 0,0-0,0 #7f0f1230 app:id/title_bar_left_container}
+                          extra.view.DefaultTitleViewLeftView{3d80414 V.ED.... ... 0,0-0,0 #7f0f0240 app:id/title_bar_left_tv}
+                        android.widget.RelativeLayout{3ca59146 V.E..... ... 144,0-936,138 #7f0f14b7 app:id/title_bar_middle_container}
+                          android.widget.TextView{2fb004bd V.ED.... ... 321,0-471,138 #7f0f0242 app:id/title_bar_title_tv}
+                        android.widget.RelativeLayout{1691cab2 V.E..... ... 936,0-1080,138 #7f0f14b8 app:id/title_bar_right_container}
+                          android.widget.LinearLayout{3f81ba03 V.E..... ... 0,0-144,138}
+                            com.lufax.android.ui.WrapCornerView{323b4d80 V.E...C. ... 0,0-116,138}
+                              android.widget.TextView{25dd2fb9 V.ED.... ... 28,42-88,97 #7f0f12b5 app:id/iconView}
+                              android.widget.TextView{25cddffe G.ED.... ... 0,0-0,0 #7f0f12b6 app:id/numberView}
+                      android.view.View{f5bf35f V.ED.... ... 0,138-1080,138 #7f0f14ba app:id/view_bottom_padding}
+                com.lufax.android.common.widget.NestRefreshLayout{21753e21 V.E..... ... 0,0-1080,1593}
+                  com.lufax.android.common.widget.DefaultRefreshIndicator{28c7c1ac G.E..... ... 0,0-0,0}
+                    android.widget.ProgressBar{31180e75 V.ED.... ... 0,0-0,0}
+                    android.widget.TextView{1f23fe0a V.ED.... ... 0,0-0,0}
+                  com.lufax.android.common.widget.ArcProgressIndicator{3f76667b G.ED.... ... 0,0-0,0}
+                  com.lufax.android.common.widget.PageScrollView{27346c07 V.E..... ... 0,138-1080,1593}
+                    com.lufax.android.kotlin.subassembly.NavClassifyGridView{120dd39f V.E..... ... 0,0-1080,456}
+                      com.lufax.android.common.widget.WrapLayout{1d92fc32 V.E...C. ... 28,39-284,218}
+                        com.facebook.drawee.view.SimpleDraweeView{16c54c98 V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{24e81cf1 V.ED.... ... 90,113-166,165}
+                      com.lufax.android.common.widget.WrapLayout{2118cd83 V.E...C. ... 284,39-540,218}
+                        com.facebook.drawee.view.SimpleDraweeView{30bf0d6 V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{afaef57 V.ED.... ... 90,113-166,165}
+                      com.lufax.android.common.widget.WrapLayout{1c7f9b00 V.E...C. ... 540,39-796,218}
+                        com.facebook.drawee.view.SimpleDraweeView{160e9a44 V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{2bd0972d V.ED.... ... 90,113-166,165}
+                      com.lufax.android.common.widget.WrapLayout{258f2f39 V.E...C. ... 796,39-1052,218}
+                        com.facebook.drawee.view.SimpleDraweeView{fae4462 V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{bd529f3 V.ED.... ... 90,113-166,165}
+                      com.lufax.android.common.widget.WrapLayout{1d70a97e V.E...C. ... 28,246-284,425}
+                        com.facebook.drawee.view.SimpleDraweeView{217d16b0 V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{1b4c7929 V.ED.... ... 33,113-223,165}
+                      android.widget.FrameLayout{3210bedf V.E...C. ... 284,232-540,428}
+                        com.lufax.android.common.widget.WrapLayout{b3044ae V.E..... ... 0,13-256,192}
+                          com.facebook.drawee.view.SimpleDraweeView{39ea8c71 V.ED.... ... 84,14-172,102}
+                          android.widget.TextView{300e6a56 V.ED.... ... 52,113-204,165}
+                        com.lufax.android.common.widget.ColumnLayout{50e724f V.E..... ... 0,0-256,47}
+                          android.widget.Space{614eddc I.ED.... ... 0,23-1,24}
+                          android.widget.TextView{3095ca18 V.ED.... ... 128,0-203,47}
+                      com.lufax.android.common.widget.WrapLayout{b8a7ee5 V.E...C. ... 540,246-796,425}
+                        com.facebook.drawee.view.SimpleDraweeView{2f0daad7 V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{2c296fc4 V.ED.... ... 90,113-166,165}
+                      com.lufax.android.common.widget.WrapLayout{26bffdba V.E...C. ... 796,246-1052,425}
+                        com.facebook.drawee.view.SimpleDraweeView{234a7ead V.ED.... ... 84,14-172,102}
+                        android.widget.TextView{201ed5e2 V.ED.... ... 90,113-166,165}
+                    com.lufax.android.kotlin.subassembly.NavCategoryView{36e9e46b G.E..... ... 0,0-0,0}
+                      com.lufax.android.common.widget.WrapLayout{3af10bc8 V.E..... ... 0,0-0,0}
+                        android.widget.TextView{2ee92461 V.ED.... ... 0,0-0,0}
+                        extra.view.IconFontTextView{6603b86 G.ED.... ... 0,0-0,0}
+                      android.widget.TextView{18c05c47 G.ED.... ... 0,0-0,0}
+                      com.lufax.android.common.widget.ColumnLayout{bef1c74 V.E..... ... 0,0-0,0}
+                    com.lufax.android.kotlin.subassembly.NavCategoryView{24180fb8 V.E..... ... 0,456-1080,903}
+                      com.lufax.android.common.widget.WrapLayout{46a64f7 V.E..... ... 41,69-1080,144}
+                        android.widget.TextView{11190c3d V.ED.... ... 0,0-1028,75}
+                        extra.view.IconFontTextView{2532a59d G.ED.... ... 0,0-0,0}
+                      android.widget.TextView{39748a12 G.ED.... ... 0,0-0,0}
+                      com.lufax.android.common.widget.ColumnLayout{1a1a6f64 V.E..... ... 0,144-1080,447}
+                        com.lufax.android.kotlin.subassembly.FinanceCardItemView{368a15cd V.E...C. ... 41,28-526,303}
+                          android.widget.FrameLayout{18d6cbda V.E..... ... 0,0-485,275}
+                            android.widget.ImageView{2e8ad6e8 V.ED.... ... 320,121-485,275}
+                            com.lufax.android.common.widget.WrapLayout{a2d680b V.E..... ... 28,35-457,240}
+                              android.widget.TextView{3e086101 V.ED.... ... 0,0-210,56}
+                              android.widget.TextView{3ee5cba6 V.ED.... ... 0,56-375,104}
+                              android.widget.TextView{344879e7 V.ED.... ... 0,104-124,167}
+                              android.widget.TextView{7aa7994 V.ED.... ... 0,167-189,205}
+                        com.lufax.android.kotlin.subassembly.FinanceCardItemView{34fdee82 V.E...C. ... 554,28-1039,303}
+                          android.widget.FrameLayout{29565993 V.E..... ... 0,0-485,275}
+                            android.widget.ImageView{f2f41c9 V.ED.... ... 325,74-485,275}
+                            com.lufax.android.common.widget.WrapLayout{3c11dd0 V.E..... ... 28,35-457,240}
+                              android.widget.TextView{7a070ce V.ED.... ... 0,0-205,56}
+                              android.widget.TextView{2f02fbef V.ED.... ... 0,56-255,104}
+                              android.widget.TextView{36e246fc V.ED.... ... 0,104-124,167}
+                              android.widget.TextView{32e13185 V.ED.... ... 0,167-189,205}
+                    com.lufax.android.kotlin.subassembly.NavCategoryView{149c75e3 G.E..... ... 0,0-0,0}
+                      com.lufax.android.common.widget.WrapLayout{31b8be0 V.E..... ... 0,0-0,0}
+                        android.widget.TextView{698fe99 V.ED.... ... 0,0-0,0}
+                        extra.view.IconFontTextView{300d355e G.ED.... ... 0,0-0,0}
+                      android.widget.TextView{20968d3f G.ED.... ... 0,0-0,0}
+                      com.lufax.android.common.widget.ColumnLayout{3cdd860c V.E..... ... 0,0-0,0}
+                    com.lufax.android.kotlin.subassembly.NavBannerView{1358f191 V.E...C. ... 41,972-1039,1160}
+                      com.facebook.drawee.view.SimpleDraweeView{2271eb55 V.ED.... ... 30,33-151,154}
+                      com.lufax.android.common.widget.WrapLayout{38f3496a V.E..... ... 179,33-776,155}
+                        android.widget.TextView{21181d73 V.ED.... ... 0,0-163,63}
+                        android.widget.TextView{2a2fc430 V.ED.... ... 0,74-385,122}
+                      com.lufax.android.common.widget.WrapLayout{11f0be5b V.E..... ... 776,73-968,115}
+                        android.widget.TextView{313d58a9 V.ED.... ... 0,0-140,42}
+                        extra.view.IconFontTextView{23d86e2e V.ED.... ... 157,3-192,38}
+                    com.lufax.android.v2.base.ui.widget.LufaxMaskView{3d9f38f6 V.E..... ... 0,1160-1080,4131}
+                      com.lufax.android.common.widget.WrapLayout{12e2f6f8 V.E..... ... 0,0-1080,2971}
+                        com.lufax.android.kotlin.subassembly.NavCategoryView{1a4d1dcf V.E..... ... 0,0-1080,838}
+                          com.lufax.android.common.widget.WrapLayout{1ca28e66 V.E..... ... 41,69-1080,144}
+                            android.widget.TextView{2db2e7d1 V.ED.... ... 0,0-1028,75}
+                            extra.view.IconFontTextView{14749236 G.ED.... ... 0,0-0,0}
+                          android.widget.TextView{17de5a7 V.ED.... ... 41,147-341,195}
+                          com.lufax.android.common.widget.ColumnLayout{4bdda54 V.E..... ... 0,195-1080,742}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{c392af2 V.E...C. ... 0,0-1080,305}
+                              com.lufax.android.common.widget.LabelLayout{5f2e537 V.E..... ... 41,41-177,82}
+                                com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{314a1fec V.E...C. ... 0,0-136,41}
+                                  android.widget.LinearLayout{2ed1afb5 V.E..... ... 0,0-136,41 #7f0f072d app:id/finance_tag_root}
+                                    android.widget.LinearLayout{2dcf264a V.E..... ... 0,0-136,41 #7f0f072e app:id/finance_tag_name_root}
+                                      extra.view.IconFontTextView{9cc8aa4 G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
+                                      android.widget.TextView{61a09bb V.ED.... ... 0,3-136,38 #7f0f0730 app:id/finance_tag_name}
+                                    android.widget.TextView{1d2d300d G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
+                              com.lufax.android.common.widget.WrapLayout{27ef9bc2 V.E..... ... 41,104-1039,264}
+                                com.lufax.android.common.widget.WrapLayout{9af4ed8 V.E..... ... 0,0-998,90}
+                                  android.widget.TextView{b0e34a2 V.ED.... ... 0,0-427,90}
+                                  com.lufax.android.common.widget.WrapLayout{2061f533 V.E..... ... 427,18-997,72}
+                                    extra.view.IconFontTextView{3c869dd3 G.ED.... ... 0,0-0,0}
+                                    com.lufax.android.ui.SingleLineTextView{3add20f0 V.ED.... ... 0,0-289,54}
+                                com.lufax.android.common.widget.WrapLayout{1cba9231 V.E..... ... 0,104-998,160}
+                                  android.widget.TextView{16e15d16 V.ED.... ... 0,4-427,52}
+                                  com.lufax.android.common.widget.WrapLayout{3d558697 V.E..... ... 427,0-997,56}
+                                    android.widget.TextView{1c368084 V.ED.... ... 0,0-164,56}
+                                    com.lufax.android.ui.SingleLineTextView{875206d V.ED.... ... 197,0-379,56}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{8993543 V.E...C. ... 0,305-1080,547}
+                              com.lufax.android.common.widget.LabelLayout{2d99ad10 G.E..... ... 0,0-0,0}
+                              com.lufax.android.common.widget.WrapLayout{c4847c0 V.E..... ... 41,41-1039,201}
+                                com.lufax.android.common.widget.WrapLayout{3f233cf9 V.E..... ... 0,0-998,90}
+                                  android.widget.TextView{2789c009 V.ED.... ... 0,0-427,90}
+                                  com.lufax.android.common.widget.WrapLayout{1e1fb20e V.E..... ... 427,18-997,72}
+                                    extra.view.IconFontTextView{93442f G.ED.... ... 0,0-0,0}
+                                    com.lufax.android.ui.SingleLineTextView{8d48a3c V.ED.... ... 0,0-335,54}
+                                com.lufax.android.common.widget.WrapLayout{2b043e V.E..... ... 0,104-998,160}
+                                  android.widget.TextView{338fe29f V.ED.... ... 0,4-427,52}
+                                  com.lufax.android.common.widget.WrapLayout{2b0553c5 V.E..... ... 427,0-997,56}
+                                    android.widget.TextView{28e11a V.ED.... ... 0,0-164,56}
+                                    com.lufax.android.ui.SingleLineTextView{3a19f44b V.ED.... ... 197,0-302,56}
+                          com.lufax.android.kotlin.subassembly.ButtonView{e53bdfd V.E...C. ... 0,742-1080,838}
+                            android.widget.TextView{227e0e28 V.ED.... ... 41,0-1039,96}
+                        com.lufax.android.kotlin.subassembly.NavCategoryView{f04f35c V.E..... ... 0,841-1080,1379}
+                          com.lufax.android.common.widget.WrapLayout{32ec6741 V.E..... ... 41,69-1080,149}
+                            android.widget.TextView{1363f4e6 V.ED.... ... 0,2-935,77}
+                            extra.view.IconFontTextView{6118a27 V.ED..C. ... 935,0-1028,80}
+                          android.widget.TextView{2eb9e4d4 V.ED.... ... 41,152-356,200}
+                          com.lufax.android.common.widget.ColumnLayout{18d7367d V.E..... ... 0,200-1080,442}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{7ea7972 V.E...C. ... 0,0-1080,242}
+                              com.lufax.android.common.widget.LabelLayout{3002a1c3 G.E..... ... 0,0-0,0}
+                              com.lufax.android.common.widget.WrapLayout{1e3a7a40 V.E..... ... 41,41-1039,201}
+                                com.lufax.android.common.widget.WrapLayout{3da5bd79 V.E..... ... 0,0-998,90}
+                                  android.widget.TextView{3e2babe V.ED.... ... 0,0-427,90}
+                                  com.lufax.android.common.widget.WrapLayout{2963971f V.E..... ... 427,18-997,72}
+                                    extra.view.IconFontTextView{386cfa6c G.ED.... ... 0,0-0,0}
+                                    com.lufax.android.ui.SingleLineTextView{163bb835 V.ED.... ... 0,0-497,54}
+                                com.lufax.android.common.widget.WrapLayout{178bc4ca V.E..... ... 0,104-998,160}
+                                  android.widget.TextView{1ab4863b V.ED.... ... 0,4-427,52}
+                                  com.lufax.android.common.widget.WrapLayout{2c655158 V.E..... ... 427,0-997,56}
+                                    android.widget.TextView{7fca2b1 V.ED.... ... 0,0-315,56}
+                                    com.lufax.android.ui.SingleLineTextView{26096396 V.ED.... ... 348,0-494,56}
+                          com.lufax.android.kotlin.subassembly.ButtonView{2a5b4b17 V.E...C. ... 0,442-1080,538}
+                            android.widget.TextView{48a2b04 V.ED.... ... 41,0-1039,96}
+                        com.lufax.android.kotlin.subassembly.NavCategoryView{3c69d665 V.E..... ... 0,1382-1080,2162}
+                          com.lufax.android.common.widget.WrapLayout{1107b8ed V.E..... ... 41,69-1080,149}
+                            android.widget.TextView{ef02322 V.ED.... ... 0,2-935,77}
+                            extra.view.IconFontTextView{153f81b3 V.ED..C. ... 935,0-1028,80}
+                          android.widget.TextView{2900f370 V.ED.... ... 41,152-356,200}
+                          com.lufax.android.common.widget.ColumnLayout{3833f6e9 V.E..... ... 0,200-1080,684}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{24914f6e V.E...C. ... 0,0-1080,242}
+                              com.lufax.android.common.widget.LabelLayout{3526860f G.E..... ... 0,0-0,0}
+                              com.lufax.android.common.widget.WrapLayout{1cd9d69c V.E..... ... 41,41-1039,201}
+                                com.lufax.android.common.widget.WrapLayout{cc18a5 V.E..... ... 0,0-998,90}
+                                  android.widget.TextView{3b06f47a V.ED.... ... 0,0-427,90}
+                                  com.lufax.android.common.widget.WrapLayout{10cf742b V.E..... ... 427,18-997,72}
+                                    extra.view.IconFontTextView{21fbc088 G.ED.... ... 0,0-0,0}
+                                    com.lufax.android.ui.SingleLineTextView{1e0a9a21 V.ED.... ... 0,0-570,54}
+                                com.lufax.android.common.widget.WrapLayout{1bffde46 V.E..... ... 0,104-998,160}
+                                  android.widget.TextView{11cf2807 V.ED.... ... 0,4-427,52}
+                                  com.lufax.android.common.widget.WrapLayout{2fd05d34 V.E..... ... 427,0-997,56}
+                                    android.widget.TextView{2255b75d V.ED.... ... 0,0-292,56}
+                                    com.lufax.android.ui.SingleLineTextView{2b4b98d2 V.ED.... ... 325,0-453,56}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{3c2c3da3 V.E...C. ... 0,242-1080,484}
+                              com.lufax.android.common.widget.LabelLayout{28b018a0 G.E..... ... 0,0-0,0}
+                              com.lufax.android.common.widget.WrapLayout{263b6c59 V.E..... ... 41,41-1039,201}
+                                com.lufax.android.common.widget.WrapLayout{826701e V.E..... ... 0,0-998,90}
+                                  android.widget.TextView{3bb10ff V.ED.... ... 0,0-427,90}
+                                  com.lufax.android.common.widget.WrapLayout{3a0e1ecc V.E..... ... 427,18-997,72}
+                                    extra.view.IconFontTextView{232d7515 G.ED.... ... 0,0-0,0}
+                                    com.lufax.android.ui.SingleLineTextView{3745702a V.ED.... ... 0,0-570,54}
+                                com.lufax.android.common.widget.WrapLayout{1b39be1b V.E..... ... 0,104-998,160}
+                                  android.widget.TextView{13645bb8 V.ED.... ... 0,4-427,52}
+                                  com.lufax.android.common.widget.WrapLayout{3dfd4d91 V.E..... ... 427,0-997,56}
+                                    android.widget.TextView{21a264f6 V.ED.... ... 0,0-310,56}
+                                    com.lufax.android.ui.SingleLineTextView{192c20f7 V.ED.... ... 343,0-494,56}
+                          com.lufax.android.kotlin.subassembly.ButtonView{1fdf7b64 V.E...C. ... 0,684-1080,780}
+                            android.widget.TextView{3d1831cd V.ED.... ... 41,0-1039,96}
+                        com.lufax.android.kotlin.subassembly.NavCategoryView{2f813f3a V.E..... ... 0,2165-1080,2971}
+                          com.lufax.android.common.widget.WrapLayout{3c27c7eb V.E..... ... 41,69-1080,149}
+                            android.widget.TextView{29e5aba8 V.ED.... ... 0,2-935,77}
+                            extra.view.IconFontTextView{3d0776c1 V.ED..C. ... 935,0-1028,80}
+                          android.widget.TextView{3407da82 G.ED.... ... 0,0-0,0}
+                          com.lufax.android.common.widget.ColumnLayout{69be948 V.E..... ... 0,149-1080,710}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{3ab8f7c7 V.E...C. ... 0,0-1080,305}
+                              com.lufax.android.common.widget.LabelLayout{2bc03478 V.E..... ... 41,41-147,82}
+                                com.lufax.android.v2.app.finance.financetag.wiget.StrokeBlueTag{7354fbc V.E...C. ... 0,0-106,41}
+                                  android.widget.LinearLayout{37666b45 V.E..... ... 0,0-106,41 #7f0f072d app:id/finance_tag_root}
+                                    android.widget.LinearLayout{7a8e29a V.E..... ... 0,0-106,41 #7f0f072e app:id/finance_tag_name_root}
+                                      extra.view.IconFontTextView{e77d593 G.ED.... ... 0,0-0,0 #7f0f072f app:id/finance_tag_icon}
+                                      android.widget.TextView{150f97cb V.ED.... ... 0,3-106,38 #7f0f0730 app:id/finance_tag_name}
+                                    android.widget.TextView{2ecae9d0 G.ED.... ... 0,0-0,0 #7f0f0731 app:id/finance_tag_desc}
+                              com.lufax.android.common.widget.WrapLayout{3da31751 V.E..... ... 41,104-1039,264}
+                                com.lufax.android.common.widget.WrapLayout{931cbb6 V.E..... ... 0,0-998,90}
+                                  android.widget.TextView{32311a90 V.ED.... ... 0,0-427,90}
+                                  com.lufax.android.common.widget.WrapLayout{30605f89 V.E..... ... 427,18-997,72}
+                                    extra.view.IconFontTextView{231a9b8e V.ED.... ... 0,3-50,50}
+                                    com.lufax.android.ui.SingleLineTextView{2b8dafaf V.ED.... ... 50,0-447,54}
+                                com.lufax.android.common.widget.WrapLayout{1b0960b7 V.E..... ... 0,104-998,160}
+                                  android.widget.TextView{23002024 V.ED.... ... 0,4-427,52}
+                                  com.lufax.android.common.widget.WrapLayout{30b0d78d V.E..... ... 427,0-997,56}
+                                    android.widget.TextView{2106ed42 V.ED.... ... 0,0-110,56}
+                                    com.lufax.android.ui.SingleLineTextView{2f495153 V.ED.... ... 143,0-387,56}
+                            com.lufax.android.kotlin.subassembly.FinanceItemView{72a51f4 V.E...C. ... 0,305-1080,561}
+                              com.lufax.android.common.widget.LabelLayout{26831dc9 G.E..... ... 0,0-0,0}
+                              com.lufax.android.common.widget.WrapLayout{8b56d1d V.E..... ... 41,41-1039,215}
+                                com.lufax.android.common.widget.WrapLayout{3dec7b92 V.E..... ... 0,20-427,153}
+                                  android.widget.TextView{347eaea V.ED.... ... 0,0-321,71}
+                                  android.widget.TextView{2a2e81db V.ED.... ... 0,85-246,133}
+                                com.lufax.android.common.widget.WrapLayout{10434963 V.E..... ... 427,0-997,174}
+                                  com.lufax.android.common.widget.WrapLayout{12949960 V.E..... ... 0,0-267,54}
+                                    extra.view.IconFontTextView{2b5d1cce G.ED.... ... 0,0-0,0}
+                                    com.lufax.android.ui.SingleLineTextView{1b9622d5 V.ED.... ... 0,0-267,54}
+                                  com.lufax.android.ui.SingleLineTextView{2ac037ef G.ED.... ... 0,0-0,0}
+                                  com.lufax.android.common.widget.WrapLayout{3040be19 V.E..... ... 0,62-382,118}
+                                    android.widget.TextView{e9718bf V.ED.... ... 0,0-87,56}
+                                    com.lufax.android.ui.SingleLineTextView{2299eb8c V.ED.... ... 120,0-382,56}
+                                  android.widget.TextView{25d2bede V.ED.... ... 0,126-164,174}
+                          com.lufax.android.kotlin.subassembly.ButtonView{72673e1 V.E...C. ... 0,710-1080,806}
+                            android.widget.TextView{3b41506 V.ED.... ... 41,0-1039,96}
+                    com.lufax.android.common.widget.WrapLayout{36bcd2fc G.E..... ... 0,0-0,0}
+                      android.widget.TextView{196cd85 G.ED..C. ... 0,0-0,0}
+                      android.widget.TextView{19b237da G.ED..C. ... 0,0-0,0}
+                    android.widget.Space{a82640b I.ED.... ... 0,4131-1,4227}
+                  extra.view.TitleView{265fb246 V.E..... ... 0,0-1080,138}
+                    android.widget.LinearLayout{1bc69b5d V.E..... ... 0,0-1080,138}
+                      android.view.View{1dd4acd2 V.ED.... ... 0,0-1080,0 #7f0f0cb2 app:id/view_top_padding}
+                      android.widget.RelativeLayout{3ca1c1a3 V.E..... ... 0,0-1080,138}
+                        android.widget.RelativeLayout{1f8222e8 G.E...C. ... 0,0-0,0 #7f0f1230 app:id/title_bar_left_container}
+                          extra.view.DefaultTitleViewLeftView{387bbd01 V.ED.... ... 0,0-0,0 #7f0f0240 app:id/title_bar_left_tv}
+                        android.widget.RelativeLayout{867f223 V.E..... ... 144,0-936,138 #7f0f14b7 app:id/title_bar_middle_container}
+                          android.widget.TextView{272e92cc V.ED.... ... 346,0-446,138 #7f0f0242 app:id/title_bar_title_tv}
+                        android.widget.RelativeLayout{fd69059 V.E..... ... 936,0-1080,138 #7f0f14b8 app:id/title_bar_right_container}
+                          android.widget.LinearLayout{3556d915 V.E..... ... 0,0-144,138}
+                            com.lufax.android.ui.WrapCornerView{275d042a V.E...C. ... 0,0-116,138}
+                              android.widget.TextView{3c5bc21b V.ED.... ... 28,42-88,97 #7f0f12b5 app:id/iconView}
+                              android.widget.TextView{300bf7a6 G.ED.... ... 0,0-0,0 #7f0f12b6 app:id/numberView}
+                      android.view.View{f14ca0 V.ED.... ... 0,138-1080,138 #7f0f14ba app:id/view_bottom_padding}
+                  com.lufax.android.v2.base.ui.widget.LufaxMaskView{3ea65134 V.E..... ... 0,138-1080,1373}
+              com.lufax.android.ui.HomeBottomBar{239a7488 V.E..... ... 0,1593-1080,1731 #7f0f0452 app:id/bottombar}
+                android.widget.LinearLayout{af135e7 V.E..... ... 0,0-1080,138}
+                  android.widget.ImageView{19d05669 V.ED.... ... 0,0-1080,1}
+                  android.widget.LinearLayout{363ef8ee V.E..... ... 0,1-1080,138}
+                    android.widget.RelativeLayout{3ebcb18f V.E...C. ... 0,0-270,137 #7f0f13f0 app:id/layout_bottombar1}
+                      android.widget.TextView{1be369a1 V.ED.... ... 104,17-165,78 #7f0f13f1 app:id/ib_bottombar1}
+                      android.widget.TextView{3d8937c6 V.ED.... ... 107,81-163,119 #7f0f13f2 app:id/tv_bottombar1}
+                    android.widget.RelativeLayout{180b5c1c V.E...C. ... 270,0-540,137 #7f0f13f3 app:id/layout_bottombar2}
+                      android.widget.TextView{2b8f4387 V.ED.... .S. 104,17-165,78 #7f0f13f4 app:id/ib_bottombar2}
+                      android.widget.TextView{33fd12b4 V.ED.... .S. 107,81-163,119 #7f0f13f5 app:id/tv_bottombar2}
+                    android.widget.RelativeLayout{c8ef025 V.E...C. ... 540,0-810,137 #7f0f13f6 app:id/layout_bottombar3}
+                      android.widget.TextView{29abfedd V.ED.... ... 104,17-165,78 #7f0f13f7 app:id/ib_bottombar3}
+                      android.widget.TextView{21d10a52 V.ED.... ... 107,81-163,119 #7f0f13f8 app:id/tv_bottombar3}
+                    android.widget.RelativeLayout{7a5b5fa V.E...C. ... 810,0-1080,137 #7f0f13f9 app:id/layout_bottombar4}
+                      android.widget.TextView{385cd7ab V.ED.... ... 104,17-165,78 #7f0f13fa app:id/ib_bottombar4}
+                      android.widget.TextView{2801e08 V.ED.... ... 107,81-163,119 #7f0f13fb app:id/tv_bottombar4}
+            com.pingan.anydoor.anydoorui.nativeui.a{3eca8594 I.E..... ... 0,138-1080,1593}
+              com.pingan.anydoor.anydoorui.nativeui.frame.ADFrameView{2a54cf77 V.E..... ... 0,0-1080,1455}
+                com.pingan.anydoor.anydoorui.nativeui.frame.centerscreen.ADCenterScreenView{78de038 V.E..... ... 0,0-1080,1455}
+                  com.pingan.anydoor.anydoorui.nativeui.frame.centerscreen.b{1566283d V.E..... ... 0,1221-1080,1455}
+                    com.pingan.anydoor.anydoorui.nativeui.frame.centerscreen.a{26f4e5b9 V.E..... ... 0,0-1080,234}
+                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{1c667027 V.E...C. ... 0,0-234,234}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{18efe832 V.ED.... ... 0,0-234,234}
+                        android.widget.TextView{3f914983 V.ED.... ... 12,78-168,114}
+                        android.widget.TextView{33946700 V.ED.... ... 12,12-166,78}
+                        android.widget.TextView{17920b39 V.ED.... ... 0,181-0,234}
+                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{32f3d2d4 V.E...C. ... 243,0-477,234}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{2fb0557e V.ED.... ... 0,0-234,234}
+                        android.widget.TextView{2594fadf V.ED.... ... 12,78-164,114}
+                        android.widget.TextView{c58f32c V.ED.... ... 12,12-208,78}
+                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{20058c7d V.E...C. ... 486,0-720,234}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{1bff21f5 V.ED.... ... 0,0-234,234}
+                        android.widget.TextView{20784b8a V.ED.... ... 12,78-165,114}
+                        android.widget.TextView{30f865fb V.ED.... ... 12,12-159,78}
+                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{38d91772 V.E...C. ... 729,0-963,234}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{23f81618 V.ED.... ... 0,0-234,234}
+                        android.widget.TextView{15ece871 V.ED.... ... 12,78-183,114}
+                        android.widget.TextView{3d179656 V.ED.... ... 12,12-208,78}
+                      com.pingan.anydoor.anydoorui.nativeui.frame.plugin.PluginItemView{2dbfe7c3 V.E...C. ... 972,0-1206,234}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.plugin.a{f5d66d7 V.ED.... ... 0,0-234,234}
+                        android.widget.TextView{21647bc4 V.ED.... ... 12,78-168,114}
+                        android.widget.TextView{13169aad V.ED.... ... 12,12-208,78}
+                com.pingan.anydoor.anydoorui.nativeui.frame.a.a{1373f214 V.ED.... ... 0,0-1080,1455}
+                  com.pingan.anydoor.anydoorui.nativeui.frame.a.b{128ec1e2 V.E..... ... 0,1406-1080,1455}
+                com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.ADLeftScreenView{2cc0c44d V.ED.... ... 0,0-1080,1455}
+                  com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.AppMaskView{2a713b02 VFED.V.. ... 0,0-1080,1221}
+                    com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.AppView{3ca79973 V.E..... ... 0,0-1080,1221}
+                      android.widget.LinearLayout{60f9030 V.E..... ... 114,737-323,1216}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{60c2259 V.E...C. ... 0,4-209,273}
+                          android.widget.RelativeLayout{7af34a9 V.E..... ... 0,0-209,269}
+                            android.widget.ImageView{b5b1a2e V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{55859cf V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
+                              android.widget.ImageView{37157f5c V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
+                            android.widget.ImageView{1e1d7265 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
+                            android.widget.TextView{2a82ab3a V.ED.... ... 23,23-146,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{12aac3eb V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{2d293548 I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{88f0e07 V.E...C. ... 0,277-209,479}
+                          android.widget.RelativeLayout{677cfe1 V.E..... ... 0,0-209,202}
+                            android.widget.ImageView{2b604106 V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{1c6fb3c7 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
+                              android.widget.ImageView{37405df4 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
+                            android.widget.ImageView{1c0891d V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
+                            android.widget.TextView{122f6792 V.ED.... ... 23,23-146,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{1ca9c563 V.ED.... ... 23,79-184,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{3bff6560 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
+                      android.widget.LinearLayout{24e19a19 V.E..... ... 328,737-537,1216}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{2314c41b V.E...C. ... 0,4-209,206}
+                          android.widget.RelativeLayout{39586ade V.E..... ... 0,0-209,202}
+                            android.widget.ImageView{20e954bf V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{25e5778c V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
+                              android.widget.ImageView{f68bed5 V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
+                            android.widget.ImageView{277c56ea V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
+                            android.widget.TextView{15687ddb V.ED.... ... 23,23-187,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{26388078 V.ED.... ... 23,79-184,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{12037351 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{3171ce88 V.E...C. ... 0,210-209,479}
+                          android.widget.RelativeLayout{3a40f7b6 V.E..... ... 0,0-209,269}
+                            android.widget.ImageView{25e71cb7 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{3ab12c24 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
+                              android.widget.ImageView{baf38d V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
+                            android.widget.ImageView{31dcd942 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
+                            android.widget.TextView{1046cd53 V.ED.... ... 23,23-146,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{21e6e690 V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{2cf03b89 I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
+                      android.widget.LinearLayout{2963478e V.E..... ... 542,531-751,1216}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{382b07cd V.E...C. ... 0,4-209,206}
+                          android.widget.RelativeLayout{4e6ebaf V.E..... ... 0,0-209,202}
+                            android.widget.ImageView{2a7bdbbc V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{3180745 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
+                              android.widget.ImageView{7d04e9a V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
+                            android.widget.ImageView{30c093cb V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
+                            android.widget.TextView{908f7a8 V.ED.... ... 23,23-146,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{836d2c1 V.ED.... ... 23,79-186,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{35d4ba66 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{1be136d2 V.E...C. ... 0,210-209,479}
+                          android.widget.RelativeLayout{d42a1a7 V.E..... ... 0,0-209,269}
+                            android.widget.ImageView{20c9e654 V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{331cd9fd V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
+                              android.widget.ImageView{246216f2 V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
+                            android.widget.ImageView{11edb143 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
+                            android.widget.TextView{2b0913c0 V.ED.... ... 23,23-187,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{1d6218f9 V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{2ff6b03e I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{aa0aea5 V.E...C. ... 0,483-209,685}
+                          android.widget.RelativeLayout{23b01e9f V.E..... ... 0,0-209,202}
+                            android.widget.ImageView{294babec V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{8224bb5 V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
+                              android.widget.ImageView{2ca9924a V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
+                            android.widget.ImageView{1e0205bb V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
+                            android.widget.TextView{e3d9ad8 V.ED.... ... 23,23-187,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{3078ee31 V.ED.... ... 23,79-184,111 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{26f68916 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
+                      android.widget.LinearLayout{11c14297 V.E..... ... 756,464-965,1216}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{35e5a2f6 V.E...C. ... 0,4-209,273}
+                          android.widget.RelativeLayout{95d8c84 V.E..... ... 0,0-209,269}
+                            android.widget.ImageView{2fbd3c6d V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{254a20a2 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
+                              android.widget.ImageView{15cd7133 V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
+                            android.widget.ImageView{2168ecf0 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
+                            android.widget.TextView{237e3269 V.ED.... ... 23,23-104,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{364da4ee V.ED.... ... 23,79-186,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{563ed8f I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.c{1c46cccc V.E...C. ... 0,277-209,479}
+                          android.widget.RelativeLayout{987e81c V.E..... ... 0,0-209,202}
+                            android.widget.ImageView{193e8c25 V.ED.... ... 0,0-209,202 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{17f321fa V.E..... ... 91,0-209,202 #7f0f12c4 app:id/anydoor_smallitem_download_ll}
+                              android.widget.ImageView{83bd3ab V.ED.... ... 52,136-104,188 #7f0f12c5 app:id/anydoor_smallitem_icon}
+                            android.widget.ImageView{1d396a08 V.ED.... ... 0,0-209,202 #7f0f12c6 app:id/anydoor_smallitem_mask_imgview}
+                            android.widget.TextView{39f0c5a1 V.ED.... ... 23,23-187,79 #7f0f12c7 app:id/anydoor_smallitem_appbigname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{34163c6 V.ED.... ... 23,79-186,138 #7f0f12c8 app:id/anydoor_smallitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{61ff87 I.ED..C. ... 37,33-172,168 #7f0f12c9 app:id/smallitem_progressBar}
+                        com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.a{13674d6e V.E...C. ... 0,483-209,752}
+                          android.widget.RelativeLayout{2eff1eb4 V.E..... ... 0,0-209,269}
+                            android.widget.ImageView{31331add V.ED.... ... 0,0-209,269 #7f0f12bd app:id/anydoor_bigitem_back_imgview}
+                            android.widget.RelativeLayout{28dff652 V.E..... ... 91,151-209,269 #7f0f12be app:id/anydoor_bigitem_download_ll}
+                              android.widget.ImageView{39d50d23 V.ED.... ... 52,52-104,104 #7f0f12bf app:id/anydoor_bigitem_icon}
+                            android.widget.ImageView{15c97220 V.ED.... ... 0,0-209,269 #7f0f12c0 app:id/anydoor_bigitem_mask_imgview}
+                            android.widget.TextView{c4b87d9 V.ED.... ... 23,23-146,79 #7f0f12c1 app:id/anydoor_bigitem_appname_tv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.MyTextView{2a63259e V.ED.... ... 23,79-184,111 #7f0f12c2 app:id/anydoor_bigitem_appdetailtv}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.app.RoundProgressBar{37e1587f I.ED..C. ... 37,67-172,202 #7f0f12c3 app:id/bigitem_progressBar}
+                  com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.PCenterView{37bcec13 V.E..... ... 0,1221-1080,1455}
+                    com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.PCenterPluginContainer{2523904c V.E..... ... 0,0-979,234}
+                      com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.b{ce3c895 V.E...C. ... 0,0-392,234}
+                        android.widget.LinearLayout{1c57fdaa V.E..... ... 0,48-392,185}
+                          android.widget.RelativeLayout{3c3cfd9b V.E..... ... 0,0-176,137 #7f0f12b7 app:id/rl1}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.c{3c1f6538 V.ED.... ... 39,0-176,137}
+                          android.widget.RelativeLayout{2b855911 V.E..... ... 176,15-333,122 #7f0f12b8 app:id/rl2}
+                            android.widget.TextView{1d104a76 V.ED.... ... 25,0-157,45 #7f0f12b9 app:id/rym_t1}
+                            android.widget.TextView{23e3d877 V.ED.... ... 25,45-117,107 #7f0f12ba app:id/rym_t2}
+                          android.widget.TextView{17019ce4 G.ED.... ... 0,0-0,0 #7f0f12bb app:id/rym_name}
+                      android.widget.LinearLayout{5d5754d V.E..... ... 392,0-979,234}
+                        android.widget.LinearLayout{c2e9802 V.E..... ... 0,43-587,190}
+                          android.widget.RelativeLayout{35b38513 V.E...C. ... 0,0-290,147 #7f0f12b7 app:id/rl1}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.a{fada350 V.E..... ... 158,0-290,147}
+                              android.widget.ImageView{34911949 V.ED.... ... 23,0-109,86}
+                              android.widget.TextView{2ef2324e V.ED.... ... 0,102-132,147}
+                          android.widget.RelativeLayout{3ec75f6f V.E...C. ... 290,0-587,147 #7f0f12b8 app:id/rl2}
+                            com.pingan.anydoor.anydoorui.nativeui.frame.leftscreen.pcenter.a{38d1a47c V.E..... ... 99,0-198,147}
+                              android.widget.ImageView{5490105 V.ED.... ... 6,0-92,86}
+                              android.widget.TextView{d43255a V.ED.... ... 0,102-99,147}
+                    com.pingan.anydoor.anydoorui.nativeui.maskview.a{1894838b V.ED.... ... 979,0-1080,234}
+              com.pingan.anydoor.anydoorui.nativeui.maskview.ADMaskView{195ebd76 V.E..... ... 0,0-1080,1455}
+                com.pingan.anydoor.anydoorui.nativeui.maskview.InfoBar{35107e50 I.E..... ... 0,1363-1080,1455 #2}
+                  android.widget.LinearLayout{3fd28c68 V.E..... ... 0,0-1080,10}
+                  android.widget.ViewFlipper{13dda881 V.E..... ... 0,10-1080,92}
+        android.view.View{32354a9c V.ED.... ... 0,0-1080,73 #102002f android:id/statusBarBackground}
