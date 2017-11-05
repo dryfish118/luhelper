@@ -6,6 +6,7 @@ import android.graphics.Point;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 import de.robv.android.xposed.XposedBridge;
 
@@ -14,6 +15,8 @@ import de.robv.android.xposed.XposedBridge;
  */
 
 public class ShellUtil {
+    private static final Random r = new Random();
+
     private static void execCmd(String cmd) {
         XposedBridge.log("ShellUtil: " + cmd);
         try {
@@ -40,13 +43,13 @@ public class ShellUtil {
         if (pnts.size() == 2) {
             execCmd("input swipe " + pnts.get(0).x + " " + pnts.get(0).y + " " + pnts.get(1).x + " " + pnts.get(1).y);
         } else if (pnts.size() >2) {
-            execCmd("sendevent /dev/input/event5 3 57 500");
+            execCmd("sendevent /dev/input/event5 3 57 " + r.nextInt(1000));
             for (int i = 0; i < pnts.size(); i++) {
                 if (i == 0) {
                     execCmd("sendevent /dev/input/event5 3 53 " + pnts.get(i).x);
                     execCmd("sendevent /dev/input/event5 3 54 " + pnts.get(i).y);
-                    execCmd("sendevent /dev/input/event5 3 58 91");
-                    execCmd("sendevent /dev/input/event5 3 48 12");
+                    execCmd("sendevent /dev/input/event5 3 58 " + (r.nextInt(5) + 88));
+                    execCmd("sendevent /dev/input/event5 3 48 " + ((r.nextInt(7) + 3) * 2));
                     execCmd("sendevent /dev/input/event5 0 0 0");
                 } else {
                     boolean bSend = false;
