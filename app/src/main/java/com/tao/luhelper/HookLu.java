@@ -165,7 +165,29 @@ public class HookLu implements IXposedHookLoadPackage {
                 XposedBridge.log("Step4: Switch to the MyAccount Fragment.");
                 GlobleUtil.putInt("Step", 4);
 
-                sendClickMotion(o, 3);
+                if (!sendClickMotion(o, 3)) {
+                    XposedBridge.log("Failed to switch to the MyAccount Fragment.");
+                    GlobleUtil.putInt("Step", 3);
+                    (new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 1000);
+                } else {
+                    (new Timer()).schedule(new TaskMonitorTapMyAccountFragment(o), 5000);
+                }
+            }
+        }
+
+        class TaskMonitorTapMyAccountFragment extends java.util.TimerTask{
+            private Object o;
+            public TaskMonitorTapMyAccountFragment(Object o) {
+                this.o = o;
+            }
+
+            public void run(){
+                if (!GlobleUtil.getBoolean("Class:LockActivity:Ready", false) &&
+                        !GlobleUtil.getBoolean("Class:LoginFragment:Ready", false) &&
+                        GlobleUtil.getInt("Step", 0) <= 4) {
+                    XposedBridge.log("Failed to switch to the MyAccount Fragment.");
+                    (new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 100);
+                }
             }
         }
 
@@ -183,20 +205,27 @@ public class HookLu implements IXposedHookLoadPackage {
             }
         }
 
-        private void sendClickMotion(final Object o, int idx) {
+        private boolean sendClickMotion(final Object o, int idx) {
             LinearLayout ll1 = (LinearLayout) o;
             LinearLayout ll2 = (LinearLayout) ll1.getChildAt(0);
             LinearLayout ll3 = (LinearLayout) ll2.getChildAt(1);
             RelativeLayout rl = (RelativeLayout) ll3.getChildAt(idx);
             final int[] loc = new int[2];
             rl.getLocationOnScreen(loc);
-            ShellUtil.tap(loc[0] + rl.getWidth() / 2, loc[1] + rl.getHeight() / 2);
+            int w = rl.getWidth();
+            int h = rl.getHeight();
+            if (loc[1] == 0 || w == 0 || h == 0) {
+                return false;
+            }
+            ShellUtil.tap(loc[0] + w / 2, loc[1] + h / 2);
+            return true;
         }
     }
 
     class HookLockActivity implements IHook {
         @Override
         public void doHook(final Class cls) {
+            //hookAllMethod(cls, "LockActivity");
             XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
@@ -210,42 +239,7 @@ public class HookLu implements IXposedHookLoadPackage {
                         (new Timer()).schedule(new TimerTask() {
                             @Override
                             public void run() {
-//                                View c = (View) XposedHelpers.getObjectField(o, "c");
-//                                int u = (int)(float)XposedHelpers.getObjectField(c, "u");
-//                                int v = (int)(float)XposedHelpers.getObjectField(c, "v");
-//                                final int[] loc = new int[2];
-//                                c.getLocationOnScreen(loc);
-//                                int l = loc[0] + (c.getWidth() - u * 3) / 2;
-//                                int t = loc[1] + (c.getHeight() - v * 3) / 2;
-//
-//                                String strGesture = GlobleUtil.getString("Gesture", "");
-//                                XposedBridge.log(strGesture);
-//                                byte[] chs = strGesture.getBytes();
-//
-//                                ArrayList<Point> pnts = new ArrayList<Point>();
-//                                for (int i = 0; i < chs.length; i++) {
-//                                    int pos = (int)(chs[i] - (byte)'1');
-//                                    if (pos >= 0 && pos < 9) {
-//                                        int col = pos % 3;
-//                                        int row = pos / 3;
-//                                        XposedBridge.log(Integer.toString(pos));
-//                                        Point pnt = new Point(l + u / 2 * (col * 2 + 1), t + v / 2 * (row * 2 + 1));
-//                                        pnts.add(pnt);
-//                                    }
-//                                }
-//                                if (pnts.isEmpty()) {
-//                                    XposedBridge.log("Switch to the Login Activity by username and password.");
-//                                    Object btn = XposedHelpers.getObjectField(o, "e");
-//                                    if (btn != null) {
-//                                        XposedHelpers.callMethod(o, "onClick", btn);
-//                                    }
-//                                } else {
-//                                    XposedBridge.log("Swipe to login.");
-//                                    ShellUtil.swipe(pnts);
-//                                }
-
                                 String strGesture = GlobleUtil.getString("Gesture", "");
-                                XposedBridge.log(strGesture);
                                 byte[] chs = strGesture.getBytes();
                                 ArrayList<Point> pnts = new ArrayList<Point>();
                                 for (int i = 0; i < chs.length; i++) {
