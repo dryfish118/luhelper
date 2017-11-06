@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -53,6 +54,8 @@ public class HookLu implements IXposedHookLoadPackage {
                 ClassLoader cl = ((Context) param.args[0]).getClassLoader();
                 hook(cl, "v2.app.home", "HomeFragmentV2", new HookHomeFragment());
                 hook(cl, "navi", "BottomBar", new HookBottomBar());
+                hook(cl, "navi", "BottomBar$1", new HookBottomBarAnonymousClass1());
+                //hook(cl, "navi", "a", new HookBottomBarA());
                 hook(cl, "gesturelock", "LockActivity", new HookLockActivity());
                 hook(cl, "activity.fragments", "LoginFragment", new HookLoginFragment());
                 hook(cl, "myaccount.ui", "MyAccountFragment", new HookMyAccountFragment());
@@ -107,9 +110,105 @@ public class HookLu implements IXposedHookLoadPackage {
         }
     }
 
+    class HookBottomBarAnonymousClass1 implements IHook {
+        @Override
+        public void doHook(final Class cls) {
+
+            XposedHelpers.findAndHookMethod(cls, "onClick", View.class, new XC_MethodHook() {
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    super.beforeHookedMethod(param);
+
+                    XposedBridge.log("Before: onClick. " + param.args[0].toString());
+                }
+
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+
+                    XposedBridge.log("After: onClick." + param.args[0].toString());
+                }
+            });
+
+        }
+    }
+
+//    class HookBottomBarA implements IHook {
+//        @Override
+//        public void doHook(final Class cls) {
+//            hookAllMethod(cls, "BottomBarA");
+//        }
+//    }
+
     class HookBottomBar implements IHook {
         @Override
         public void doHook(final Class cls) {
+            //hookAllMethod(cls, "BottomBar");
+
+//            for (final Method method: cls.getDeclaredMethods()) {
+//                XposedBridge.hookMethod(method, new XC_MethodHook() {
+//
+//                    void printParam(Object o) {
+////                        List a = (List)XposedHelpers.getObjectField(o, "a");
+////                        if (a != null) {
+////                            for (int i = 0; i < a.size(); i++) {
+////                                XposedBridge.log("a" + i + " is " + a.get(i).toString());
+////                            }
+////                        } else {
+////                            XposedBridge.log("a is null");
+////                        }
+////
+////                        Object h = XposedHelpers.getObjectField(o, "h");
+////                        if (h != null) {
+////                            XposedBridge.log("h is " + h.toString());
+////                        } else {
+////                            XposedBridge.log("h is null");
+////                        }
+//
+//
+//                    }
+//
+//
+//                    @Override
+//                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+//                        super.beforeHookedMethod(param);
+//
+//                        String s = "BottomBar before: [" + method.getName() + "]";
+//                        for (int i = 0; i < param.args.length; i++) {
+//                            Object p = param.args[i];
+//                            if (p == null) {
+//                                s = s + " (null)";
+//                            } else {
+//                                s = s + " (" + p.toString() + ")";
+//                            }
+//                        }
+//                        XposedBridge.log(s);
+//
+//                        printParam(param.thisObject);
+//                    }
+//
+//                    @Override
+//                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+//                        super.beforeHookedMethod(param);
+//
+//                        String s = "BottomBar after: [" + method.getName() + "]";
+//                        for (int i = 0; i < param.args.length; i++) {
+//                            Object p = param.args[i];
+//                            if (p == null) {
+//                                s = s + " (null)";
+//                            } else {
+//                                s = s + " (" + p.toString() + ")";
+//                            }
+//                        }
+//                        XposedBridge.log(s);
+//
+//                        printParam(param.thisObject);
+//                    }
+//                });
+//            }
+
+
+
             for (final Method method : cls.getDeclaredMethods()) {
                 if ("setItemsIconResource".equals(method.getName())) {
                     XposedBridge.hookMethod(method, new XC_MethodHook() {
@@ -121,8 +220,18 @@ public class HookLu implements IXposedHookLoadPackage {
                                 GlobleUtil.putBoolean("Class:HBottomBar:Ready", true);
                                 XposedBridge.log("BottomBar ready now.");
 
-                                (new Timer()).schedule(new TaskDispatch(param.thisObject), 1000, 1000);
+                                sendClickMotion(param.thisObject, 3);
+                                //(new Timer()).schedule(new TaskDispatch(param.thisObject), 1000, 1000);
                             }
+
+//                            List a = (List)XposedHelpers.getObjectField(param.thisObject, "a");
+//                            if (a != null) {
+//                                for (int i = 0; i < a.size(); i++) {
+//                                    XposedBridge.log("a" + i + " is " + a.get(i).toString());
+//                                }
+//                            } else {
+//                                XposedBridge.log("failed to get a");
+//                            }
                         }
                     });
                 }
@@ -162,11 +271,11 @@ public class HookLu implements IXposedHookLoadPackage {
                 GlobleUtil.putInt("Step", 4);
 
                 if (!sendClickMotion(o, 3)) {
-                    XposedBridge.log("Failed to switch to the MyAccount Fragment.");
-                    GlobleUtil.putInt("Step", 3);
-                    (new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 1000);
+                    //XposedBridge.log("Failed to switch to the MyAccount Fragment.");
+                    //GlobleUtil.putInt("Step", 3);
+                    //(new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 1000);
                 } else {
-                    (new Timer()).schedule(new TaskMonitorTapMyAccountFragment(o), 5000);
+                    //(new Timer()).schedule(new TaskMonitorTapMyAccountFragment(o), 5000);
                 }
             }
         }
@@ -202,19 +311,28 @@ public class HookLu implements IXposedHookLoadPackage {
         }
 
         private boolean sendClickMotion(final Object o, int idx) {
+//            List a = (List)XposedHelpers.getObjectField(o, "a");
+//            return ((View)a.get(idx)).callOnClick();
+
             LinearLayout ll1 = (LinearLayout) o;
             LinearLayout ll2 = (LinearLayout) ll1.getChildAt(0);
             LinearLayout ll3 = (LinearLayout) ll2.getChildAt(1);
             RelativeLayout rl = (RelativeLayout) ll3.getChildAt(idx);
-            final int[] loc = new int[2];
-            rl.getLocationOnScreen(loc);
-            int w = rl.getWidth();
-            int h = rl.getHeight();
-            if (loc[1] == 0 || w == 0 || h == 0) {
-                return false;
+            XposedBridge.log("Prepare to click " + rl.toString());
+            if (rl.hasOnClickListeners()) {
+                return rl.callOnClick();
             }
-            ShellUtil.tap(loc[0] + w / 2, loc[1] + h / 2);
-            return true;
+            XposedBridge.log("Failed to click " + rl.toString());
+            return false;
+//            final int[] loc = new int[2];
+//            rl.getLocationOnScreen(loc);
+//            int w = rl.getWidth();
+//            int h = rl.getHeight();
+//            if (loc[1] == 0 || w == 0 || h == 0) {
+//                return false;
+//            }
+//            ShellUtil.tap(loc[0] + w / 2, loc[1] + h / 2);
+//            return true;
         }
     }
 
