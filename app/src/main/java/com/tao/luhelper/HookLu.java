@@ -1,11 +1,9 @@
 package com.tao.luhelper;
 
 import android.app.Application;
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Point;
 import android.util.DisplayMetrics;
-import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -13,8 +11,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -223,9 +219,45 @@ public class HookLu implements IXposedHookLoadPackage {
     }
 
     class HookLockActivity implements IHook {
+
+        private void loginByInput(Object o) {
+            XposedBridge.log("Switch to the Login Activity by username and password.");
+            Object btn = XposedHelpers.getObjectField(o, "e");
+            if (btn != null) {
+                XposedHelpers.callMethod(o, "onClick", btn);
+            }
+        }
+
+        private void loginBySwipe(final Object o) {
+            (new Timer()).schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    String strGesture = GlobleUtil.getString("Gesture", "");
+                    byte[] chs = strGesture.getBytes();
+                    ArrayList<Point> pnts = new ArrayList<Point>();
+                    for (int i = 0; i < chs.length; i++) {
+                        int pos = (int)(chs[i] - (byte)'1');
+                        if (pos >= 0 && pos < 9) {
+                            pnts.add(new Point(positions[pos]));
+                        }
+                    }
+                    XposedBridge.log("Swipe to login.");
+                    ShellUtil.swipe(pnts);
+                }
+            }, 1000);
+        }
+
         @Override
         public void doHook(final Class cls) {
-            //hookAllMethod(cls, "LockActivity");
+            XposedHelpers.findAndHookMethod(cls, "d", new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                    super.afterHookedMethod(param);
+
+                    loginBySwipe(param.thisObject);
+                }
+            });
+
             XposedHelpers.findAndHookMethod(cls, "getScreenName", new XC_MethodHook() {
                 @Override
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
@@ -235,31 +267,12 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:LockActivity:Ready", true);
                         XposedBridge.log("LockActivity ready now.");
 
-                        final Object o = param.thisObject;
-                        (new Timer()).schedule(new TimerTask() {
-                            @Override
-                            public void run() {
-                                String strGesture = GlobleUtil.getString("Gesture", "");
-                                byte[] chs = strGesture.getBytes();
-                                ArrayList<Point> pnts = new ArrayList<Point>();
-                                for (int i = 0; i < chs.length; i++) {
-                                    int pos = (int)(chs[i] - (byte)'1');
-                                    if (pos >= 0 && pos < 9) {
-                                        pnts.add(new Point(positions[pos]));
-                                    }
-                                }
-                                if (pnts.isEmpty()) {
-                                    XposedBridge.log("Switch to the Login Activity by username and password.");
-                                    Object btn = XposedHelpers.getObjectField(o, "e");
-                                    if (btn != null) {
-                                        XposedHelpers.callMethod(o, "onClick", btn);
-                                    }
-                                } else {
-                                    XposedBridge.log("Swipe to login.");
-                                    ShellUtil.swipe(pnts);
-                                }
-                            }
-                        }, 1000);
+                        String strGesture = GlobleUtil.getString("Gesture", "");
+                        if (strGesture.isEmpty()) {
+                            loginByInput(param.thisObject);
+                        } else {
+                            loginBySwipe(param.thisObject);
+                        }
                     }
                 }
             });
