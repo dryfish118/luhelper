@@ -316,45 +316,63 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:Finance4Fragment:Ready", true);
                         XposedBridge.log("Finance4Fragment ready now.");
 
-                        final Object o = param.thisObject;
-                        (new Handler()).postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                FrameLayout fl = (FrameLayout)XposedHelpers.getObjectField(o, "h");
-                                if (fl != null) {
-                                    if (fl.getChildCount() > 0) {
-                                        // WrapLayout fl.getChildAt(0)
-                                        ViewGroup wl = (ViewGroup)fl.getChildAt(0);
-                                        if (wl != null) {
-                                            for (int i = 0; i < wl.getChildCount(); i++) {
-                                                // NavCategoryView ncv
-                                                ViewGroup ncv = (ViewGroup)wl.getChildAt(i);
-                                                if (ncv != null) {
-                                                    TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
-                                                    if ("会员交易区".equals(l.getText().toString())) {
-                                                        XposedBridge.log("Click into FinanceList");
-                                                        View child = (View)ncv.getChildAt(3);
-                                                        child.callOnClick();
-                                                        break;
-                                                    }
-                                                } else {
-                                                    XposedBridge.log("failed to get ncv" + i);
-                                                }
-                                            }
-                                        } else {
-                                            XposedBridge.log("failed to get wl");
-                                        }
-                                    } else {
-                                        XposedBridge.log("no any child in h");
-                                    }
-                                } else {
-                                    XposedBridge.log("failed to get h");
-                                }
-                            }
-                        }, 1000);
+                        Handler h = new Handler();
+                        h.postDelayed(new TaskIntoList(h, param.thisObject), 1000);
                     }
                 }
             });
+        }
+
+        class TaskIntoList implements Runnable {
+            Handler h = null;
+            Object o = null;
+
+            TaskIntoList(Handler h, Object o) {
+                this.h = h;
+                this.o = o;
+            }
+
+            @Override
+            public void run() {
+                int step = GlobleUtil.getInt("Step", 0);
+                if (step < 4) {
+                    h.postDelayed(this, 1000);
+                } else if (step == 4) {
+                    GlobleUtil.putInt("Step", 5);
+                    h.postDelayed(this, 2000);
+                } else if (step == 5) {
+                    FrameLayout fl = (FrameLayout) XposedHelpers.getObjectField(o, "h");
+                    if (fl != null) {
+                        if (fl.getChildCount() > 0) {
+                            // WrapLayout fl.getChildAt(0)
+                            ViewGroup wl = (ViewGroup) fl.getChildAt(0);
+                            if (wl != null) {
+                                for (int i = 0; i < wl.getChildCount(); i++) {
+                                    // NavCategoryView ncv
+                                    ViewGroup ncv = (ViewGroup) wl.getChildAt(i);
+                                    if (ncv != null) {
+                                        TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
+                                        if ("会员交易区".equals(l.getText().toString())) {
+                                            XposedBridge.log("Click into FinanceList");
+                                            View child = (View) ncv.getChildAt(3);
+                                            child.callOnClick();
+                                            break;
+                                        }
+                                    } else {
+                                        XposedBridge.log("failed to get ncv" + i);
+                                    }
+                                }
+                            } else {
+                                XposedBridge.log("failed to get wl");
+                            }
+                        } else {
+                            XposedBridge.log("no any child in h");
+                        }
+                    } else {
+                        XposedBridge.log("failed to get h");
+                    }
+                }
+            }
         }
     }
 
