@@ -186,10 +186,7 @@ public class HookLu implements IXposedHookLoadPackage {
 
         private void loginByInput(Object o) {
             XposedBridge.log("Switch to the Login Activity by username and password.");
-            Object btn = XposedHelpers.getObjectField(o, "e");
-            if (btn != null) {
-                XposedHelpers.callMethod(o, "onClick", btn);
-            }
+            ((View)XposedHelpers.getObjectField(o, "e")).callOnClick();
         }
 
         private void loginBySwipe(final Object o) {
@@ -265,11 +262,8 @@ public class HookLu implements IXposedHookLoadPackage {
                                 ets[0].setText(userName);
                                 ets[1].setText(loginPassword);
 
-                                v = XposedHelpers.getObjectField(param.thisObject, "l");
-                                if (v != null) {
-                                    XposedBridge.log("Click to login.");
-                                    XposedHelpers.callMethod(param.thisObject, "onClick", v);
-                                }
+                                XposedBridge.log("Click to login.");
+                                ((View)XposedHelpers.getObjectField(param.thisObject, "l")).callOnClick();
                             }
                         }
                     }
@@ -322,6 +316,7 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:Finance4Fragment:Ready", true);
                         XposedBridge.log("Finance4Fragment ready now.");
 
+                        final Object o = param.thisObject;
                         (new Handler()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
