@@ -13,7 +13,7 @@ import de.robv.android.xposed.XposedBridge;
  * Created by dengtao on 2017/11/7.
  */
 
-public class HookBottomBar implements IHook {
+public class HookBottomBar extends HookBase {
 
     @Override
     public void doHook(final Class cls) {

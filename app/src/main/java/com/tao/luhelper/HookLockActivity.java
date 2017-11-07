@@ -14,7 +14,7 @@ import de.robv.android.xposed.XposedHelpers;
  * Created by dengtao on 2017/11/7.
  */
 
-public class HookLockActivity implements IHook {
+public class HookLockActivity extends HookBase {
     private static final Point[] positions = {
             new Point(340, 890), new Point(690, 890), new Point(1040, 890),
             new Point(340, 1240), new Point(690, 1240), new Point(1040, 1240),

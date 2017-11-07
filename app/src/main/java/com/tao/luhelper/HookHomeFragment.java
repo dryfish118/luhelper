@@ -10,7 +10,7 @@ import de.robv.android.xposed.XposedHelpers;
  * Created by dengtao on 2017/11/7.
  */
 
-public class HookHomeFragment implements IHook {
+public class HookHomeFragment extends HookBase {
 
     @Override
     public void doHook(final Class cls) {

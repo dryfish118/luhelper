@@ -11,7 +11,7 @@ import de.robv.android.xposed.XposedHelpers;
  * Created by dengtao on 2017/11/7.
  */
 
-public class HookMyAccountFragment implements IHook {
+public class HookMyAccountFragment extends HookBase {
 
     @Override
     public void doHook(final Class cls) {
