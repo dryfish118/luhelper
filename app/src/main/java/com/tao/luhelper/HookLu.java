@@ -3,6 +3,7 @@ package com.tao.luhelper;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Point;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,6 @@ import android.widget.TextView;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
@@ -54,8 +52,6 @@ public class HookLu implements IXposedHookLoadPackage {
                 ClassLoader cl = ((Context) param.args[0]).getClassLoader();
                 hook(cl, "v2.app.home", "HomeFragmentV2", new HookHomeFragment());
                 hook(cl, "navi", "BottomBar", new HookBottomBar());
-                hook(cl, "navi", "BottomBar$1", new HookBottomBarAnonymousClass1());
-                //hook(cl, "navi", "a", new HookBottomBarA());
                 hook(cl, "gesturelock", "LockActivity", new HookLockActivity());
                 hook(cl, "activity.fragments", "LoginFragment", new HookLoginFragment());
                 hook(cl, "myaccount.ui", "MyAccountFragment", new HookMyAccountFragment());
@@ -95,13 +91,10 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:HomeFragmentV2:Ready", true);
                         XposedBridge.log("HomeFragmentV2 ready now.");
 
-                        XposedBridge.log("Step1: Start the task.");
-                        GlobleUtil.putInt("Step", 1);
-
-                        (new Timer()).schedule(new TimerTask() {
+                        (new Handler()).postDelayed(new Runnable() {
                             public void run() {
-                                XposedBridge.log("Step2: Set the signal to switch to my account fragment.");
-                                GlobleUtil.putInt("Step", 2);
+                                XposedBridge.log("Step1: Set the signal to switch to my account fragment.");
+                                GlobleUtil.putInt("Step", 1);
                             }
                         }, 1000);
                     }
@@ -110,105 +103,10 @@ public class HookLu implements IXposedHookLoadPackage {
         }
     }
 
-    class HookBottomBarAnonymousClass1 implements IHook {
-        @Override
-        public void doHook(final Class cls) {
-
-            XposedHelpers.findAndHookMethod(cls, "onClick", View.class, new XC_MethodHook() {
-                @Override
-                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                    super.beforeHookedMethod(param);
-
-                    XposedBridge.log("Before: onClick. " + param.args[0].toString());
-                }
-
-                @Override
-                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    super.afterHookedMethod(param);
-
-                    XposedBridge.log("After: onClick." + param.args[0].toString());
-                }
-            });
-
-        }
-    }
-
-//    class HookBottomBarA implements IHook {
-//        @Override
-//        public void doHook(final Class cls) {
-//            hookAllMethod(cls, "BottomBarA");
-//        }
-//    }
-
     class HookBottomBar implements IHook {
+
         @Override
         public void doHook(final Class cls) {
-            //hookAllMethod(cls, "BottomBar");
-
-//            for (final Method method: cls.getDeclaredMethods()) {
-//                XposedBridge.hookMethod(method, new XC_MethodHook() {
-//
-//                    void printParam(Object o) {
-////                        List a = (List)XposedHelpers.getObjectField(o, "a");
-////                        if (a != null) {
-////                            for (int i = 0; i < a.size(); i++) {
-////                                XposedBridge.log("a" + i + " is " + a.get(i).toString());
-////                            }
-////                        } else {
-////                            XposedBridge.log("a is null");
-////                        }
-////
-////                        Object h = XposedHelpers.getObjectField(o, "h");
-////                        if (h != null) {
-////                            XposedBridge.log("h is " + h.toString());
-////                        } else {
-////                            XposedBridge.log("h is null");
-////                        }
-//
-//
-//                    }
-//
-//
-//                    @Override
-//                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-//                        super.beforeHookedMethod(param);
-//
-//                        String s = "BottomBar before: [" + method.getName() + "]";
-//                        for (int i = 0; i < param.args.length; i++) {
-//                            Object p = param.args[i];
-//                            if (p == null) {
-//                                s = s + " (null)";
-//                            } else {
-//                                s = s + " (" + p.toString() + ")";
-//                            }
-//                        }
-//                        XposedBridge.log(s);
-//
-//                        printParam(param.thisObject);
-//                    }
-//
-//                    @Override
-//                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-//                        super.beforeHookedMethod(param);
-//
-//                        String s = "BottomBar after: [" + method.getName() + "]";
-//                        for (int i = 0; i < param.args.length; i++) {
-//                            Object p = param.args[i];
-//                            if (p == null) {
-//                                s = s + " (null)";
-//                            } else {
-//                                s = s + " (" + p.toString() + ")";
-//                            }
-//                        }
-//                        XposedBridge.log(s);
-//
-//                        printParam(param.thisObject);
-//                    }
-//                });
-//            }
-
-
-
             for (final Method method : cls.getDeclaredMethods()) {
                 if ("setItemsIconResource".equals(method.getName())) {
                     XposedBridge.hookMethod(method, new XC_MethodHook() {
@@ -217,122 +115,59 @@ public class HookLu implements IXposedHookLoadPackage {
                             super.afterHookedMethod(param);
 
                             if (!GlobleUtil.getBoolean("Class:BottomBar:Ready", false)) {
-                                GlobleUtil.putBoolean("Class:HBottomBar:Ready", true);
+                                GlobleUtil.putBoolean("Class:BottomBar:Ready", true);
                                 XposedBridge.log("BottomBar ready now.");
 
-                                sendClickMotion(param.thisObject, 3);
-                                //(new Timer()).schedule(new TaskDispatch(param.thisObject), 1000, 1000);
+                                Handler h = new Handler();
+                                h.postDelayed(new TaskDispatch(h, param.thisObject), 1000);
                             }
-
-//                            List a = (List)XposedHelpers.getObjectField(param.thisObject, "a");
-//                            if (a != null) {
-//                                for (int i = 0; i < a.size(); i++) {
-//                                    XposedBridge.log("a" + i + " is " + a.get(i).toString());
-//                                }
-//                            } else {
-//                                XposedBridge.log("failed to get a");
-//                            }
                         }
                     });
                 }
             }
         }
 
-        class TaskDispatch extends java.util.TimerTask{
+        class TaskDispatch implements Runnable{
+            private Handler h;
             private Object o;
-            public TaskDispatch(Object o) {
+
+            public TaskDispatch(Handler h, Object o) {
+                this.h = h;
                 this.o = o;
             }
 
             public void run(){
                 int step = GlobleUtil.getInt("Step", 0);
-                if (step == 2) {
-                    XposedBridge.log("Step3: Get the signal to switch to the MyAccount Fragment.");
-                    GlobleUtil.putInt("Step", 3);
+                if (step == 1) {
+                    XposedBridge.log("Step2: Get the signal to switch to the MyAccount Fragment.");
+                    GlobleUtil.putInt("Step", 2);
 
-                    (new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 1000);
-                } else if (step == 5) {
-                    XposedBridge.log("Step6: Get the signal to switch to the Finance Fragment.");
-                    GlobleUtil.putInt("Step", 6);
+                    sendClickMotion(o, 3);
+                } else if (step == 3) {
+                    XposedBridge.log("Step4: Get the signal to switch to the Finance Fragment.");
+                    GlobleUtil.putInt("Step", 4);
 
-                    (new Timer()).schedule(new TaskSwitchToFinanceHomeFragment(o), 1000);
+                    sendClickMotion(o, 1);
+                    return;
                 }
-            }
-        }
-
-        class TaskSwitchToMyAccountFragment extends java.util.TimerTask{
-            private Object o;
-            public TaskSwitchToMyAccountFragment(Object o) {
-                this.o = o;
-            }
-
-            public void run(){
-                XposedBridge.log("Step4: Switch to the MyAccount Fragment.");
-                GlobleUtil.putInt("Step", 4);
-
-                if (!sendClickMotion(o, 3)) {
-                    //XposedBridge.log("Failed to switch to the MyAccount Fragment.");
-                    //GlobleUtil.putInt("Step", 3);
-                    //(new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 1000);
-                } else {
-                    //(new Timer()).schedule(new TaskMonitorTapMyAccountFragment(o), 5000);
-                }
-            }
-        }
-
-        class TaskMonitorTapMyAccountFragment extends java.util.TimerTask{
-            private Object o;
-            public TaskMonitorTapMyAccountFragment(Object o) {
-                this.o = o;
-            }
-
-            public void run(){
-                if (!GlobleUtil.getBoolean("Class:LockActivity:Ready", false) &&
-                        !GlobleUtil.getBoolean("Class:LoginFragment:Ready", false) &&
-                        GlobleUtil.getInt("Step", 0) <= 4) {
-                    XposedBridge.log("Failed to switch to the MyAccount Fragment.");
-                    (new Timer()).schedule(new TaskSwitchToMyAccountFragment(o), 100);
-                }
-            }
-        }
-
-        class TaskSwitchToFinanceHomeFragment extends java.util.TimerTask{
-            private Object o;
-            public TaskSwitchToFinanceHomeFragment(Object o) {
-                this.o = o;
-            }
-
-            public void run(){
-                XposedBridge.log("Step7: Switch to the FinanceHome Fragment.");
-                GlobleUtil.putInt("Step", 7);
-
-                sendClickMotion(o, 1);
+                h.postDelayed(this, 1000);
             }
         }
 
         private boolean sendClickMotion(final Object o, int idx) {
-//            List a = (List)XposedHelpers.getObjectField(o, "a");
-//            return ((View)a.get(idx)).callOnClick();
-
             LinearLayout ll1 = (LinearLayout) o;
             LinearLayout ll2 = (LinearLayout) ll1.getChildAt(0);
             LinearLayout ll3 = (LinearLayout) ll2.getChildAt(1);
             RelativeLayout rl = (RelativeLayout) ll3.getChildAt(idx);
-            XposedBridge.log("Prepare to click " + rl.toString());
             if (rl.hasOnClickListeners()) {
-                return rl.callOnClick();
+                try {
+                    return rl.callOnClick();
+                } catch (Exception e) {
+                    XposedBridge.log(e.toString());
+                }
             }
             XposedBridge.log("Failed to click " + rl.toString());
             return false;
-//            final int[] loc = new int[2];
-//            rl.getLocationOnScreen(loc);
-//            int w = rl.getWidth();
-//            int h = rl.getHeight();
-//            if (loc[1] == 0 || w == 0 || h == 0) {
-//                return false;
-//            }
-//            ShellUtil.tap(loc[0] + w / 2, loc[1] + h / 2);
-//            return true;
         }
     }
 
@@ -347,7 +182,7 @@ public class HookLu implements IXposedHookLoadPackage {
         }
 
         private void loginBySwipe(final Object o) {
-            (new Timer()).schedule(new TimerTask() {
+            (new Handler()).postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     String strGesture = GlobleUtil.getString("Gesture", "");
@@ -372,6 +207,7 @@ public class HookLu implements IXposedHookLoadPackage {
                 protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                     super.afterHookedMethod(param);
 
+                    XposedBridge.log("Failed to login by swiping, try again.");
                     loginBySwipe(param.thisObject);
                 }
             });
@@ -444,7 +280,7 @@ public class HookLu implements IXposedHookLoadPackage {
                         XposedBridge.log("MyAccountFragment ready now.");
 
                         final Object o = param.thisObject;
-                        (new Timer()).schedule(new TimerTask() {
+                        (new Handler()).postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 TextView v = (TextView) XposedHelpers.getObjectField(o, "y");
@@ -452,8 +288,8 @@ public class HookLu implements IXposedHookLoadPackage {
                                     GlobleUtil.putFloat("AvailableMoney", Float.valueOf(v.getText().toString()));
                                     XposedBridge.log("可用金额： " + v.getText().toString());
 
-                                    XposedBridge.log("Step5: Set the signal to switch to the Finance Fragment");
-                                    GlobleUtil.putInt("Step", 5);
+                                    XposedBridge.log("Step3: Set the signal to switch to the Finance Fragment");
+                                    GlobleUtil.putInt("Step", 3);
                                 }
                             }
                         }, 100);
@@ -475,149 +311,69 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:Finance4Fragment:Ready", true);
                         XposedBridge.log("Finance4Fragment ready now.");
 
-                        (new Timer()).schedule(new SwipeToBottom(cls, param.thisObject, 0), 1000);
+                        Handler h = new Handler();
+                        h.postDelayed(new SwipeToBottom(h, param.thisObject), 1000);
                     }
                 }
             });
         }
 
-        class SwipeToBottom extends java.util.TimerTask{
-            Class cls;
-            private Object o;
-            int times;
-            public SwipeToBottom(Class cls, Object o, int times) {
-                this.cls = cls;
+        class SwipeToBottom implements Runnable{
+            private Handler h = null;
+            private Object o = null;
+            private int times = 0;
+
+            public SwipeToBottom(Handler h, Object o) {
+                this.h = h;
                 this.o = o;
-                this.times = times;
             }
 
             public void run() {
-                FrameLayout h = (FrameLayout)XposedHelpers.getObjectField(o, "h");
-                DisplayMetrics dm = h.getContext().getResources().getDisplayMetrics();
-                ArrayList<Point> pnts = new ArrayList<Point>();
-                pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8 * 7));
-                pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8));
-                ShellUtil.swipe(pnts);
-
                 if (times == 2) {
-                    (new Timer()).schedule(new TaskToFinanceList(cls, o), 1000);
-                } else {
-                    (new Timer()).schedule(new SwipeToBottom(cls, o, times + 1), 1000);
-                }
-            }
-        }
-
-        class TaskToFinanceList extends java.util.TimerTask{
-            Class cls;
-            private Object o;
-            public TaskToFinanceList(Class cls, Object o) {
-                this.cls = cls;
-                this.o = o;
-            }
-
-            public void run(){
-                // LufaxMaskView h
-                FrameLayout h = (FrameLayout)XposedHelpers.getObjectField(o, "h");
-                if (h != null) {
-                    if (h.getChildCount() > 0) {
-                        // WrapLayout h.getChildAt(0)
-                        ViewGroup wl = (ViewGroup)h.getChildAt(0);
-                        if (wl != null) {
-                            for (int i = 0; i < wl.getChildCount(); i++) {
-                                // NavCategoryView ncv
-                                ViewGroup ncv = (ViewGroup)wl.getChildAt(i);
-                                if (ncv != null) {
-                                    TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
-                                    if ("会员交易区".equals(l.getText().toString())) {
-                                        XposedBridge.log("    会员交易区");
-                                        View child = (View)ncv.getChildAt(3);
-                                        int loc[] = new int[2];
-                                        child.getLocationOnScreen(loc);
-                                        ShellUtil.tap(loc[0] + child.getWidth() / 2, loc[1] + child.getHeight() / 2);
-                                        break;
+                    // LufaxMaskView h
+                    FrameLayout fl = (FrameLayout)XposedHelpers.getObjectField(o, "h");
+                    if (fl != null) {
+                        if (fl.getChildCount() > 0) {
+                            // WrapLayout fl.getChildAt(0)
+                            ViewGroup wl = (ViewGroup)fl.getChildAt(0);
+                            if (wl != null) {
+                                for (int i = 0; i < wl.getChildCount(); i++) {
+                                    // NavCategoryView ncv
+                                    ViewGroup ncv = (ViewGroup)wl.getChildAt(i);
+                                    if (ncv != null) {
+                                        TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
+                                        if ("会员交易区".equals(l.getText().toString())) {
+                                            XposedBridge.log("    会员交易区");
+                                            View child = (View)ncv.getChildAt(3);
+                                            int loc[] = new int[2];
+                                            child.getLocationOnScreen(loc);
+                                            ShellUtil.tap(loc[0] + child.getWidth() / 2, loc[1] + child.getHeight() / 2);
+                                            break;
+                                        }
+                                    } else {
+                                        XposedBridge.log("failed to get ncv" + i);
                                     }
-                                } else {
-                                    XposedBridge.log("failed to get ncv" + i);
                                 }
+                            } else {
+                                XposedBridge.log("failed to get wl");
                             }
                         } else {
-                            XposedBridge.log("failed to get wl");
+                            XposedBridge.log("no any child in h");
                         }
                     } else {
-                        XposedBridge.log("no any child in h");
+                        XposedBridge.log("failed to get h");
                     }
                 } else {
-                    XposedBridge.log("failed to get h");
+                    FrameLayout fl = (FrameLayout)XposedHelpers.getObjectField(o, "h");
+                    DisplayMetrics dm = fl.getContext().getResources().getDisplayMetrics();
+                    ArrayList<Point> pnts = new ArrayList<Point>();
+                    pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8 * 7));
+                    pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8));
+                    ShellUtil.swipe(pnts);
+
+                    times++;
+                    h.postDelayed(this, 1000);
                 }
-            }
-
-            private void pNavCategoryView(String name) {
-                XposedBridge.log("Finance4Fragment : " + name);
-                Object u = XposedHelpers.getObjectField(o, name);
-                if (u == null) {
-                    if (u instanceof FrameLayout) {
-                        FrameLayout ncv = (FrameLayout)u;
-                        XposedBridge.log("    " + ncv.toString());
-                        for (int i = 0; i < ncv.getChildCount(); i++) {
-                            Object c = ncv.getChildAt(i);
-                            XposedBridge.log("        " + c.toString());
-                        }
-                    } else {
-                        XposedBridge.log("    u is " + u.toString());
-                    }
-                } else {
-                    XposedBridge.log("    u is null");
-                }
-
-            }
-
-            private LinearLayout findInContainer(LinearLayout llContainer) {
-                for (int i = 0; i < llContainer.getChildCount(); i++) {
-                    LinearLayout ll = (LinearLayout)llContainer.getChildAt(i);
-                    if (ll != null) {
-                        if (findInLinearLayout(ll)) {
-                            return ll;
-                        }
-                    }
-                }
-
-                return null;
-            }
-
-            private boolean findInLinearLayout(LinearLayout ll) {
-                for (int i = 0; i < ll.getChildCount(); i++) {
-                    Object o = ll.getChildAt(i);
-                    if (o != null && o instanceof RelativeLayout) {
-                        return findInRelativeLayout((RelativeLayout)o);
-                    }
-                }
-
-                return false;
-            }
-
-            private boolean findInRelativeLayout(RelativeLayout rl) {
-                for (int i = 0; i < rl.getChildCount(); i++) {
-                    Object o = rl.getChildAt(i);
-                    if (o != null && o instanceof LinearLayout) {
-                        return findInSubLinearLayout((LinearLayout)o);
-                    }
-                }
-
-                return false;
-            }
-
-            private boolean findInSubLinearLayout(LinearLayout ll) {
-                for (int i = 0; i < ll.getChildCount(); i++) {
-                    Object o = ll.getChildAt(i);
-                    if (o != null && o instanceof TextView) {
-                        if (-1 != ((TextView)o).getText().toString().indexOf("e享")) {
-                            return true;
-                        }
-                        break;
-                    }
-                }
-
-                return false;
             }
         }
     }
@@ -634,13 +390,13 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:FinanceListFragment:Ready", true);
                         XposedBridge.log("FinanceListFragment ready now.");
 
-                        (new Timer()).schedule(new TaskAquireProject(cls, param.thisObject), 1000);
+                        (new Handler()).postDelayed(new TaskAquireProject(cls, param.thisObject), 1000);
                     }
                 }
             });
         }
 
-        class TaskAquireProject extends java.util.TimerTask {
+        class TaskAquireProject implements Runnable {
             Class cls;
             private Object o;
 
