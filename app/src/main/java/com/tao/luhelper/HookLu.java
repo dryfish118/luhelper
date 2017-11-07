@@ -65,6 +65,17 @@ public class HookLu implements IXposedHookLoadPackage {
         void doHook(final Class cls);
     }
 
+    class HookObject implements IHook {
+        private String key;
+        HookObject(String key) {
+            this.key = key;
+        }
+        @Override
+        public void doHook(final Class cls) {
+            hookAllMethod(cls, key);
+        }
+    }
+
     private void hook(ClassLoader cl, String packageName, String clsName, IHook hookInstance) {
         try {
             Class<?> cls = cl.loadClass("com.lufax.android." + packageName + "." + clsName);
@@ -311,70 +322,44 @@ public class HookLu implements IXposedHookLoadPackage {
                         GlobleUtil.putBoolean("Class:Finance4Fragment:Ready", true);
                         XposedBridge.log("Finance4Fragment ready now.");
 
-                        Handler h = new Handler();
-                        h.postDelayed(new SwipeToBottom(h, param.thisObject), 1000);
+                        (new Handler()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                FrameLayout fl = (FrameLayout)XposedHelpers.getObjectField(o, "h");
+                                if (fl != null) {
+                                    if (fl.getChildCount() > 0) {
+                                        // WrapLayout fl.getChildAt(0)
+                                        ViewGroup wl = (ViewGroup)fl.getChildAt(0);
+                                        if (wl != null) {
+                                            for (int i = 0; i < wl.getChildCount(); i++) {
+                                                // NavCategoryView ncv
+                                                ViewGroup ncv = (ViewGroup)wl.getChildAt(i);
+                                                if (ncv != null) {
+                                                    TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
+                                                    if ("会员交易区".equals(l.getText().toString())) {
+                                                        XposedBridge.log("Click into FinanceList");
+                                                        View child = (View)ncv.getChildAt(3);
+                                                        child.callOnClick();
+                                                        break;
+                                                    }
+                                                } else {
+                                                    XposedBridge.log("failed to get ncv" + i);
+                                                }
+                                            }
+                                        } else {
+                                            XposedBridge.log("failed to get wl");
+                                        }
+                                    } else {
+                                        XposedBridge.log("no any child in h");
+                                    }
+                                } else {
+                                    XposedBridge.log("failed to get h");
+                                }
+                            }
+                        }, 1000);
                     }
                 }
             });
-        }
-
-        class SwipeToBottom implements Runnable{
-            private Handler h = null;
-            private Object o = null;
-            private int times = 0;
-
-            public SwipeToBottom(Handler h, Object o) {
-                this.h = h;
-                this.o = o;
-            }
-
-            public void run() {
-                if (times == 2) {
-                    // LufaxMaskView h
-                    FrameLayout fl = (FrameLayout)XposedHelpers.getObjectField(o, "h");
-                    if (fl != null) {
-                        if (fl.getChildCount() > 0) {
-                            // WrapLayout fl.getChildAt(0)
-                            ViewGroup wl = (ViewGroup)fl.getChildAt(0);
-                            if (wl != null) {
-                                for (int i = 0; i < wl.getChildCount(); i++) {
-                                    // NavCategoryView ncv
-                                    ViewGroup ncv = (ViewGroup)wl.getChildAt(i);
-                                    if (ncv != null) {
-                                        TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
-                                        if ("会员交易区".equals(l.getText().toString())) {
-                                            XposedBridge.log("    会员交易区");
-                                            View child = (View)ncv.getChildAt(3);
-                                            int loc[] = new int[2];
-                                            child.getLocationOnScreen(loc);
-                                            ShellUtil.tap(loc[0] + child.getWidth() / 2, loc[1] + child.getHeight() / 2);
-                                            break;
-                                        }
-                                    } else {
-                                        XposedBridge.log("failed to get ncv" + i);
-                                    }
-                                }
-                            } else {
-                                XposedBridge.log("failed to get wl");
-                            }
-                        } else {
-                            XposedBridge.log("no any child in h");
-                        }
-                    } else {
-                        XposedBridge.log("failed to get h");
-                    }
-                } else {
-                    FrameLayout fl = (FrameLayout)XposedHelpers.getObjectField(o, "h");
-                    DisplayMetrics dm = fl.getContext().getResources().getDisplayMetrics();
-                    ArrayList<Point> pnts = new ArrayList<Point>();
-                    pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8 * 7));
-                    pnts.add(new Point(dm.widthPixels / 2, dm.heightPixels / 8));
-                    ShellUtil.swipe(pnts);
-
-                    times++;
-                    h.postDelayed(this, 1000);
-                }
-            }
         }
     }
 
