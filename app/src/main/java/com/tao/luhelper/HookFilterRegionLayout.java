@@ -19,20 +19,10 @@ public class HookFilterRegionLayout extends HookBase {
 
     @Override
     public void doHook(final Class cls) {
-        hookAllMethod(cls, "FilterRegionLayout");
-
         XposedHelpers.findAndHookMethod(cls, "onClick", View.class, new XC_MethodHook() {
-            @Override
-            protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-                super.beforeHookedMethod(param);
-            }
-
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
-
-                XposedBridge.log("E is " + XposedHelpers.getObjectField(param.thisObject, "e").toString());
-                XposedBridge.log("Args is " + param.args[0].toString());
 
                 XposedBridge.log("Step7: Start querying the project.");
                 GlobleUtil.putInt("Step", 7);
