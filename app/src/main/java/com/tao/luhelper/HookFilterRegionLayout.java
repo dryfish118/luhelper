@@ -24,7 +24,7 @@ public class HookFilterRegionLayout extends HookBase {
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
 
-                XposedBridge.log("Step7: Start querying the project.");
+                XposedBridge.log("Step7: Start querying the product.");
                 GlobleUtil.putInt("Step", 7);
             }
         });
