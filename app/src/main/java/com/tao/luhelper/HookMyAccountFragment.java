@@ -28,14 +28,8 @@ public class HookMyAccountFragment extends HookBase {
                     (new Handler()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            TextView v = (TextView) XposedHelpers.getObjectField(o, "y");
-                            if (v != null) {
-                                GlobleUtil.putFloat("AvailableMoney", Float.valueOf(v.getText().toString()));
-                                XposedBridge.log("可用金额： " + v.getText().toString());
-
-                                XposedBridge.log("Step3: Set the signal to switch to the Finance Fragment");
-                                GlobleUtil.putInt("Step", 3);
-                            }
+                            XposedBridge.log("Step3: Set the signal to switch to the Finance Fragment");
+                            GlobleUtil.putInt("Step", 3);
                         }
                     }, 100);
                 }

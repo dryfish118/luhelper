@@ -1,11 +1,18 @@
 package com.tao.luhelper;
 
 import android.os.Handler;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
@@ -28,11 +35,20 @@ public class HookFinanceListFragment extends HookBase {
                     GlobleUtil.putBoolean("Class:FinanceListFragment:Ready", true);
                     XposedBridge.log("FinanceListFragment ready now.");
 
+
+                    //hookAllMethod(cls, "FinanceListFragment");
                     Handler h = new Handler();
                     h.postDelayed(new TaskDispatch(h, param.thisObject), 1000);
                 }
             }
         });
+    }
+
+    class ProductInfo {
+        View view;
+        String product;
+        float rofit;
+        float amount;
     }
 
     class TaskDispatch implements Runnable {
@@ -49,8 +65,15 @@ public class HookFinanceListFragment extends HookBase {
             if (step == 5) {
                 showFilter();
             } else if (step == 7) {
-                queryProduct();
-                return;
+                List<ProductInfo> pis = queryProductListView(GlobleUtil.getFloat("Rofit", 0),
+                        GlobleUtil.getFloat("MinMoney", 0), GlobleUtil.getFloat("MaxMoney", 0));
+                if (pis != null) {
+                    XposedBridge.log("Step8: Switch to the product fragment.");
+                    GlobleUtil.putInt("Step", 8);
+
+                    //pis.get(0).view.callOnClick();
+                    return;
+                }
             }
 
             h.postDelayed(this, 1000);
@@ -86,160 +109,91 @@ public class HookFinanceListFragment extends HookBase {
             fl.callOnClick();
         }
 
-        void printField(Object o, String name) {
-            Object filed = XposedHelpers.getObjectField(o, name);
-            if (filed == null) {
-                XposedBridge.log("    " + name + " is null.");
-            } else {
-                XposedBridge.log("    " + name + " is " + filed.toString());
+        List<ProductInfo> queryProductListView(float rofit, float minMoney, float maxMoney) {
+            // PullableViewGroup z
+            ViewGroup vg = (ViewGroup) XposedHelpers.getObjectField(o, "z");
+            if (vg == null) {
+                XposedBridge.log("failed to get z.");
+                return null;
             }
+
+            ListView lv = (ListView) ((FrameLayout) ((FrameLayout) vg.getChildAt(0)).getChildAt(0)).getChildAt(0);
+            if (lv == null) {
+                XposedBridge.log("failed to get ListView.");
+                return null;
+            }
+
+            List<ProductInfo> pis = new ArrayList<ProductInfo>();
+            for (int i = 0; i < lv.getChildCount(); i++) {
+                try {
+                    LinearLayout sub = (LinearLayout) lv.getChildAt(i);
+                    if (sub != null) {
+                        ProductInfo pi = queryProduct(sub, rofit, minMoney, maxMoney);
+                        if (pi != null) {
+                            pis.add(pi);
+                        }
+                    }
+                } catch (Exception e) {
+                }
+            }
+
+            return pis;
         }
 
-
-        void queryProduct() {
-            // ProductListGson b
-            Object b = XposedHelpers.getObjectField(o, "b");
-            if (b == null) {
-                XposedBridge.log("b is null.");
-                return;
-            }
-            XposedBridge.log("b is " + b.toString());
-
-            // List<Product> products
-            List products = (List)XposedHelpers.getObjectField(b, "products");
-            if (products == null) {
-                XposedBridge.log("products is null.");
-                return;
-            }
-            XposedBridge.log("products is " + products.toString());
-
-            for (int i = 0; i < products.size(); i++) {
-                Object product = products.get(i);
-                if (product == null) {
-                    XposedBridge.log("product" + (i + 1) + " is null.");
-                    continue;
-                }
-                XposedBridge.log("product" + (i + 1) + " is " + product.toString());
-
-                // List<ProductInfo> productList;
-                List productList = (List)XposedHelpers.getObjectField(product, "productList");
-                if (productList == null) {
-                    XposedBridge.log("productList is null.");
-                    continue;
-                }
-                XposedBridge.log("productList is " + productList.toString());
-
-                for (int j = 0; j < productList.size(); j++) {
-                    Object pi = productList.get(j);
-                    if (pi == null) {
-                        XposedBridge.log("ProductInfo" + (j + 1) + " is null.");
-                        continue;
+        ProductInfo queryProduct(LinearLayout ll, float rofit, float minMoney, float maxMoney) {
+            try {
+                if (ll.getChildCount() >= 2) {
+                    RelativeLayout rl = (RelativeLayout) ll.getChildAt(1);
+                    if (rl != null) {
+                        String strProduct = parseProduct(((TextView) ((LinearLayout) rl.getChildAt(0)).getChildAt(0)).getText().toString());
+                        if (strProduct != null) {
+                            float dRofit = parseRofit(((TextView) rl.getChildAt(3)).getText().toString());
+                            if (rofit == 0 || dRofit >= rofit) {
+                                float dAmount = parseAmount(((TextView) rl.getChildAt(8)).getText().toString());
+                                if (dAmount != 0) {
+                                    if ((minMoney == 0 || dAmount >= minMoney) &&
+                                            (maxMoney == 0 || dAmount <= maxMoney)) {
+                                        ProductInfo pi = new ProductInfo();
+                                        pi.view = rl;
+                                        pi.product = strProduct;
+                                        pi.rofit = dRofit;
+                                        pi.amount = dAmount;
+                                        return pi;
+                                    }
+                                }
+                            }
+                        }
                     }
-                    XposedBridge.log("ProductInfo" + (j + 1) + " is " + pi.toString());
+                }
+            } catch (Exception e) {
+            }
 
-                    printField(pi, "bannerType");
-                    printField(pi, "canRealized");
-                    printField(pi, "code");
-                    printField(pi, "collectionMode");
-                    printField(pi, "commonRcmdReason");
-                    printField(pi, "creditServiceInstitution");
-                    printField(pi, "currentFundPriceDesc");
-                    printField(pi, "discountTagDisplay");
-                    printField(pi, "displayName");
-                    printField(pi, "district");
-                    printField(pi, "extAnyiRemainInvestAmount");
-                    printField(pi, "extAuth");
-                    printField(pi, "extBottomInfo");
-                    printField(pi, "extDianjinDisplay");
-                    printField(pi, "extForceOrder");
-                    printField(pi, "extInterestRateDisplay");
-                    printField(pi, "extInterestRatePercentage");
-                    printField(pi, "extInterestRateSuffix");
-                    printField(pi, "extInterestRateUnit");
-                    printField(pi, "extInvestAmountDisplay");
-                    printField(pi, "extInvestAmoutUnitDisplay");
-                    printField(pi, "extInvestPeriodDisplay");
-                    printField(pi, "extInvestProfitDesc");
-                    printField(pi, "extIsShowProgress");
-                    printField(pi, "extIsVipGroup");
-                    printField(pi, "extMinHoldingDaysDisplay");
-                    printField(pi, "extMinInvestAmountDisplay");
-                    printField(pi, "extNeedLogin");
-                    printField(pi, "extNextCollectionDate");
-                    printField(pi, "extProductNameDisplay");
-                    printField(pi, "extProductNameDisplayTip");
-                    printField(pi, "extProductStatusDesc");
-                    printField(pi, "extProgress");
-                    printField(pi, "extPromotionDisplay");
-                    printField(pi, "extReducePriceDisplay");
-                    printField(pi, "extRiskLevelStarCountDisplay");
-                    printField(pi, "extSameAnyiProductCounts");
-                    printField(pi, "extTransferPriceDisplay");
-                    printField(pi, "features");
-                    printField(pi, "guaranteeDesc");
-                    printField(pi, "id");
-                    printField(pi, "increaseInvestAmount");
-                    printField(pi, "initProductStatus");
-                    printField(pi, "insuranceContent");
-                    printField(pi, "insuranceInvestUnitDisplay");
-                    printField(pi, "interestRate");
-                    printField(pi, "interestRateDesc");
-                    printField(pi, "interestRateDisplay");
-                    printField(pi, "interestRatePerSevenDay");
-                    printField(pi, "investPeriod");
-                    printField(pi, "investPeriodUnit");
-                    printField(pi, "itemStyle");
-                    printField(pi, "itemType");
-                    printField(pi, "listType");
-                    printField(pi, "listTypeName");
-                    printField(pi, "maxInvestAmount");
-                    printField(pi, "minInvestAmount");
-                    printField(pi, "position1");
-                    printField(pi, "position10");
-                    printField(pi, "position11");
-                    printField(pi, "position12");
-                    printField(pi, "position13");
-                    printField(pi, "position14");
-                    printField(pi, "position15");
-                    printField(pi, "position16");
-                    printField(pi, "position17");
-                    printField(pi, "position2");
-                    printField(pi, "position2Color");
-                    printField(pi, "position3");
-                    printField(pi, "position3Type");
-                    printField(pi, "position4");
-                    printField(pi, "position5");
-                    printField(pi, "position6");
-                    printField(pi, "position7");
-                    printField(pi, "position8");
-                    printField(pi, "position9");
-                    printField(pi, "price");
-                    printField(pi, "principal");
-                    printField(pi, "productCategory");
-                    printField(pi, "productFeature");
-                    printField(pi, "productName");
-                    printField(pi, "productNameSuffixDisplay");
-                    printField(pi, "productPropDtoList");
-                    printField(pi, "productStatus");
-                    printField(pi, "productType");
-                    printField(pi, "ratio");
-                    printField(pi, "remainingAmount");
-                    printField(pi, "riskLevel");
-                    printField(pi, "ruleId");
-                    printField(pi, "salesArea");
-                    printField(pi, "salesChannel");
-                    printField(pi, "schemaLink");
-                    printField(pi, "skuCode");
-                    printField(pi, "smallProductImage");
-                    printField(pi, "sourceType");
-                    printField(pi, "subProductCategory");
-                    printField(pi, "subType");
-                    printField(pi, "tradingMode");
-                    printField(pi, "userSpecialRcmdReason");
-                    printField(pi, "version");
+            return null;
+        }
 
+        String parseProduct(String str) {
+            if (str != null && !str.isEmpty()) {
+                Pattern r = Pattern.compile("稳盈-e享计划 (\\d+)");
+                Matcher m = r.matcher(str);
+                if (m.find()) {
+                    return m.group(0);
                 }
             }
+            return null;
+        }
+
+        float parseRofit(String str) {
+            if (str != null && !str.isEmpty() && str.charAt(str.length() - 1) == '%') {
+                return Float.parseFloat(str.substring(str.length() - 1));
+            }
+            return 0;
+        }
+
+        float parseAmount(String str) {
+            if (str != null && !str.isEmpty() && str.charAt(str.length() - 1) == '元') {
+                return Float.parseFloat(str.substring(str.length() - 1));
+            }
+            return 0;
         }
     }
 

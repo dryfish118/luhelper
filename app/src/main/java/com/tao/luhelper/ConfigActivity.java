@@ -45,7 +45,7 @@ public class ConfigActivity extends Activity {
         etTradepassword.setText(GlobleUtil.getString("TradePassword", ""));
         etMaxmoney.setText(GlobleUtil.getString("MaxMoney", "0"));
         etMinmoney.setText(GlobleUtil.getString("MinMoney", "0"));
-        etMinrate.setText(GlobleUtil.getString("MinRate", "0"));
+        etMinrate.setText(GlobleUtil.getString("Rofit", "0"));
         btBegin.setText(GlobleUtil.getBoolean("Monitor", false) ? "停止" : "开始");
 
         btBegin.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +64,7 @@ public class ConfigActivity extends Activity {
                     GlobleUtil.putString("TradePassword", etTradepassword.getText().toString());
                     GlobleUtil.putString("MaxMoney", etMaxmoney.getText().toString());
                     GlobleUtil.putString("MinMoney", etMinmoney.getText().toString());
-                    GlobleUtil.putString("MinRate", etMinrate.getText().toString());
+                    GlobleUtil.putString("Rofit", etMinrate.getText().toString());
 
                     GlobleUtil.putBoolean("Class:", false);
                     GlobleUtil.putInt("Step", 0);

@@ -39,7 +39,15 @@ public class HookLu implements IXposedHookLoadPackage {
                 hook(cl, "myaccount.ui", "MyAccountFragment", new HookMyAccountFragment());
                 hook(cl, "v2.app.finance.kotlin", "Finance4Fragment", new HookFinance4Fragment());
                 hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment", new HookFinanceListFragment());
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment$1", new HookObject("FinanceListFragment$1"));
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment$4", new HookObject("FinanceListFragment$4"));
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment$7", new HookObject("FinanceListFragment$7"));
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment$8", new HookObject("FinanceListFragment$8"));
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment$9", new HookObject("FinanceListFragment$9"));
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment$a", new HookObject("FinanceListFragment$a"));
                 hook(cl, "v2.app.finance.ui.widget.filter", "FilterRegionLayout", new HookFilterRegionLayout());
+                hook(cl, "v2.app.finance.ui.widget.slideexpandlistview", "FinanceActionSlideExpandBottomFloatListView$1", new HookObject("FinanceActionSlideExpandBottomFloatListView$1"));
+                hook(cl, "v2.app.finance.ui.widget.slideexpandlistview", "FinanceActionSlideExpandBottomFloatListView$3", new HookObject("FinanceActionSlideExpandBottomFloatListView$3"));
             }
         });
     }
