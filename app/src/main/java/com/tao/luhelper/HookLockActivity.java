@@ -74,7 +74,7 @@ public class HookLockActivity extends HookBase {
                 XposedBridge.log("Swipe to login.");
                 ShellUtil.swipe(pnts);
             }
-        }, 1000);
+        }, 2000);
     }
 
 }

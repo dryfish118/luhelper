@@ -51,7 +51,7 @@ public class HookFinance4Fragment extends HookBase {
             } else if (step == 4) {
                 XposedBridge.log("Step5: Switch to the Finance List Fragment.");
                 GlobleUtil.putInt("Step", 5);
-                h.postDelayed(this, 2000);
+                h.postDelayed(this, 100);
             } else if (step == 5) {
                 FrameLayout fl = (FrameLayout) XposedHelpers.getObjectField(o, "h");
                 if (fl != null) {
