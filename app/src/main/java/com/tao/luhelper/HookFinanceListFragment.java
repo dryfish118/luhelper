@@ -37,6 +37,10 @@ public class HookFinanceListFragment extends HookBase {
 
 
                     //hookAllMethod(cls, "FinanceListFragment");
+
+
+
+
                     Handler h = new Handler();
                     h.postDelayed(new TaskDispatch(h, param.thisObject), 1000);
                 }
@@ -61,22 +65,36 @@ public class HookFinanceListFragment extends HookBase {
         }
 
         public void run() {
-            int step = GlobleUtil.getInt("Step", 0);
-            if (step == 5) {
-                showFilter();
-            } else if (step == 7) {
-                List<ProductInfo> pis = queryProductListView(GlobleUtil.getFloat("Rofit", 0),
-                        GlobleUtil.getFloat("MinMoney", 0), GlobleUtil.getFloat("MaxMoney", 0));
-                if (pis != null) {
-                    XposedBridge.log("Step8: Switch to the product fragment.");
-                    GlobleUtil.putInt("Step", 8);
 
-                    //pis.get(0).view.callOnClick();
-                    return;
+            // ProductListGson b
+            try {
+                Object b = XposedHelpers.getObjectField(o, "b");
+                List data = (List) XposedHelpers.getObjectField(b, "data");
+                for (int i = 0; i < data.size(); i++) {
+                    XposedBridge.log("    data" + i + " is " + data.get(i).toString());
                 }
+            } catch (Exception e) {
+                XposedBridge.log("failed to get ProductInfoList");
             }
 
-            h.postDelayed(this, 1000);
+            return;
+
+//            int step = GlobleUtil.getInt("Step", 0);
+//            if (step == 5) {
+//                showFilter();
+//            } else if (step == 7) {
+//                List<ProductInfo> pis = queryProductListView(GlobleUtil.getFloat("Rofit", 0),
+//                        GlobleUtil.getFloat("MinMoney", 0), GlobleUtil.getFloat("MaxMoney", 0));
+//                if (pis != null) {
+//                    XposedBridge.log("Step8: Switch to the product fragment.");
+//                    GlobleUtil.putInt("Step", 8);
+//
+//                    //pis.get(0).view.callOnClick();
+//                    return;
+//                }
+//            }
+//
+//            h.postDelayed(this, 1000);
         }
 
         void showFilter() {
@@ -126,9 +144,12 @@ public class HookFinanceListFragment extends HookBase {
             List<ProductInfo> pis = new ArrayList<ProductInfo>();
             for (int i = 0; i < lv.getChildCount(); i++) {
                 try {
-                    LinearLayout sub = (LinearLayout) lv.getChildAt(i);
-                    if (sub != null) {
-                        ProductInfo pi = queryProduct(sub, rofit, minMoney, maxMoney);
+                    LinearLayout ll = (LinearLayout) lv.getChildAt(i);
+                    if (ll != null) {
+                        if (ll.hasOnClickListeners()) {
+                            XposedBridge.log("ll has OnClickListeners");
+                        }
+                        ProductInfo pi = queryProduct(ll, rofit, minMoney, maxMoney);
                         if (pi != null) {
                             pis.add(pi);
                         }
@@ -145,6 +166,12 @@ public class HookFinanceListFragment extends HookBase {
                 if (ll.getChildCount() >= 2) {
                     RelativeLayout rl = (RelativeLayout) ll.getChildAt(1);
                     if (rl != null) {
+                        if (rl.hasOnClickListeners()) {
+                            XposedBridge.log("rl has OnClickListeners");
+                        }
+                        if (((LinearLayout) rl.getChildAt(0)).hasOnClickListeners()) {
+                            XposedBridge.log("(LinearLayout) rl.getChildAt(0) has OnClickListeners");
+                        }
                         String strProduct = parseProduct(((TextView) ((LinearLayout) rl.getChildAt(0)).getChildAt(0)).getText().toString());
                         if (strProduct != null) {
                             float dRofit = parseRofit(((TextView) rl.getChildAt(3)).getText().toString());

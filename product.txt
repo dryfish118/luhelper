@@ -1,0 +1,76 @@
+TASK com.lufax.android id=2926
+  ACTIVITY com.lufax.android/service.lufax.common.RootControllerActivity 2d03e7a4 pid=25184
+    Local FragmentActivity 17e17e06 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    Active Fragments in 1b532809:
+      #0: LufaxRootViewController{2e2426db #0 id=0x1020002 LufaxRootViewController}
+        mFragmentId=#1020002 mContainerId=#1020002 mTag=LufaxRootViewController
+        mState=5 mIndex=0 mWho=android:fragment:0 mBackStackNesting=0
+        mAdded=true mRemoving=false mFromLayout=false mInLayout=false
+        mHidden=false mDetached=false mMenuVisible=true mHasMenu=false
+        mRetainInstance=false mRetaining=false mUserVisibleHint=true
+        mFragmentManager=FragmentManager{1b532809 in HostCallbacks{3890fa0e}}
+        mHost=android.support.v4.app.FragmentActivity$HostCallbacks@3890fa0e
+        mArguments=Bundle[{key_ui_plugin=class com.lufax.android.v2.app.h5.taskplugin.FinanceDetailCompatibleH5UiPlugin, fragment_instace=service.lufax.controller.LufaxRootViewController, productType=LOAN_REQUEST, productId=164086117, backTag=null, h5params=, from=list, title_style_white=true, productCategory=R01, isOnlineH5=true, subProductCategory=, LAST_PAGE_DATA={"localParams":"userInfo","webUrl":"https:\/\/m.lu.com\/m-secmkt\/product\/exjh\/#\/productdetail?from=list&backTag=null&productId=164086117&productCategory=R01&productType=LOAN_REQUEST&salesArea=&subProductCategory=","alias":"financeDetail","naviBarTitle":"椤圭洰璇︽儏","webViewLoadType":"1","refreshType":"1","lastPageData":{"productId":"164086117","productCategory":"R01","iconTag":"","from":"list","h5params":"","salesArea":""}}}]
+        mContainer=android.widget.FrameLayout{36beec2f V.E..... ........ 0,69-1080,1800 #1020002 android:id/content}
+        mView=android.widget.LinearLayout{169b123c V.E..... ........ 0,0-1080,1731 #7f0f0822 app:id/container_view}
+        mInnerView=android.widget.LinearLayout{169b123c V.E..... ........ 0,0-1080,1731 #7f0f0822 app:id/container_view}
+        Child FragmentManager{35fd3bc5 in LufaxRootViewController{2e2426db}}:
+          FragmentManager misc state:
+            mHost=android.support.v4.app.FragmentActivity$HostCallbacks@3890fa0e
+            mContainer=android.support.v4.app.Fragment$1@2466a91a
+            mParent=LufaxRootViewController{2e2426db #0 id=0x1020002 LufaxRootViewController}
+            mCurState=5 mStateSaved=false mDestroyed=false
+      #1: null
+    Added Fragments:
+      #0: LufaxRootViewController{2e2426db #0 id=0x1020002 LufaxRootViewController}
+    FragmentManager misc state:
+      mHost=android.support.v4.app.FragmentActivity$HostCallbacks@3890fa0e
+      mContainer=android.support.v4.app.FragmentActivity$HostCallbacks@3890fa0e
+      mCurState=5 mStateSaved=false mDestroyed=false
+      mAvailIndices: [1]
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{2b581c4b V.E..... ... 0,0-1080,1800}
+        android.widget.LinearLayout{3a251628 V.E..... ... 0,0-1080,1800}
+          android.view.ViewStub{197acf41 G.E..... ... 0,0-0,0 #1020374}
+          android.widget.FrameLayout{36beec2f V.E..... ... 0,69-1080,1800 #1020002 android:id/content}
+            android.widget.LinearLayout{169b123c V.E..... ... 0,0-1080,1731 #7f0f0822 app:id/container_view}
+              extra.view.TitleView{11b63ce6 V.E...C. ... 0,0-1080,138 #7f0f02af app:id/titleView}
+                android.widget.LinearLayout{110a3227 V.E..... ... 0,0-1080,138}
+                  android.view.View{dc96cd4 V.ED.... ... 0,0-1080,0 #7f0f0cb2 app:id/view_top_padding}
+                  android.widget.RelativeLayout{3de41e7d V.E..... ... 0,0-1080,138}
+                    android.widget.RelativeLayout{2d194172 V.E...C. ... 0,0-132,138 #7f0f1230 app:id/title_bar_left_container}
+                      extra.view.DefaultTitleViewLeftView{35ddc9c3 V.ED.... ... 41,40-91,98 #7f0f0240 app:id/title_bar_left_tv}
+                    android.widget.RelativeLayout{ae46b54 V.E..... ... 132,0-948,138 #7f0f14b7 app:id/title_bar_middle_container}
+                      android.widget.TextView{12ba8240 V.ED.... ... 308,0-508,138 #7f0f0242 app:id/title_bar_title_tv}
+                    android.widget.RelativeLayout{a992579 G.E..... ... 0,0-0,0 #7f0f14b8 app:id/title_bar_right_container}
+                      extra.view.DefaultTitleViewRightView{213602be V.ED.... ... 0,0-0,0 #7f0f0b54 app:id/title_bar_right_tv}
+                      android.widget.ImageView{35c93f1f G.ED.... ... 0,0-0,0 #7f0f14b9 app:id/btn_corner_hint}
+                  android.view.View{28e5826c V.ED.... ... 0,138-1080,138 #7f0f14ba app:id/view_bottom_padding}
+              android.widget.LinearLayout{22fda035 G.E..... ... 0,0-0,0 #7f0f12e7 app:id/saber_top_container}
+              android.widget.RelativeLayout{acb8cca V.E..... ... 0,138-1080,1731 #7f0f12e8 app:id/saber_content_view}
+                com.lufax.android.ui.pullableview.internal.a{bccae3b V.E..... ... 0,0-1080,1593}
+                  android.widget.FrameLayout{1fde5958 V.E..... ... 0,-49-1080,1593 #7f0f0ce3 app:id/fl_inner}
+                    android.widget.RelativeLayout{2f50ab1 V.E..... ... 0,0-1080,61 #7f0f1146 app:id/refresh_header_left}
+                      android.widget.ImageView{217dab96 V.ED.... ... 315,15-342,46 #7f0f0ce6 app:id/pull_to_refresh_image}
+                      android.widget.ProgressBar{18cdf317 G.ED.... ... 0,0-0,0 #7f0f0ce7 app:id/pull_to_refresh_progress}
+                      com.lufax.android.ui.pullableview.internal.CustomArcView{2a8bb304 V.ED.... ... 301,3-356,58 #7f0f1147 app:id/loading_arc_view}
+                      android.widget.TextView{271ea0ed V.ED.... ... 383,6-779,55 #7f0f0ce5 app:id/pull_to_refresh_text}
+                com.lufax.android.ui.pullableview.internal.a{2160eb22 G.E..... ... 0,0-0,0}
+                  android.widget.FrameLayout{3c34a9b3 V.E..... ... 0,0-0,0 #7f0f0ce3 app:id/fl_inner}
+                    android.widget.RelativeLayout{2192fb70 V.E..... ... 0,0-0,0 #7f0f1146 app:id/refresh_header_left}
+                      android.widget.ImageView{3cd15ee9 V.ED.... ... 0,0-0,0 #7f0f0ce6 app:id/pull_to_refresh_image}
+                      android.widget.ProgressBar{146976e G.ED.... ... 0,0-0,0 #7f0f0ce7 app:id/pull_to_refresh_progress}
+                      com.lufax.android.ui.pullableview.internal.CustomArcView{1a462e0f V.ED.... ... 0,0-0,0 #7f0f1147 app:id/loading_arc_view}
+                      android.widget.TextView{845e9c V.ED.... ... 0,0-0,0 #7f0f0ce5 app:id/pull_to_refresh_text}
+                jv.framework.view.JVPullToRefreshWebView{15d800a5 V.E..... ... 0,0-1080,1593}
+                  android.widget.FrameLayout{1c8bc7a V.E..... ... 0,0-1080,1593}
+                    jv.framework.view.JVWebView{2c419c2b VFED.VC. F.. 0,0-1080,1593}
+                android.widget.LinearLayout{9c6c888 G.E...C. ... 0,0-0,0 #7f0f14a7 app:id/ll_webview_error}
+                  android.widget.ImageView{1bed0221 V.ED.... ... 0,0-0,0}
+                  android.widget.TextView{21162646 V.ED.... ... 0,0-0,0}
+                android.widget.LinearLayout{363bd007 V.E..... ... 0,0-1080,11}
+                  lufax.android.widget.ListProgressBar{3d43e534 V.ED.... ... 0,0-1080,11 #7f0f14ad app:id/webview_progress}
+              android.widget.LinearLayout{3ff69f5d G.E..... ... 0,0-0,0 #7f0f12e9 app:id/saber_bottom_container}
+        android.view.View{3f7e60d2 V.ED.... ... 0,0-1080,73 #102002f android:id/statusBarBackground}
