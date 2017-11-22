@@ -4,6 +4,13 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Enumeration;
+
+import dalvik.system.DexFile;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
@@ -17,6 +24,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 public class HookSample implements IXposedHookLoadPackage {
 
+    XC_LoadPackage.LoadPackageParam loadPackageParam;
+
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         if (lpparam == null) {
@@ -27,107 +36,49 @@ public class HookSample implements IXposedHookLoadPackage {
             return;
         }
 
-        XposedHelpers.findAndHookMethod(Application.class, "attach", Context.class, new XC_MethodHook() {
-            @Override
-            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                super.afterHookedMethod(param);
+        loadPackageParam = lpparam;
 
-                //XposedBridge.log(param.thisObject.toString());
+        try {
+            log("sourceDir " + loadPackageParam.appInfo.sourceDir);
+            DexFile dexFile = new DexFile(loadPackageParam.appInfo.sourceDir);
+            Enumeration<String> classNames = dexFile.entries();
+            while (classNames.hasMoreElements()) {
+                String className = classNames.nextElement();
 
+                if (isClassNameValid(className)) {
+                    log("className " + className);
 
-//                try {
-//                    ClassLoader cl = ((Context) param.args[0]).getClassLoader();
-//                    Class<?> cls = XposedHelpers.findClass("com.lufax.android.navi.BottomBar$AnonymousClass1", cl);
-//                    if (cls != null) {
-//                        XposedBridge.log("Succeeded to hook BottomBar$AnonymousClass1");
-//                    } else {
-//                        XposedBridge.log("Failed to hook BottomBar$AnonymousClass1");
-//                    }
-//                } catch (Exception e) {
-//                    XposedBridge.log("Except to hook BottomBar$AnonymousClass1");
-//                }
+                    final Class clazz = Class.forName(className, false, loadPackageParam.classLoader);
 
-//                try {
-//                    ClassLoader cl = ((Context) param.args[0]).getClassLoader();
-//                    Class<?> cls = XposedHelpers.findClass("com.lufax.android.navi.BottomBar.AnonymousClass1", cl);
-//                    if (cls != null) {
-//                        XposedBridge.log("Succeeded to hook BottomBar.AnonymousClass1");
-//                    } else {
-//                        XposedBridge.log("Failed to hook BottomBar.AnonymousClass1");
-//                    }
-//                } catch (Exception e) {
-//                    XposedBridge.log("Except to hook BottomBar.AnonymousClass1");
-//                }
-
-//                try {
-//                    ClassLoader cl = ((Context) param.args[0]).getClassLoader();
-//                    Class<?> cls = XposedHelpers.findClass("com.lufax.android.navi.BottomBar$1", cl);
-//                    if (cls != null) {
-//                        XposedBridge.log("Succeeded to hook BottomBar$1");
-//                    } else {
-//                        XposedBridge.log("Failed to hook BottomBar$1");
-//                    }
-//                } catch (Exception e) {
-//                    XposedBridge.log("Except to hook BottomBar$1");
-//                }
-
-//                try {
-//                    ClassLoader cl = ((Context) param.args[0]).getClassLoader();
-//                    XposedHelpers.findAndHookMethod("com.lufax.android.navi.BottomBar$AnonymousClass1",
-//                            cl, "onClick", View.class, new XC_MethodHook() {
-//                                @Override
-//                                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-//                                    super.beforeHookedMethod(param);
-//
-//                                    XposedBridge.log("---Hook Start---");
-//                                }
-//
-//                                @Override
-//                                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-//                                    super.afterHookedMethod(param);
-//
-//                                    XposedBridge.log("---Hook End---");
-//                                }
-//                            });
-//                    XposedBridge.log("Succeeded to hook BottomBar$AnonymousClass1");
-//                } catch (Exception e) {
-//                    XposedBridge.log("Except to hook BottomBar$AnonymousClass1");
-//                }
-
-
-//                try {
-//                    ClassLoader cl = ((Context) param.args[0]).getClassLoader();
-//                    Class<?> cls = cl.loadClass("com.lufax.android.navi.BottomBar$AnonymousClass1");
-//                    if (cls != null) {
-//                        XposedBridge.log("Succeeded to hook BottomBar$AnonymousClass1");
-//                    } else {
-//                        XposedBridge.log("Failed to hook BottomBar$AnonymousClass1");
-//                    }
-//                } catch (Exception e) {
-//                    XposedBridge.log("Except to hook BottomBar$AnonymousClass1");
-//                }
+                    for (Method method : clazz.getDeclaredMethods()) {
+                        log("   Method: " + method.toString());
+                        if (!Modifier.isAbstract(method.getModifiers())) {
+                            XposedBridge.hookMethod(method, new XC_MethodHook() {
+                                @Override
+                                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                                    log("HOOKED: " + clazz.getName() + "\\" + param.method.getName());
+                                }
+                            });
+                        }
+                    }
+                }
             }
-        });
+        } catch (ClassNotFoundException e) {
 
+        } catch (Exception e) {
 
+        }
+    }
 
-//        if (!"com.tao.sample".equals(lpparam.packageName)) {
-//            return;
-//        }
-//
-//        XposedBridge.log("sample is hooked");
-//
-//        XposedHelpers.findAndHookMethod("com.tao.sample.MainActivity$1", lpparam.classLoader, "onClick", View.class, new XC_MethodHook() {
-//
-//                    @Override
-//                    protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
-//                        XposedBridge.log("---Hook Start---");
-//                    }
-//
-//                    @Override
-//                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-//                        XposedBridge.log("---Hook End---");
-//                    }
-//                });
+    public void log(Object str) {
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+        XposedBridge.log("[" + df.format(new Date()) + "]:  "
+                + str.toString());
+    }
+
+    public boolean isClassNameValid(String className) {
+        return className.startsWith(loadPackageParam.packageName)
+                && !className.contains("BuildConfig")
+                && !className.equals(loadPackageParam.packageName + ".R$");
     }
 }

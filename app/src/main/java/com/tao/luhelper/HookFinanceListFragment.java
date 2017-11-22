@@ -35,12 +35,6 @@ public class HookFinanceListFragment extends HookBase {
                     GlobleUtil.putBoolean("Class:FinanceListFragment:Ready", true);
                     XposedBridge.log("FinanceListFragment ready now.");
 
-
-                    //hookAllMethod(cls, "FinanceListFragment");
-
-
-
-
                     Handler h = new Handler();
                     h.postDelayed(new TaskDispatch(h, param.thisObject), 1000);
                 }
@@ -65,36 +59,22 @@ public class HookFinanceListFragment extends HookBase {
         }
 
         public void run() {
+            int step = GlobleUtil.getInt("Step", 0);
+            if (step == 5) {
+                showFilter();
+            } else if (step == 7) {
+                List<ProductInfo> pis = queryProductListView(GlobleUtil.getFloat("Rofit", 0),
+                        GlobleUtil.getFloat("MinMoney", 0), GlobleUtil.getFloat("MaxMoney", 0));
+                if (pis != null) {
+                    XposedBridge.log("Step8: Switch to the product fragment.");
+                    GlobleUtil.putInt("Step", 8);
 
-            // ProductListGson b
-            try {
-                Object b = XposedHelpers.getObjectField(o, "b");
-                List data = (List) XposedHelpers.getObjectField(b, "data");
-                for (int i = 0; i < data.size(); i++) {
-                    XposedBridge.log("    data" + i + " is " + data.get(i).toString());
+                    //pis.get(0).view.callOnClick();
+                    return;
                 }
-            } catch (Exception e) {
-                XposedBridge.log("failed to get ProductInfoList");
             }
 
-            return;
-
-//            int step = GlobleUtil.getInt("Step", 0);
-//            if (step == 5) {
-//                showFilter();
-//            } else if (step == 7) {
-//                List<ProductInfo> pis = queryProductListView(GlobleUtil.getFloat("Rofit", 0),
-//                        GlobleUtil.getFloat("MinMoney", 0), GlobleUtil.getFloat("MaxMoney", 0));
-//                if (pis != null) {
-//                    XposedBridge.log("Step8: Switch to the product fragment.");
-//                    GlobleUtil.putInt("Step", 8);
-//
-//                    //pis.get(0).view.callOnClick();
-//                    return;
-//                }
-//            }
-//
-//            h.postDelayed(this, 1000);
+            h.postDelayed(this, 1000);
         }
 
         void showFilter() {
@@ -134,27 +114,45 @@ public class HookFinanceListFragment extends HookBase {
                 XposedBridge.log("failed to get z.");
                 return null;
             }
+            XposedBridge.log("vg is " + vg.toString());
 
-            ListView lv = (ListView) ((FrameLayout) ((FrameLayout) vg.getChildAt(0)).getChildAt(0)).getChildAt(0);
-            if (lv == null) {
-                XposedBridge.log("failed to get ListView.");
+            FrameLayout layer1 = (FrameLayout) vg.getChildAt(0);
+            if (layer1 == null) {
+                XposedBridge.log("failed to get layer1.");
                 return null;
             }
+            XposedBridge.log("layer1 is " + layer1.toString());
+
+            FrameLayout layer2 = (FrameLayout) layer1.getChildAt(0);
+            if (layer2 == null) {
+                XposedBridge.log("failed to get layer2.");
+                return null;
+            }
+            XposedBridge.log("layer2 is " + layer2.toString());
+
+            ListView layer3 = (ListView) layer2.getChildAt(0);
+            if (layer3 == null) {
+                XposedBridge.log("failed to get layer3.");
+                return null;
+            }
+            XposedBridge.log("layer3 is " + layer3.toString());
 
             List<ProductInfo> pis = new ArrayList<ProductInfo>();
-            for (int i = 0; i < lv.getChildCount(); i++) {
+            for (int i = 0; i < layer3.getChildCount(); i++) {
                 try {
-                    LinearLayout ll = (LinearLayout) lv.getChildAt(i);
+                    LinearLayout ll = (LinearLayout) layer3.getChildAt(i);
                     if (ll != null) {
                         if (ll.hasOnClickListeners()) {
                             XposedBridge.log("ll has OnClickListeners");
                         }
+                        XposedBridge.log("ll is " + ll.toString());
                         ProductInfo pi = queryProduct(ll, rofit, minMoney, maxMoney);
                         if (pi != null) {
                             pis.add(pi);
                         }
                     }
                 } catch (Exception e) {
+                    XposedBridge.log("Exception " + e.toString());
                 }
             }
 
@@ -169,10 +167,15 @@ public class HookFinanceListFragment extends HookBase {
                         if (rl.hasOnClickListeners()) {
                             XposedBridge.log("rl has OnClickListeners");
                         }
-                        if (((LinearLayout) rl.getChildAt(0)).hasOnClickListeners()) {
+                        XposedBridge.log("rl is " + rl.toString());
+
+                        LinearLayout subLL = (LinearLayout) rl.getChildAt(0);
+                        if (subLL.hasOnClickListeners()) {
                             XposedBridge.log("(LinearLayout) rl.getChildAt(0) has OnClickListeners");
                         }
-                        String strProduct = parseProduct(((TextView) ((LinearLayout) rl.getChildAt(0)).getChildAt(0)).getText().toString());
+                        XposedBridge.log("subLL is " + subLL.toString());
+
+                        String strProduct = parseProduct(((TextView) subLL.getChildAt(0)).getText().toString());
                         if (strProduct != null) {
                             float dRofit = parseRofit(((TextView) rl.getChildAt(3)).getText().toString());
                             if (rofit == 0 || dRofit >= rofit) {
@@ -185,6 +188,7 @@ public class HookFinanceListFragment extends HookBase {
                                         pi.product = strProduct;
                                         pi.rofit = dRofit;
                                         pi.amount = dAmount;
+                                        XposedBridge.log("Get product " + pi.toString());
                                         return pi;
                                     }
                                 }

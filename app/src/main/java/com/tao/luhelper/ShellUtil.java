@@ -42,6 +42,9 @@ public class ShellUtil {
         execCmd("sendevent /dev/input/event5 3 57 " + r.nextInt(1000));
         for (int i = 0; i < pnts.size(); i++) {
             if (i == 0) {
+                //88 14 N
+                //92 12 N
+                //92 16 Y
                 execCmd("sendevent /dev/input/event5 3 53 " + pnts.get(i).x);
                 execCmd("sendevent /dev/input/event5 3 54 " + pnts.get(i).y);
                 String cmd = "sendevent /dev/input/event5 3 58 " + (r.nextInt(5) + 88);
