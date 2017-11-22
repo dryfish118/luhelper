@@ -3,9 +3,12 @@ package com.tao.luhelper;
 import android.os.Environment;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
 
 import de.robv.android.xposed.XposedBridge;
@@ -15,6 +18,30 @@ import de.robv.android.xposed.XposedBridge;
  */
 
 public class GlobleUtil {
+    public static void log(Object o) {
+        BufferedWriter bw = null;
+        try {
+            String logPath = Environment.getExternalStorageDirectory() + "/Download/luhelper/";
+            File file = new File(logPath);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+
+            String filePath = logPath + "lu.log";
+            FileOutputStream fos = new FileOutputStream(filePath, true);
+            bw = new BufferedWriter(new OutputStreamWriter(fos));
+            bw.write("\n" + o.toString());
+        } catch (Exception e) {
+        } finally {
+            try {
+                if (bw != null) {
+                    bw.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
     public static String getString(String key, String defValue) {
         BufferedReader reader = null;
         try {

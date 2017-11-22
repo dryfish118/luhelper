@@ -24,61 +24,142 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 public class HookSample implements IXposedHookLoadPackage {
 
-    XC_LoadPackage.LoadPackageParam loadPackageParam;
+    boolean found = false;
 
     @Override
-    public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
+    public void handleLoadPackage(final XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         if (lpparam == null) {
             return;
         }
 
-        if (!"com.lufax.android".equals(lpparam.packageName)) {
-            return;
-        }
+        XposedHelpers.findAndHookMethod(Application.class, "attach", Context.class, new XC_MethodHook() {
+            @Override
+            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                super.afterHookedMethod(param);
 
-        loadPackageParam = lpparam;
+                if (found) {
+                    return;
+                }
 
-        try {
-            log("sourceDir " + loadPackageParam.appInfo.sourceDir);
-            DexFile dexFile = new DexFile(loadPackageParam.appInfo.sourceDir);
-            Enumeration<String> classNames = dexFile.entries();
-            while (classNames.hasMoreElements()) {
-                String className = classNames.nextElement();
+                Application app = (Application) param.thisObject;
+                Object loadedApk = XposedHelpers.getObjectField(app, "mLoadedApk");
+                //log("mLoadedApk is " + loadedApk.toString());
+                String packageName = (String) XposedHelpers.getObjectField(loadedApk, "mPackageName");
+                //log("mPackageName is " + packageName);
 
-                if (isClassNameValid(className)) {
-                    log("className " + className);
+                if (!packageName.equals("com.lufax.android")) {
+                    return;
+                }
 
-                    final Class clazz = Class.forName(className, false, loadPackageParam.classLoader);
+                log("com.lufax.android found");
+                found = true;
 
-                    for (Method method : clazz.getDeclaredMethods()) {
-                        log("   Method: " + method.toString());
-                        if (!Modifier.isAbstract(method.getModifiers())) {
-                            XposedBridge.hookMethod(method, new XC_MethodHook() {
-                                @Override
-                                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                                    log("HOOKED: " + clazz.getName() + "\\" + param.method.getName());
+
+                try {
+                    log("sourceDir " + lpparam.appInfo.sourceDir);
+                    DexFile dexFile = new DexFile(lpparam.appInfo.sourceDir);
+                    Enumeration<String> classNames = dexFile.entries();
+                    if (classNames != null) {
+                        while (classNames.hasMoreElements()) {
+                            String className = classNames.nextElement();
+
+                            if (className != null &&
+                                    className.startsWith("com.lufax.android.v2.app") &&
+                                    !className.contains("BuildConfig") &&
+                                    !className.contains(".R$")) {
+                                //log("className " + className);
+
+                                final Class clazz = Class.forName(className, false, lpparam.classLoader);
+                                if (clazz != null) {
+                                    for (Method method : clazz.getDeclaredMethods()) {
+                                        if (method != null) {
+                                            //log("   Method: " + method.toString());
+                                            if (!Modifier.isAbstract(method.getModifiers())) {
+                                                XposedBridge.hookMethod(method, new XC_MethodHook() {
+                                                    @Override
+                                                    protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+                                                        log(clazz.getName().substring(25) + "-" + param.method.getName());
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
                                 }
-                            });
+                            }
                         }
                     }
+                } catch (ClassNotFoundException e) {
+                    log(e);
+                } catch (Exception e) {
+                    log(e);
                 }
+
+
+//                ClassLoader cl = ((Context) param.args[0]).getClassLoader();
+//                try {
+//                    Class<?> cls = cl.loadClass("com.lufax.android." + packageName + "." + clsName);
+//                    if (cls != null) {
+//                        if (!GlobleUtil.getBoolean("Class:" + clsName, false)) {
+//                            GlobleUtil.putBoolean("Class:" + clsName, true);
+//                            XposedBridge.log("Start hook: " + clsName);
+//                            hookInstance.doHook(cls);
+//                        }
+//                    }
+//                } catch (Exception e) {
+//                }
             }
-        } catch (ClassNotFoundException e) {
+        });
 
-        } catch (Exception e) {
 
-        }
+
+//        if (!"com.lufax.android".equals(lpparam.packageName)) {
+//            return;
+//        }
+//
+//        try {
+//            log("sourceDir " + lpparam.appInfo.sourceDir);
+//            DexFile dexFile = new DexFile(lpparam.appInfo.sourceDir);
+//            Enumeration<String> classNames = dexFile.entries();
+//            if (classNames != null) {
+//                while (classNames.hasMoreElements()) {
+//                    String className = classNames.nextElement();
+//
+//                    if (className != null &&
+//                            className.startsWith(lpparam.packageName) &&
+//                            !className.contains("BuildConfig") &&
+//                            !className.contains(".R$")) {
+//                        log("className " + className);
+//
+//                        final Class clazz = Class.forName(className, false, lpparam.classLoader);
+//                        if (clazz != null) {
+//                            for (Method method : clazz.getDeclaredMethods()) {
+//                                if (method != null) {
+//                                    log("   Method: " + method.toString());
+//                                    if (!Modifier.isAbstract(method.getModifiers())) {
+//                                        XposedBridge.hookMethod(method, new XC_MethodHook() {
+//                                            @Override
+//                                            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+//                                                log("HOOKED: " + clazz.getName() + "\\" + param.method.getName());
+//                                            }
+//                                        });
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        } catch (ClassNotFoundException e) {
+//
+//        } catch (Exception e) {
+//
+//        }
     }
 
     public void log(Object str) {
-        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
-        XposedBridge.log("[" + df.format(new Date()) + "]:  "
-                + str.toString());
-    }
 
-    public boolean isClassNameValid(String className) {
-        return className.startsWith(loadPackageParam.packageName)
-                && !className.contains("BuildConfig")
-                && !className.equals(loadPackageParam.packageName + ".R$");
+        java.util.Date today = new java.util.Date();
+        java.text.SimpleDateFormat dateTimeFormat = new java.text.SimpleDateFormat("mm:ss:SSS");
+        GlobleUtil.log("[" + dateTimeFormat.format(today) + "]" + str.toString());
     }
 }

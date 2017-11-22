@@ -38,9 +38,9 @@ public class HookLu implements IXposedHookLoadPackage {
                 hook(cl, "activity.fragments", "LoginFragment", new HookLoginFragment());
                 hook(cl, "myaccount.ui", "MyAccountFragment", new HookMyAccountFragment());
                 hook(cl, "v2.app.finance.kotlin", "Finance4Fragment", new HookFinance4Fragment());
-                //hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment", new HookFinanceListFragment());
-                //hook(cl, "v2.app.finance.ui.widget.filter", "FilterRegionLayout", new HookFilterRegionLayout());
-                //hook(cl, "v2.app.finance.ui.widget.slideexpandlistview", "ActionSlideExpandableListView$1$1", new HookObject("ActionSlideExpandableListView$1$1"));
+                hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment", new HookFinanceListFragment());
+                hook(cl, "v2.app.finance.ui.widget.filter", "FilterRegionLayout", new HookFilterRegionLayout());
+                hook(cl, "v2.app.finance.ui.widget.slideexpandlistview", "FinanceActionSlideExpandBottomFloatListView", new HookObject("FinanceActionSlideExpandBottomFloatListView"));
             }
         });
     }
