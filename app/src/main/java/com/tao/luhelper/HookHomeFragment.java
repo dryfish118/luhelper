@@ -21,11 +21,11 @@ public class HookHomeFragment extends HookBase {
 
                 if (!GlobleUtil.getBoolean("Class:HomeFragmentV2:Ready", false)) {
                     GlobleUtil.putBoolean("Class:HomeFragmentV2:Ready", true);
-                    XposedBridge.log("HomeFragmentV2 ready now.");
+                    GlobleUtil.log("HomeFragmentV2 ready now.");
 
                     (new Handler()).postDelayed(new Runnable() {
                         public void run() {
-                            XposedBridge.log("Step1: Set the signal to switch to my account fragment.");
+                            GlobleUtil.log("Step1: Set the signal to switch to my account fragment.");
                             GlobleUtil.putInt("Step", 1);
                         }
                     }, 1000);

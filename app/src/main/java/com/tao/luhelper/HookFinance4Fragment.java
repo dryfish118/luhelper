@@ -25,7 +25,7 @@ public class HookFinance4Fragment extends HookBase {
 
                 if (!GlobleUtil.getBoolean("Class:Finance4Fragment:Ready", false)) {
                     GlobleUtil.putBoolean("Class:Finance4Fragment:Ready", true);
-                    XposedBridge.log("Finance4Fragment ready now.");
+                    GlobleUtil.log("Finance4Fragment ready now.");
 
                     Handler h = new Handler();
                     h.postDelayed(new TaskIntoList(h, param.thisObject), 1000);
@@ -49,7 +49,7 @@ public class HookFinance4Fragment extends HookBase {
             if (step < 4) {
                 h.postDelayed(this, 1000);
             } else if (step == 4) {
-                XposedBridge.log("Step5: Switch to the Finance List Fragment.");
+                GlobleUtil.log("Step5: Switch to the Finance List Fragment.");
                 GlobleUtil.putInt("Step", 5);
                 h.postDelayed(this, 100);
             } else if (step == 5) {
@@ -65,23 +65,23 @@ public class HookFinance4Fragment extends HookBase {
                                 if (ncv != null) {
                                     TextView l = (TextView) XposedHelpers.getObjectField(ncv, "l");
                                     if ("会员交易区".equals(l.getText().toString())) {
-                                        XposedBridge.log("Click into FinanceList");
+                                        GlobleUtil.log("Click into FinanceList");
                                         View child = (View) ncv.getChildAt(3);
                                         child.callOnClick();
                                         break;
                                     }
                                 } else {
-                                    XposedBridge.log("failed to get ncv" + i);
+                                    GlobleUtil.log("failed to get ncv" + i);
                                 }
                             }
                         } else {
-                            XposedBridge.log("failed to get wl");
+                            GlobleUtil.log("failed to get wl");
                         }
                     } else {
-                        XposedBridge.log("no any child in h");
+                        GlobleUtil.log("no any child in h");
                     }
                 } else {
-                    XposedBridge.log("failed to get h");
+                    GlobleUtil.log("failed to get h");
                 }
             }
         }

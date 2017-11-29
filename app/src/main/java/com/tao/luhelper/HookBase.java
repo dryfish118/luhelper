@@ -43,9 +43,9 @@ public abstract class HookBase implements IHook {
     void printObject(Object o, String name, String key) {
         Object v = XposedHelpers.getObjectField(o, name);
         if (v != null) {
-            XposedBridge.log(name + ": " + v.toString());
+            GlobleUtil.log(name + ": " + v.toString());
         } else {
-            XposedBridge.log("Failed to getField(" + key + ") \"" + name + "\"");
+            GlobleUtil.log("Failed to getField(" + key + ") \"" + name + "\"");
         }
     }
 
@@ -86,7 +86,7 @@ public abstract class HookBase implements IHook {
                     s = s + " (" + p.toString() + ")";
                 }
             }
-            XposedBridge.log(s);
+            GlobleUtil.log(s);
         }
 
         @Override
@@ -102,7 +102,7 @@ public abstract class HookBase implements IHook {
                     s = s + " (" + p.toString() + ")";
                 }
             }
-            XposedBridge.log(s);
+            GlobleUtil.log(s);
         }
     }
 

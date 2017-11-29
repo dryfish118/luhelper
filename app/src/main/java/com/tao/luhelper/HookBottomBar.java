@@ -26,7 +26,7 @@ public class HookBottomBar extends HookBase {
 
                         if (!GlobleUtil.getBoolean("Class:BottomBar:Ready", false)) {
                             GlobleUtil.putBoolean("Class:BottomBar:Ready", true);
-                            XposedBridge.log("BottomBar ready now.");
+                            GlobleUtil.log("BottomBar ready now.");
 
                             Handler h = new Handler();
                             h.postDelayed(new TaskDispatch(h, param.thisObject), 1000);
@@ -50,12 +50,12 @@ public class HookBottomBar extends HookBase {
         public void run(){
             int step = GlobleUtil.getInt("Step", 0);
             if (step == 1) {
-                XposedBridge.log("Step2: Get the signal to switch to the MyAccount Fragment.");
+                GlobleUtil.log("Step2: Get the signal to switch to the MyAccount Fragment.");
                 GlobleUtil.putInt("Step", 2);
 
                 sendClickMotion(o, 3);
             } else if (step == 3) {
-                XposedBridge.log("Step4: Get the signal to switch to the Finance Fragment.");
+                GlobleUtil.log("Step4: Get the signal to switch to the Finance Fragment.");
                 GlobleUtil.putInt("Step", 4);
 
                 sendClickMotion(o, 1);
@@ -74,10 +74,10 @@ public class HookBottomBar extends HookBase {
             try {
                 return rl.callOnClick();
             } catch (Exception e) {
-                XposedBridge.log(e.toString());
+                GlobleUtil.log(e.toString());
             }
         }
-        XposedBridge.log("Failed to click " + rl.toString());
+        GlobleUtil.log("Failed to click " + rl.toString());
         return false;
     }
 

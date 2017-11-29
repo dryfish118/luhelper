@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.OutputStreamWriter;
-import java.io.RandomAccessFile;
+import com.orhanobut.logger.Logger;
 
 import de.robv.android.xposed.XposedBridge;
 
@@ -18,7 +18,15 @@ import de.robv.android.xposed.XposedBridge;
  */
 
 public class GlobleUtil {
-    public static void log(Object o) {
+    public static void log(String str) {
+
+        Logger.i("luhelper: " + str);
+
+        java.util.Date today = new java.util.Date();
+        java.text.SimpleDateFormat dateTimeFormat = new java.text.SimpleDateFormat("hh:mm:ss:SSS");
+        str = "[" + dateTimeFormat.format(today) + "]" + str;
+
+
         BufferedWriter bw = null;
         try {
             String logPath = Environment.getExternalStorageDirectory() + "/Download/luhelper/";
@@ -30,7 +38,7 @@ public class GlobleUtil {
             String filePath = logPath + "lu.log";
             FileOutputStream fos = new FileOutputStream(filePath, true);
             bw = new BufferedWriter(new OutputStreamWriter(fos));
-            bw.write("\n" + o.toString());
+            bw.write("\n" + str);
         } catch (Exception e) {
         } finally {
             try {

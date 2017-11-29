@@ -24,7 +24,7 @@ public class HookFilterRegionLayout extends HookBase {
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
 
-                XposedBridge.log("Step7: Set the filter.");
+                GlobleUtil.log("Step7: Set the filter.");
                 GlobleUtil.putInt("Step", 7);
             }
         });
@@ -39,7 +39,7 @@ public class HookFilterRegionLayout extends HookBase {
 
                         if (!GlobleUtil.getBoolean("Class:FilterRegionLayout:Ready", false)) {
                             GlobleUtil.putBoolean("Class:FilterRegionLayout:Ready", true);
-                            XposedBridge.log("FilterRegionLayout ready now.");
+                            GlobleUtil.log("FilterRegionLayout ready now.");
 
                             float minMoney = GlobleUtil.getFloat("MinMoney", 0);
                             float maxMoney = GlobleUtil.getFloat("MaxMoney", 0);

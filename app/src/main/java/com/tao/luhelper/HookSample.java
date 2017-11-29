@@ -2,12 +2,9 @@ package com.tao.luhelper;
 
 import android.app.Application;
 import android.content.Context;
-import android.view.View;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Enumeration;
 
 import dalvik.system.DexFile;
@@ -43,20 +40,20 @@ public class HookSample implements IXposedHookLoadPackage {
 
                 Application app = (Application) param.thisObject;
                 Object loadedApk = XposedHelpers.getObjectField(app, "mLoadedApk");
-                //log("mLoadedApk is " + loadedApk.toString());
+                //GlobleUtil.log("mLoadedApk is " + loadedApk.toString());
                 String packageName = (String) XposedHelpers.getObjectField(loadedApk, "mPackageName");
-                //log("mPackageName is " + packageName);
+                //GlobleUtil.log("mPackageName is " + packageName);
 
                 if (!packageName.equals("com.lufax.android")) {
                     return;
                 }
 
-                log("com.lufax.android found");
+                GlobleUtil.log("com.lufax.android found");
                 found = true;
 
 
                 try {
-                    log("sourceDir " + lpparam.appInfo.sourceDir);
+                    GlobleUtil.log("sourceDir " + lpparam.appInfo.sourceDir);
                     DexFile dexFile = new DexFile(lpparam.appInfo.sourceDir);
                     Enumeration<String> classNames = dexFile.entries();
                     if (classNames != null) {
@@ -67,18 +64,31 @@ public class HookSample implements IXposedHookLoadPackage {
                                     className.startsWith("com.lufax.android.v2.app") &&
                                     !className.contains("BuildConfig") &&
                                     !className.contains(".R$")) {
-                                //log("className " + className);
+                                //GlobleUtil.log("className " + className);
 
                                 final Class clazz = Class.forName(className, false, lpparam.classLoader);
                                 if (clazz != null) {
                                     for (Method method : clazz.getDeclaredMethods()) {
                                         if (method != null) {
-                                            //log("   Method: " + method.toString());
+                                            //GlobleUtil.log("   Method: " + method.toString());
                                             if (!Modifier.isAbstract(method.getModifiers())) {
                                                 XposedBridge.hookMethod(method, new XC_MethodHook() {
                                                     @Override
                                                     protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                                                        log(clazz.getName().substring(25) + "-" + param.method.getName());
+                                                        String msg = clazz.getName().substring(25) + "::" + param.method.getName() + "(";
+                                                        for (int i = 0; i < param.args.length; i++) {
+                                                            if (i > 0) {
+                                                                msg = msg + ", ";
+                                                            }
+                                                            Object arg = param.args[i];
+                                                            if (arg == null) {
+                                                                msg = msg + "null";
+                                                            } else {
+                                                                msg = msg + arg.toString();
+                                                            }
+                                                        }
+                                                        msg = msg + ")";
+                                                        GlobleUtil.log(msg);
                                                     }
                                                 });
                                             }
@@ -89,9 +99,9 @@ public class HookSample implements IXposedHookLoadPackage {
                         }
                     }
                 } catch (ClassNotFoundException e) {
-                    log(e);
+                    GlobleUtil.log(e.toString());
                 } catch (Exception e) {
-                    log(e);
+                    GlobleUtil.log(e.toString());
                 }
 
 
@@ -101,7 +111,7 @@ public class HookSample implements IXposedHookLoadPackage {
 //                    if (cls != null) {
 //                        if (!GlobleUtil.getBoolean("Class:" + clsName, false)) {
 //                            GlobleUtil.putBoolean("Class:" + clsName, true);
-//                            XposedBridge.log("Start hook: " + clsName);
+//                            GlobleUtil.log("Start hook: " + clsName);
 //                            hookInstance.doHook(cls);
 //                        }
 //                    }
@@ -128,18 +138,18 @@ public class HookSample implements IXposedHookLoadPackage {
 //                            className.startsWith(lpparam.packageName) &&
 //                            !className.contains("BuildConfig") &&
 //                            !className.contains(".R$")) {
-//                        log("className " + className);
+//                        GlobleUtil.log("className " + className);
 //
 //                        final Class clazz = Class.forName(className, false, lpparam.classLoader);
 //                        if (clazz != null) {
 //                            for (Method method : clazz.getDeclaredMethods()) {
 //                                if (method != null) {
-//                                    log("   Method: " + method.toString());
+//                                    GlobleUtil.log("   Method: " + method.toString());
 //                                    if (!Modifier.isAbstract(method.getModifiers())) {
 //                                        XposedBridge.hookMethod(method, new XC_MethodHook() {
 //                                            @Override
 //                                            protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-//                                                log("HOOKED: " + clazz.getName() + "\\" + param.method.getName());
+//                                                GlobleUtil.log("HOOKED: " + clazz.getName() + "\\" + param.method.getName());
 //                                            }
 //                                        });
 //                                    }
@@ -154,12 +164,5 @@ public class HookSample implements IXposedHookLoadPackage {
 //        } catch (Exception e) {
 //
 //        }
-    }
-
-    public void log(Object str) {
-
-        java.util.Date today = new java.util.Date();
-        java.text.SimpleDateFormat dateTimeFormat = new java.text.SimpleDateFormat("mm:ss:SSS");
-        GlobleUtil.log("[" + dateTimeFormat.format(today) + "]" + str.toString());
     }
 }

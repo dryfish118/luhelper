@@ -22,13 +22,13 @@ public class HookMyAccountFragment extends HookBase {
 
                 if (!GlobleUtil.getBoolean("Class:MyAccountFragment:Ready", false)) {
                     GlobleUtil.putBoolean("Class:MyAccountFragment:Ready", true);
-                    XposedBridge.log("MyAccountFragment ready now.");
+                    GlobleUtil.log("MyAccountFragment ready now.");
 
                     final Object o = param.thisObject;
                     (new Handler()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            XposedBridge.log("Step3: Set the signal to switch to the Finance Fragment");
+                            GlobleUtil.log("Step3: Set the signal to switch to the Finance Fragment");
                             GlobleUtil.putInt("Step", 3);
                         }
                     }, 100);

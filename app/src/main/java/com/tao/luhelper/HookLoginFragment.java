@@ -22,7 +22,7 @@ public class HookLoginFragment extends HookBase {
 
                 if (!GlobleUtil.getBoolean("Class:LoginFragment:Ready", false)) {
                     GlobleUtil.putBoolean("Class:LoginFragment:Ready", true);
-                    XposedBridge.log("LoginFragment ready now.");
+                    GlobleUtil.log("LoginFragment ready now.");
 
                     String userName = GlobleUtil.getString("UserName", "");
                     String loginPassword = GlobleUtil.getString("LoginPassword", "");
@@ -33,7 +33,7 @@ public class HookLoginFragment extends HookBase {
                             ets[0].setText(userName);
                             ets[1].setText(loginPassword);
 
-                            XposedBridge.log("Click to login.");
+                            GlobleUtil.log("Click to login.");
                             ((View)XposedHelpers.getObjectField(param.thisObject, "l")).callOnClick();
                         }
                     }

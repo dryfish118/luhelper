@@ -17,7 +17,7 @@ public class ShellUtil {
     private static final Random r = new Random();
 
     private static void execCmd(String cmd) {
-        //XposedBridge.log("ShellUtil: " + cmd);
+        //GlobleUtil.log("ShellUtil: " + cmd);
         try {
             // 申请获取root权限，这一步很重要，不然会没有作用
             Process process = Runtime.getRuntime().exec("su");
@@ -43,15 +43,17 @@ public class ShellUtil {
         for (int i = 0; i < pnts.size(); i++) {
             if (i == 0) {
                 //88 14 N
+                //88 16 N
                 //92 12 N
                 //92 16 Y
+                //89 14 Y
                 execCmd("sendevent /dev/input/event5 3 53 " + pnts.get(i).x);
                 execCmd("sendevent /dev/input/event5 3 54 " + pnts.get(i).y);
                 String cmd = "sendevent /dev/input/event5 3 58 " + (r.nextInt(5) + 88);
-                XposedBridge.log("ShellUtil: " + cmd);
+                GlobleUtil.log("ShellUtil: " + cmd);
                 execCmd(cmd);
                 cmd = "sendevent /dev/input/event5 3 48 " + ((r.nextInt(7) + 3) * 2);
-                XposedBridge.log("ShellUtil: " + cmd);
+                GlobleUtil.log("ShellUtil: " + cmd);
                 execCmd(cmd);
                 execCmd("sendevent /dev/input/event5 0 0 0");
             } else {

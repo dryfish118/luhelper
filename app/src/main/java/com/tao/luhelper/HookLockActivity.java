@@ -28,7 +28,7 @@ public class HookLockActivity extends HookBase {
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                 super.afterHookedMethod(param);
 
-                XposedBridge.log("Failed to login by swiping, try again.");
+                GlobleUtil.log("Failed to login by swiping, try again.");
                 loginBySwipe(param.thisObject);
             }
         });
@@ -40,7 +40,7 @@ public class HookLockActivity extends HookBase {
 
                 if (!GlobleUtil.getBoolean("Class:LockActivity:Ready", false)) {
                     GlobleUtil.putBoolean("Class:LockActivity:Ready", true);
-                    XposedBridge.log("LockActivity ready now.");
+                    GlobleUtil.log("LockActivity ready now.");
 
                     String strGesture = GlobleUtil.getString("Gesture", "");
                     if (strGesture.isEmpty()) {
@@ -54,7 +54,7 @@ public class HookLockActivity extends HookBase {
     }
 
     private void loginByInput(Object o) {
-        XposedBridge.log("Switch to the Login Activity by username and password.");
+        GlobleUtil.log("Switch to the Login Activity by username and password.");
         ((View) XposedHelpers.getObjectField(o, "e")).callOnClick();
     }
 
@@ -71,7 +71,7 @@ public class HookLockActivity extends HookBase {
                         pnts.add(new Point(positions[pos]));
                     }
                 }
-                XposedBridge.log("Swipe to login.");
+                GlobleUtil.log("Swipe to login.");
                 ShellUtil.swipe(pnts);
             }
         }, 2000);

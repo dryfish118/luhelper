@@ -33,7 +33,7 @@ public class HookFinanceListFragment extends HookBase {
 
                 if (!GlobleUtil.getBoolean("Class:FinanceListFragment:Ready", false)) {
                     GlobleUtil.putBoolean("Class:FinanceListFragment:Ready", true);
-                    XposedBridge.log("FinanceListFragment ready now.");
+                    GlobleUtil.log("FinanceListFragment ready now.");
 
                     Handler h = new Handler();
                     h.postDelayed(new TaskDispatch(h, param.thisObject), 1000);
@@ -66,7 +66,7 @@ public class HookFinanceListFragment extends HookBase {
                 List<ProductInfo> pis = queryProductListView(GlobleUtil.getFloat("Rofit", 0),
                         GlobleUtil.getFloat("MinMoney", 0), GlobleUtil.getFloat("MaxMoney", 0));
                 if (pis != null) {
-                    XposedBridge.log("Step8: Switch to the product fragment.");
+                    GlobleUtil.log("Step8: Switch to the product fragment.");
                     GlobleUtil.putInt("Step", 8);
 
                     //pis.get(0).view.callOnClick();
@@ -78,29 +78,29 @@ public class HookFinanceListFragment extends HookBase {
         }
 
         void showFilter() {
-            XposedBridge.log("Step6: Set the filter.");
+            GlobleUtil.log("Step6: Set the filter.");
             GlobleUtil.putInt("Step", 6);
 
             LinearLayout m = (LinearLayout)XposedHelpers.getObjectField(o, "m");
             if (m == null) {
-                XposedBridge.log("failed to get m.");
+                GlobleUtil.log("failed to get m.");
                 return;
             }
 
             ViewGroup vg = (ViewGroup) m.getChildAt(0); // com.lufax.android.common.widget.PageScrollTab +id/filter_tab_container
             if (vg == null) {
-                XposedBridge.log("no any child in m.");
+                GlobleUtil.log("no any child in m.");
                 return;
             }
 
             if (vg.getChildCount() <= 1) {
-                XposedBridge.log("there is not enough child.");
+                GlobleUtil.log("there is not enough child.");
                 return;
             }
 
             FrameLayout fl = (FrameLayout) vg.getChildAt(1);
             if (fl == null) {
-                XposedBridge.log("failed to get filter.");
+                GlobleUtil.log("failed to get filter.");
                 return;
             }
 
@@ -111,31 +111,31 @@ public class HookFinanceListFragment extends HookBase {
             // PullableViewGroup z
             ViewGroup vg = (ViewGroup) XposedHelpers.getObjectField(o, "z");
             if (vg == null) {
-                XposedBridge.log("failed to get z.");
+                GlobleUtil.log("failed to get z.");
                 return null;
             }
-            XposedBridge.log("vg is " + vg.toString());
+            GlobleUtil.log("vg is " + vg.toString());
 
             FrameLayout layer1 = (FrameLayout) vg.getChildAt(0);
             if (layer1 == null) {
-                XposedBridge.log("failed to get layer1.");
+                GlobleUtil.log("failed to get layer1.");
                 return null;
             }
-            XposedBridge.log("layer1 is " + layer1.toString());
+            GlobleUtil.log("layer1 is " + layer1.toString());
 
             FrameLayout layer2 = (FrameLayout) layer1.getChildAt(0);
             if (layer2 == null) {
-                XposedBridge.log("failed to get layer2.");
+                GlobleUtil.log("failed to get layer2.");
                 return null;
             }
-            XposedBridge.log("layer2 is " + layer2.toString());
+            GlobleUtil.log("layer2 is " + layer2.toString());
 
             ListView layer3 = (ListView) layer2.getChildAt(0);
             if (layer3 == null) {
-                XposedBridge.log("failed to get layer3.");
+                GlobleUtil.log("failed to get layer3.");
                 return null;
             }
-            XposedBridge.log("layer3 is " + layer3.toString());
+            GlobleUtil.log("layer3 is " + layer3.toString());
 
             List<ProductInfo> pis = new ArrayList<ProductInfo>();
             for (int i = 0; i < layer3.getChildCount(); i++) {
@@ -143,16 +143,16 @@ public class HookFinanceListFragment extends HookBase {
                     LinearLayout ll = (LinearLayout) layer3.getChildAt(i);
                     if (ll != null) {
                         if (ll.hasOnClickListeners()) {
-                            XposedBridge.log("ll has OnClickListeners");
+                            GlobleUtil.log("ll has OnClickListeners");
                         }
-                        XposedBridge.log("ll is " + ll.toString());
+                        GlobleUtil.log("ll is " + ll.toString());
                         ProductInfo pi = queryProduct(ll, rofit, minMoney, maxMoney);
                         if (pi != null) {
                             pis.add(pi);
                         }
                     }
                 } catch (Exception e) {
-                    XposedBridge.log("Exception " + e.toString());
+                    GlobleUtil.log("Exception " + e.toString());
                 }
             }
 
@@ -165,15 +165,15 @@ public class HookFinanceListFragment extends HookBase {
                     RelativeLayout rl = (RelativeLayout) ll.getChildAt(1);
                     if (rl != null) {
                         if (rl.hasOnClickListeners()) {
-                            XposedBridge.log("rl has OnClickListeners");
+                            GlobleUtil.log("rl has OnClickListeners");
                         }
-                        XposedBridge.log("rl is " + rl.toString());
+                        GlobleUtil.log("rl is " + rl.toString());
 
                         LinearLayout subLL = (LinearLayout) rl.getChildAt(0);
                         if (subLL.hasOnClickListeners()) {
-                            XposedBridge.log("(LinearLayout) rl.getChildAt(0) has OnClickListeners");
+                            GlobleUtil.log("(LinearLayout) rl.getChildAt(0) has OnClickListeners");
                         }
-                        XposedBridge.log("subLL is " + subLL.toString());
+                        GlobleUtil.log("subLL is " + subLL.toString());
 
                         String strProduct = parseProduct(((TextView) subLL.getChildAt(0)).getText().toString());
                         if (strProduct != null) {
@@ -188,7 +188,7 @@ public class HookFinanceListFragment extends HookBase {
                                         pi.product = strProduct;
                                         pi.rofit = dRofit;
                                         pi.amount = dAmount;
-                                        XposedBridge.log("Get product " + pi.toString());
+                                        GlobleUtil.log("Get product " + pi.toString());
                                         return pi;
                                     }
                                 }

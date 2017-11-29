@@ -40,7 +40,7 @@ public class HookLu implements IXposedHookLoadPackage {
                 hook(cl, "v2.app.finance.kotlin", "Finance4Fragment", new HookFinance4Fragment());
                 hook(cl, "v2.app.finance.ui.fragment", "FinanceListFragment", new HookFinanceListFragment());
                 hook(cl, "v2.app.finance.ui.widget.filter", "FilterRegionLayout", new HookFilterRegionLayout());
-                hook(cl, "v2.app.finance.ui.widget.slideexpandlistview", "FinanceActionSlideExpandBottomFloatListView", new HookObject("FinanceActionSlideExpandBottomFloatListView"));
+                //hook(cl, "v2.app.finance.ui.widget.slideexpandlistview", "FinanceActionSlideExpandBottomFloatListView", new HookObject("FinanceActionSlideExpandBottomFloatListView"));
             }
         });
     }
@@ -51,7 +51,7 @@ public class HookLu implements IXposedHookLoadPackage {
             if (cls != null) {
                 if (!GlobleUtil.getBoolean("Class:" + clsName, false)) {
                     GlobleUtil.putBoolean("Class:" + clsName, true);
-                    XposedBridge.log("Start hook: " + clsName);
+                    GlobleUtil.log("Start hook: " + clsName);
                     hookInstance.doHook(cls);
                 }
             }
